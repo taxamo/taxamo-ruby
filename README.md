@@ -8,8 +8,15 @@ To install it, just fetch this repository and issue the following command:
 
 ```shell
 $ gem build stripe.gemspec
-$ gem install taxamo-1.0.0.gem
+$ gem install taxamo-1.0.1.gem
 ```
+
+## Changes
+
+1.0.1:
+ 
+ * Added buyer_tax_number_valid field to tax calculation, transaction storage and VAT number validation operations
+ * Added key_or_custom_id to list_transactions operation - please note, that the number of arguments has changed!
 
 ## Usage
 
