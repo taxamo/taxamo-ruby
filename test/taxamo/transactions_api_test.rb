@@ -109,6 +109,7 @@ class TransactionsApiTest < Test::Unit::TestCase
                                     'true', #sort_reverse
                                     nil, #tax_country_code
                                     '2014-01-01', #order_date_from
+                                    nil, #key_or_custom_id
                                     nil, #filter_text
                                     0, #offset
                                     nil, #format,
@@ -127,6 +128,7 @@ class TransactionsApiTest < Test::Unit::TestCase
                                     'true', #sort_reverse
                                     nil, #tax_country_code
                                     '2099-12-01', #order_date_from
+                                    nil, #key_or_custom_id
                                     nil, #filter_text
                                     0, #offset
                                     nil, #format,
@@ -270,6 +272,7 @@ class TransactionsApiTest < Test::Unit::TestCase
                                     'true', #sort_reverse
                                     nil, #tax_country_code
                                     '2001-12-01', #order_date_from
+                                    nil, #key_or_custom_id
                                     nil, #filter_text
                                     0, #offset
                                     nil, #format,
