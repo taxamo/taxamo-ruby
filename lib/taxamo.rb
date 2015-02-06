@@ -1,4 +1,4 @@
-# Copyright 2014 Taxamo, Ltd.
+# Copyright 2014-2015 Taxamo, Ltd.
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -35,7 +35,6 @@ module Taxamo
 
       #resource path
       path = "/api/v1/transactions/{key}/refunds".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
-
 
 
       # pull querystring keys from options
@@ -85,7 +84,6 @@ module Taxamo
       path = "/api/v1/transactions/{key}/payments".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
-
       # pull querystring keys from options
       queryopts = options.select do |key,value|
         query_param_keys.include? key
@@ -133,7 +131,6 @@ module Taxamo
       path = "/api/v1/transactions/{key}/payments".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
-
       # pull querystring keys from options
       queryopts = options.select do |key,value|
         query_param_keys.include? key
@@ -157,7 +154,6 @@ module Taxamo
 
       #resource path
       path = "/api/v1/transactions/{key}/payments/capture".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
-
 
 
       # pull querystring keys from options
@@ -230,7 +226,6 @@ module Taxamo
       path = "/api/v1/transactions/{key}".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
-
       # pull querystring keys from options
       queryopts = options.select do |key,value|
         query_param_keys.include? key
@@ -256,7 +251,6 @@ module Taxamo
 
       #resource path
       path = "/api/v1/transactions/{key}".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
-
 
 
       # pull querystring keys from options
@@ -306,7 +300,6 @@ module Taxamo
       path = "/api/v1/transactions/{key}/confirm".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
-
       # pull querystring keys from options
       queryopts = options.select do |key,value|
         query_param_keys.include? key
@@ -352,7 +345,6 @@ module Taxamo
       path = "/api/v1/transactions/{key}".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
-
       # pull querystring keys from options
       queryopts = options.select do |key,value|
         query_param_keys.include? key
@@ -365,8 +357,8 @@ module Taxamo
 
     end
 
-    def list_transactions (statuses,sort_reverse,tax_country_code,order_date_from,offset,filter_text,format,order_date_to,currency_code,limit,opts={})
-      query_param_keys = [:statuses,:sort_reverse,:tax_country_code,:order_date_from,:offset,:filter_text,:format,:order_date_to,:currency_code,:limit]
+    def list_transactions (statuses,sort_reverse,tax_country_code,order_date_from,key_or_custom_id,offset,filter_text,format,order_date_to,currency_code,limit,opts={})
+      query_param_keys = [:statuses,:sort_reverse,:tax_country_code,:order_date_from,:key_or_custom_id,:offset,:filter_text,:format,:order_date_to,:currency_code,:limit]
 
       # set default values and merge with input
       options = {
@@ -374,6 +366,7 @@ module Taxamo
           :sort_reverse => sort_reverse,
           :tax_country_code => tax_country_code,
           :order_date_from => order_date_from,
+          :key_or_custom_id => key_or_custom_id,
           :offset => offset,
           :filter_text => filter_text,
           :format => format,
@@ -492,7 +485,6 @@ module Taxamo
       path = "/api/v1/tax/vat_numbers/{tax_number}/validate".sub('{format}','json').sub('{' + 'tax_number' + '}', escapeString(tax_number))
 
 
-
       # pull querystring keys from options
       queryopts = options.select do |key,value|
         query_param_keys.include? key
@@ -534,7 +526,7 @@ module Taxamo
 
       # set default values and merge with input
       options = {
-      }.merge(opts)
+          }.merge(opts)
 
       #resource path
       path = "/api/v1/geoip".sub('{format}','json')
@@ -563,7 +555,6 @@ module Taxamo
 
       #resource path
       path = "/api/v1/geoip/{ip}".sub('{format}','json').sub('{' + 'ip' + '}', escapeString(ip))
-
 
 
       # pull querystring keys from options
@@ -660,35 +651,6 @@ module Taxamo
 
     end
 
-    def get_daily_settlement_stats (interval,date_from,date_to,opts={})
-      query_param_keys = [:interval,:date_from,:date_to]
-
-      # verify existence of params
-      raise "interval is required" if interval.nil?
-      raise "date_from is required" if date_from.nil?
-      raise "date_to is required" if date_to.nil?
-      # set default values and merge with input
-      options = {
-          :interval => interval,
-          :date_from => date_from,
-          :date_to => date_to}.merge(opts)
-
-      #resource path
-      path = "/api/v1/stats/settlement/daily".sub('{format}','json')
-
-
-      # pull querystring keys from options
-      queryopts = options.select do |key,value|
-        query_param_keys.include? key
-      end
-
-      headers = nil
-      post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-      GetDailySettlementStatsOut.new(response)
-
-    end
-
     def get_refunds (format,moss_country_code,date_from,opts={})
       query_param_keys = [:format,:moss_country_code,:date_from]
 
@@ -731,7 +693,6 @@ module Taxamo
       path = "/api/v1/settlement/{quarter}".sub('{format}','json').sub('{' + 'quarter' + '}', escapeString(quarter))
 
 
-
       # pull querystring keys from options
       queryopts = options.select do |key,value|
         query_param_keys.include? key
@@ -756,7 +717,6 @@ module Taxamo
 
       #resource path
       path = "/api/v1/settlement/summary/{quarter}".sub('{format}','json').sub('{' + 'quarter' + '}', escapeString(quarter))
-
 
 
       # pull querystring keys from options
@@ -829,7 +789,6 @@ module Taxamo
       path = "/api/v1/verification/sms/{token}".sub('{format}','json').sub('{' + 'token' + '}', escapeString(token))
 
 
-
       # pull querystring keys from options
       queryopts = options.select do |key,value|
         query_param_keys.include? key
@@ -847,7 +806,7 @@ module Taxamo
 
       # set default values and merge with input
       options = {
-      }.merge(opts)
+          }.merge(opts)
 
       #resource path
       path = "/api/v1/dictionaries/currencies".sub('{format}','json')
@@ -870,7 +829,7 @@ module Taxamo
 
       # set default values and merge with input
       options = {
-      }.merge(opts)
+          }.merge(opts)
 
       #resource path
       path = "/api/v1/dictionaries/product_types".sub('{format}','json')
@@ -911,6 +870,5 @@ module Taxamo
 
     end
 
-  end
-end
-
+    end
+    end

@@ -11,13 +11,14 @@
 # limitations under the License.
 
 class Transactions
-  attr_accessor :invoice_date, :invoice_address, :manual, :buyer_credit_card_prefix, :custom_fields, :additional_currencies, :buyer_tax_number, :custom_id, :deducted_tax_amount, :tax_country_code, :force_country_code, :tax_amount, :tax_timezone, :buyer_email, :original_transaction_key, :test, :status, :create_timestamp, :total_amount, :tax_entity_name, :buyer_ip, :refunded_tax_amount, :countries, :invoice_place, :verification_token, :tax_deducted, :buyer_name, :confirm_timestamp, :evidence, :amount, :custom_data, :billing_country_code, :tax_supported, :invoice_number, :currency_code, :refunded_total_amount, :description, :supply_date, :transaction_lines, :order_date, :key
+  attr_accessor :invoice_date, :invoice_address, :buyer_tax_number_valid, :manual, :buyer_credit_card_prefix, :custom_fields, :additional_currencies, :buyer_tax_number, :custom_id, :deducted_tax_amount, :tax_country_code, :force_country_code, :tax_amount, :tax_timezone, :buyer_email, :original_transaction_key, :test, :status, :create_timestamp, :total_amount, :tax_entity_name, :buyer_ip, :refunded_tax_amount, :countries, :invoice_place, :verification_token, :tax_deducted, :buyer_name, :confirm_timestamp, :evidence, :amount, :custom_data, :billing_country_code, :tax_supported, :invoice_number, :currency_code, :refunded_total_amount, :description, :supply_date, :transaction_lines, :order_date, :key
 
   # :internal => :external
   def self.attribute_map
     {
       :invoice_date => :invoice_date,
       :invoice_address => :invoice_address,
+      :buyer_tax_number_valid => :buyer_tax_number_valid,
       :manual => :manual,
       :buyer_credit_card_prefix => :buyer_credit_card_prefix,
       :custom_fields => :custom_fields,
@@ -70,6 +71,10 @@ class Transactions
     end
     if attributes["invoice_address"]
       @invoice_address = InvoiceAddress.new(attributes["invoice_address"])
+        
+    end
+    if attributes["buyer_tax_number_valid"]
+      @buyer_tax_number_valid = attributes["buyer_tax_number_valid"]
         
     end
     if attributes["manual"]
