@@ -11,13 +11,15 @@
 # limitations under the License.
 
 class CreateRefundOut
-  attr_accessor :total_amount, :tax_amount
+  attr_accessor :total_amount, :tax_amount, :refunded_total_amount, :refunded_tax_amount
 
   # :internal => :external
   def self.attribute_map
     {
       :total_amount => :total_amount,
-      :tax_amount => :tax_amount
+      :tax_amount => :tax_amount,
+      :refunded_total_amount => :refunded_total_amount,
+      :refunded_tax_amount => :refunded_tax_amount
 
     }
   end
@@ -31,6 +33,14 @@ class CreateRefundOut
     end
     if attributes["tax_amount"]
       @tax_amount = attributes["tax_amount"]
+        
+    end
+    if attributes["refunded_total_amount"]
+      @refunded_total_amount = attributes["refunded_total_amount"]
+        
+    end
+    if attributes["refunded_tax_amount"]
+      @refunded_tax_amount = attributes["refunded_tax_amount"]
         
     end
     
