@@ -13,6 +13,9 @@ $ gem install taxamo-1.0.1.gem
 
 ## Changes
 
+1.0.2 (2015-03-16):
+ * Refresh CreateRefundOut with new field and updated documentation 
+ 
 1.0.1:
  
  * Added buyer_tax_number_valid field to tax calculation, transaction storage and VAT number validation operations
@@ -88,7 +91,7 @@ Please see http://www.taxamo.com/documentation/ for the most up-to-date document
 
 ## License
 
-Copyright 2014 Taxamo, Ltd.
+Copyright 2014-2015 Taxamo, Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
