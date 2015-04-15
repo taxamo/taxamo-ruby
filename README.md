@@ -8,7 +8,7 @@ To install it, just fetch this repository and issue the following command:
 
 ```shell
 $ gem build taxamo.gemspec
-$ gem install taxamo-1.0.1.gem
+$ gem install taxamo-1.0.2.gem
 ```
 
 ## Changes
