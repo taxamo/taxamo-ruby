@@ -7,8 +7,8 @@ This package provides [Taxamo](http://www.taxamo.com) API bindings for Ruby and 
 To install it, just fetch this repository and issue the following command:
 
 ```shell
-$ gem build stripe.gemspec
-$ gem install taxamo-1.0.1.gem
+$ gem build taxamo.gemspec
+$ gem install taxamo-1.0.2.gem
 ```
 
 ## Changes
