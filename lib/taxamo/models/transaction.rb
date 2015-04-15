@@ -11,7 +11,7 @@
 # limitations under the License.
 
 class Transaction
-  attr_accessor :invoice_date, :invoice_address, :buyer_tax_number_valid, :manual, :buyer_credit_card_prefix, :custom_fields, :additional_currencies, :buyer_tax_number, :custom_id, :deducted_tax_amount, :tax_country_code, :force_country_code, :tax_amount, :tax_timezone, :buyer_email, :original_transaction_key, :test, :status, :create_timestamp, :total_amount, :tax_entity_name, :buyer_ip, :refunded_tax_amount, :countries, :invoice_place, :verification_token, :tax_deducted, :buyer_name, :confirm_timestamp, :evidence, :amount, :custom_data, :billing_country_code, :tax_supported, :invoice_number, :currency_code, :refunded_total_amount, :description, :supply_date, :transaction_lines, :order_date, :key
+  attr_accessor :invoice_date, :invoice_address, :buyer_tax_number_valid, :manual, :buyer_credit_card_prefix, :custom_fields, :additional_currencies, :buyer_tax_number, :custom_id, :deducted_tax_amount, :tax_country_code, :force_country_code, :tax_amount, :tax_timezone, :buyer_email, :original_transaction_key, :test, :status, :create_timestamp, :total_amount, :tax_entity_name, :buyer_ip, :refunded_tax_amount, :countries, :invoice_place, :verification_token, :tax_deducted, :buyer_name, :confirm_timestamp, :evidence, :amount, :custom_data, :invoice_image_url, :billing_country_code, :tax_supported, :invoice_number, :currency_code, :refunded_total_amount, :description, :supply_date, :transaction_lines, :order_date, :key
 
   # :internal => :external
   def self.attribute_map
@@ -48,6 +48,7 @@ class Transaction
       :evidence => :evidence,
       :amount => :amount,
       :custom_data => :custom_data,
+      :invoice_image_url => :invoice_image_url,
       :billing_country_code => :billing_country_code,
       :tax_supported => :tax_supported,
       :invoice_number => :invoice_number,
@@ -192,6 +193,10 @@ class Transaction
     end
     if attributes["custom_data"]
       @custom_data = attributes["custom_data"]
+        
+    end
+    if attributes["invoice_image_url"]
+      @invoice_image_url = attributes["invoice_image_url"]
         
     end
     if attributes["billing_country_code"]

@@ -125,6 +125,7 @@ class TransactionsApiTest < Test::Unit::TestCase
                                     nil, #filter_text
                                     0, #offset
                                     nil, #format,
+                                    nil,#invoice_number
                                     '2099-12-31', #order_date_to,
                                     'EUR', #currency_code,
                                     100)
@@ -144,6 +145,7 @@ class TransactionsApiTest < Test::Unit::TestCase
                                     nil, #filter_text
                                     0, #offset
                                     nil, #format,
+                                    nil, #invoice_number
                                     '2099-12-31', #order_date_to,
                                     'EUR', #currency_code,
                                     10)
@@ -288,6 +290,7 @@ class TransactionsApiTest < Test::Unit::TestCase
                                     nil, #filter_text
                                     0, #offset
                                     nil, #format,
+                                    nil, #invoice_number
                                     '2099-12-31', #order_date_to,
                                     'CHF', #currency_code,
                                     10)

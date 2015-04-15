@@ -11,7 +11,7 @@
 # limitations under the License.
 
 class Country
-  attr_accessor :ccn3, :name, :code, :code_long, :cca2, :calling_code, :cca3, :tax_number_country_code, :codenum, :tax_supported
+  attr_accessor :ccn3, :name, :code, :code_long, :currency, :cca2, :calling_code, :cca3, :tax_number_country_code, :codenum, :tax_supported
 
   # :internal => :external
   def self.attribute_map
@@ -20,6 +20,7 @@ class Country
       :name => :name,
       :code => :code,
       :code_long => :code_long,
+      :currency => :currency,
       :cca2 => :cca2,
       :calling_code => :callingCode,
       :cca3 => :cca3,
@@ -49,6 +50,11 @@ class Country
       @code_long = attributes["code_long"]
         
     end
+    if attributes["currency"]
+      if (value = attributes["currency"]).is_a?(Array)
+          @currency = value
+        end
+      end
     if attributes["cca2"]
       @cca2 = attributes["cca2"]
         

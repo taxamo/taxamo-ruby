@@ -168,6 +168,53 @@ module Taxamo
 
     end
 
+    def email_invoice (key,body,opts={})
+      query_param_keys = []
+
+      # verify existence of params
+      raise "key is required" if key.nil?
+      raise "body is required" if body.nil?
+      # set default values and merge with input
+      options = {
+          :key => key,
+          :body => body}.merge(opts)
+
+      #resource path
+      path = "/api/v1/transactions/{key}/invoice/send_email".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+
+
+      # pull querystring keys from options
+      queryopts = options.select do |key,value|
+        query_param_keys.include? key
+      end
+
+      headers = nil
+      post_body = nil
+      if body != nil
+        if body.is_a?(Array)
+          array = Array.new
+          body.each do |item|
+            if item.respond_to?("to_body".to_sym)
+              array.push item.to_body
+            else
+              array.push item
+            end
+          end
+          post_body = array
+
+        else
+          if body.respond_to?("to_body".to_sym)
+            post_body = body.to_body
+          else
+            post_body = body
+          end
+        end
+      end
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      EmailInvoiceOut.new(response)
+
+    end
+
     def create_transaction (body,opts={})
       query_param_keys = []
 
@@ -357,8 +404,55 @@ module Taxamo
 
     end
 
-    def list_transactions (statuses,sort_reverse,tax_country_code,order_date_from,key_or_custom_id,offset,filter_text,format,order_date_to,currency_code,limit,opts={})
-      query_param_keys = [:statuses,:sort_reverse,:tax_country_code,:order_date_from,:key_or_custom_id,:offset,:filter_text,:format,:order_date_to,:currency_code,:limit]
+    def unconfirm_transaction (key,body,opts={})
+      query_param_keys = []
+
+      # verify existence of params
+      raise "key is required" if key.nil?
+      raise "body is required" if body.nil?
+      # set default values and merge with input
+      options = {
+          :key => key,
+          :body => body}.merge(opts)
+
+      #resource path
+      path = "/api/v1/transactions/{key}/unconfirm".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+
+
+      # pull querystring keys from options
+      queryopts = options.select do |key,value|
+        query_param_keys.include? key
+      end
+
+      headers = nil
+      post_body = nil
+      if body != nil
+        if body.is_a?(Array)
+          array = Array.new
+          body.each do |item|
+            if item.respond_to?("to_body".to_sym)
+              array.push item.to_body
+            else
+              array.push item
+            end
+          end
+          post_body = array
+
+        else
+          if body.respond_to?("to_body".to_sym)
+            post_body = body.to_body
+          else
+            post_body = body
+          end
+        end
+      end
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      UnconfirmTransactionOut.new(response)
+
+    end
+
+    def list_transactions (statuses,sort_reverse,tax_country_code,order_date_from,key_or_custom_id,offset,filter_text,format,invoice_number,order_date_to,currency_code,limit,opts={})
+      query_param_keys = [:statuses,:sort_reverse,:tax_country_code,:order_date_from,:key_or_custom_id,:offset,:filter_text,:format,:invoice_number,:order_date_to,:currency_code,:limit]
 
       # set default values and merge with input
       options = {
@@ -370,6 +464,7 @@ module Taxamo
           :offset => offset,
           :filter_text => filter_text,
           :format => format,
+          :invoice_number => invoice_number,
           :order_date_to => order_date_to,
           :currency_code => currency_code,
           :limit => limit}.merge(opts)
@@ -678,8 +773,8 @@ module Taxamo
 
     end
 
-    def get_settlement (format,moss_country_code,quarter,opts={})
-      query_param_keys = [:format,:moss_country_code]
+    def get_settlement (format,moss_country_code,moss_tax_id,quarter,opts={})
+      query_param_keys = [:format,:moss_country_code,:moss_tax_id]
 
       # verify existence of params
       raise "quarter is required" if quarter.nil?
@@ -687,6 +782,7 @@ module Taxamo
       options = {
           :format => format,
           :moss_country_code => moss_country_code,
+          :moss_tax_id => moss_tax_id,
           :quarter => quarter}.merge(opts)
 
       #resource path
