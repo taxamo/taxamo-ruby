@@ -8,11 +8,20 @@ To install it, just fetch this repository and issue the following command:
 
 ```shell
 $ gem build taxamo.gemspec
-$ gem install taxamo-1.0.2.gem
+$ gem install taxamo-1.0.3.gem
+```
+
+Alternatively, add the following line to your project's `Gemfile` file:
+
+```ruby
+gem "taxamo", github: "taxamo/taxamo-ruby"
 ```
 
 ## Changes
 
+1.0.3 (2015-04-15):
+ * use require_rel to make the require work properly when using bundler to manage the dependencies 
+ 
 1.0.2 (2015-03-16):
  * Refresh CreateRefundOut with new field and updated documentation 
  
