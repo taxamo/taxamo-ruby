@@ -11,22 +11,22 @@
 # limitations under the License.
 
 class Countries
-  attr_accessor :by_2003_rules, :detected, :by_tax_number, :self_declaration, :by_cc, :by_ip, :by_token, :by_billing, :guessed_from_ip, :other_commercially_relevant_info, :forced
+  attr_accessor :by_token, :by_cc, :by_2003_rules, :forced, :by_ip, :guessed_from_ip, :other_commercially_relevant_info, :by_billing, :by_tax_number, :detected, :self_declaration
 
   # :internal => :external
   def self.attribute_map
     {
-      :by_2003_rules => :by_2003_rules,
-      :detected => :detected,
-      :by_tax_number => :by_tax_number,
-      :self_declaration => :self_declaration,
-      :by_cc => :by_cc,
-      :by_ip => :by_ip,
       :by_token => :by_token,
-      :by_billing => :by_billing,
+      :by_cc => :by_cc,
+      :by_2003_rules => :by_2003_rules,
+      :forced => :forced,
+      :by_ip => :by_ip,
       :guessed_from_ip => :guessed_from_ip,
       :other_commercially_relevant_info => :other_commercially_relevant_info,
-      :forced => :forced
+      :by_billing => :by_billing,
+      :by_tax_number => :by_tax_number,
+      :detected => :detected,
+      :self_declaration => :self_declaration
 
     }
   end
@@ -34,36 +34,24 @@ class Countries
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["by_2003_rules"]
-      @by_2003_rules = CountrySchema.new(attributes["by_2003_rules"])
-        
-    end
-    if attributes["detected"]
-      @detected = CountrySchema.new(attributes["detected"])
-        
-    end
-    if attributes["by_tax_number"]
-      @by_tax_number = CountrySchema.new(attributes["by_tax_number"])
-        
-    end
-    if attributes["self_declaration"]
-      @self_declaration = CountrySchema.new(attributes["self_declaration"])
+    if attributes["by_token"]
+      @by_token = CountrySchema.new(attributes["by_token"])
         
     end
     if attributes["by_cc"]
       @by_cc = CountrySchema.new(attributes["by_cc"])
         
     end
+    if attributes["by_2003_rules"]
+      @by_2003_rules = CountrySchema.new(attributes["by_2003_rules"])
+        
+    end
+    if attributes["forced"]
+      @forced = CountrySchema.new(attributes["forced"])
+        
+    end
     if attributes["by_ip"]
       @by_ip = CountrySchema.new(attributes["by_ip"])
-        
-    end
-    if attributes["by_token"]
-      @by_token = CountrySchema.new(attributes["by_token"])
-        
-    end
-    if attributes["by_billing"]
-      @by_billing = CountrySchema.new(attributes["by_billing"])
         
     end
     if attributes["guessed_from_ip"]
@@ -74,8 +62,20 @@ class Countries
       @other_commercially_relevant_info = CountrySchema.new(attributes["other_commercially_relevant_info"])
         
     end
-    if attributes["forced"]
-      @forced = CountrySchema.new(attributes["forced"])
+    if attributes["by_billing"]
+      @by_billing = CountrySchema.new(attributes["by_billing"])
+        
+    end
+    if attributes["by_tax_number"]
+      @by_tax_number = CountrySchema.new(attributes["by_tax_number"])
+        
+    end
+    if attributes["detected"]
+      @detected = CountrySchema.new(attributes["detected"])
+        
+    end
+    if attributes["self_declaration"]
+      @self_declaration = CountrySchema.new(attributes["self_declaration"])
         
     end
     

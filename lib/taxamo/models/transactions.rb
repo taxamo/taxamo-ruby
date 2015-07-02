@@ -11,54 +11,55 @@
 # limitations under the License.
 
 class Transactions
-  attr_accessor :invoice_date, :invoice_address, :buyer_tax_number_valid, :manual, :buyer_credit_card_prefix, :custom_fields, :additional_currencies, :buyer_tax_number, :custom_id, :deducted_tax_amount, :tax_country_code, :force_country_code, :tax_amount, :tax_timezone, :buyer_email, :original_transaction_key, :test, :status, :create_timestamp, :total_amount, :tax_entity_name, :buyer_ip, :refunded_tax_amount, :countries, :invoice_place, :verification_token, :tax_deducted, :buyer_name, :confirm_timestamp, :evidence, :amount, :custom_data, :invoice_image_url, :billing_country_code, :tax_supported, :invoice_number, :currency_code, :refunded_total_amount, :description, :supply_date, :transaction_lines, :order_date, :key
+  attr_accessor :confirm_timestamp, :deducted_tax_amount, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :create_timestamp, :currency_code, :supply_date, :invoice_image_url, :key, :invoice_address, :buyer_tax_number_valid, :verification_token, :tax_supported, :transaction_lines, :buyer_tax_number, :status, :custom_fields, :force_country_code, :countries, :invoice_number, :order_date, :source, :amount, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :tax_amount, :additional_currencies, :invoice_place, :total_amount, :tax_entity_name, :evidence, :refunded_tax_amount, :manual, :tax_timezone, :description, :test, :tax_deducted, :tax_country_code, :refunded_total_amount
 
   # :internal => :external
   def self.attribute_map
     {
+      :confirm_timestamp => :confirm_timestamp,
+      :deducted_tax_amount => :deducted_tax_amount,
+      :buyer_credit_card_prefix => :buyer_credit_card_prefix,
+      :custom_data => :custom_data,
+      :buyer_name => :buyer_name,
       :invoice_date => :invoice_date,
+      :create_timestamp => :create_timestamp,
+      :currency_code => :currency_code,
+      :supply_date => :supply_date,
+      :invoice_image_url => :invoice_image_url,
+      :key => :key,
       :invoice_address => :invoice_address,
       :buyer_tax_number_valid => :buyer_tax_number_valid,
-      :manual => :manual,
-      :buyer_credit_card_prefix => :buyer_credit_card_prefix,
-      :custom_fields => :custom_fields,
-      :additional_currencies => :additional_currencies,
+      :verification_token => :verification_token,
+      :tax_supported => :tax_supported,
+      :transaction_lines => :transaction_lines,
       :buyer_tax_number => :buyer_tax_number,
-      :custom_id => :custom_id,
-      :deducted_tax_amount => :deducted_tax_amount,
-      :tax_country_code => :tax_country_code,
+      :status => :status,
+      :custom_fields => :custom_fields,
       :force_country_code => :force_country_code,
-      :tax_amount => :tax_amount,
-      :tax_timezone => :tax_timezone,
+      :countries => :countries,
+      :invoice_number => :invoice_number,
+      :order_date => :order_date,
+      :source => :source,
+      :amount => :amount,
+      :buyer_ip => :buyer_ip,
       :buyer_email => :buyer_email,
       :original_transaction_key => :original_transaction_key,
-      :test => :test,
-      :status => :status,
-      :create_timestamp => :create_timestamp,
+      :billing_country_code => :billing_country_code,
+      :custom_id => :custom_id,
+      :tax_amount => :tax_amount,
+      :additional_currencies => :additional_currencies,
+      :invoice_place => :invoice_place,
       :total_amount => :total_amount,
       :tax_entity_name => :tax_entity_name,
-      :buyer_ip => :buyer_ip,
-      :refunded_tax_amount => :refunded_tax_amount,
-      :countries => :countries,
-      :invoice_place => :invoice_place,
-      :verification_token => :verification_token,
-      :tax_deducted => :tax_deducted,
-      :buyer_name => :buyer_name,
-      :confirm_timestamp => :confirm_timestamp,
       :evidence => :evidence,
-      :amount => :amount,
-      :custom_data => :custom_data,
-      :invoice_image_url => :invoice_image_url,
-      :billing_country_code => :billing_country_code,
-      :tax_supported => :tax_supported,
-      :invoice_number => :invoice_number,
-      :currency_code => :currency_code,
-      :refunded_total_amount => :refunded_total_amount,
+      :refunded_tax_amount => :refunded_tax_amount,
+      :manual => :manual,
+      :tax_timezone => :tax_timezone,
       :description => :description,
-      :supply_date => :supply_date,
-      :transaction_lines => :transaction_lines,
-      :order_date => :order_date,
-      :key => :key
+      :test => :test,
+      :tax_deducted => :tax_deducted,
+      :tax_country_code => :tax_country_code,
+      :refunded_total_amount => :refunded_total_amount
 
     }
   end
@@ -66,8 +67,48 @@ class Transactions
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
+    if attributes["confirm_timestamp"]
+      @confirm_timestamp = attributes["confirm_timestamp"]
+        
+    end
+    if attributes["deducted_tax_amount"]
+      @deducted_tax_amount = attributes["deducted_tax_amount"]
+        
+    end
+    if attributes["buyer_credit_card_prefix"]
+      @buyer_credit_card_prefix = attributes["buyer_credit_card_prefix"]
+        
+    end
+    if attributes["custom_data"]
+      @custom_data = attributes["custom_data"]
+        
+    end
+    if attributes["buyer_name"]
+      @buyer_name = attributes["buyer_name"]
+        
+    end
     if attributes["invoice_date"]
       @invoice_date = attributes["invoice_date"]
+        
+    end
+    if attributes["create_timestamp"]
+      @create_timestamp = attributes["create_timestamp"]
+        
+    end
+    if attributes["currency_code"]
+      @currency_code = attributes["currency_code"]
+        
+    end
+    if attributes["supply_date"]
+      @supply_date = attributes["supply_date"]
+        
+    end
+    if attributes["invoice_image_url"]
+      @invoice_image_url = attributes["invoice_image_url"]
+        
+    end
+    if attributes["key"]
+      @key = attributes["key"]
         
     end
     if attributes["invoice_address"]
@@ -78,12 +119,25 @@ class Transactions
       @buyer_tax_number_valid = attributes["buyer_tax_number_valid"]
         
     end
-    if attributes["manual"]
-      @manual = attributes["manual"]
+    if attributes["verification_token"]
+      @verification_token = attributes["verification_token"]
         
     end
-    if attributes["buyer_credit_card_prefix"]
-      @buyer_credit_card_prefix = attributes["buyer_credit_card_prefix"]
+    if attributes["tax_supported"]
+      @tax_supported = attributes["tax_supported"]
+        
+    end
+    if attributes["transaction_lines"]
+      if (value = attributes["transaction_lines"]).is_a?(Array)
+          @transaction_lines = value.map{ |v| TransactionLines.new(v) }
+        end
+      end
+    if attributes["buyer_tax_number"]
+      @buyer_tax_number = attributes["buyer_tax_number"]
+        
+    end
+    if attributes["status"]
+      @status = attributes["status"]
         
     end
     if attributes["custom_fields"]
@@ -91,36 +145,32 @@ class Transactions
           @custom_fields = value.map{ |v| CustomFields.new(v) }
         end
       end
-    if attributes["additional_currencies"]
-      @additional_currencies = AdditionalCurrencies.new(attributes["additional_currencies"])
-        
-    end
-    if attributes["buyer_tax_number"]
-      @buyer_tax_number = attributes["buyer_tax_number"]
-        
-    end
-    if attributes["custom_id"]
-      @custom_id = attributes["custom_id"]
-        
-    end
-    if attributes["deducted_tax_amount"]
-      @deducted_tax_amount = attributes["deducted_tax_amount"]
-        
-    end
-    if attributes["tax_country_code"]
-      @tax_country_code = attributes["tax_country_code"]
-        
-    end
     if attributes["force_country_code"]
       @force_country_code = attributes["force_country_code"]
         
     end
-    if attributes["tax_amount"]
-      @tax_amount = attributes["tax_amount"]
+    if attributes["countries"]
+      @countries = Countries.new(attributes["countries"])
         
     end
-    if attributes["tax_timezone"]
-      @tax_timezone = attributes["tax_timezone"]
+    if attributes["invoice_number"]
+      @invoice_number = attributes["invoice_number"]
+        
+    end
+    if attributes["order_date"]
+      @order_date = attributes["order_date"]
+        
+    end
+    if attributes["source"]
+      @source = attributes["source"]
+        
+    end
+    if attributes["amount"]
+      @amount = attributes["amount"]
+        
+    end
+    if attributes["buyer_ip"]
+      @buyer_ip = attributes["buyer_ip"]
         
     end
     if attributes["buyer_email"]
@@ -131,16 +181,24 @@ class Transactions
       @original_transaction_key = attributes["original_transaction_key"]
         
     end
-    if attributes["test"]
-      @test = attributes["test"]
+    if attributes["billing_country_code"]
+      @billing_country_code = attributes["billing_country_code"]
         
     end
-    if attributes["status"]
-      @status = attributes["status"]
+    if attributes["custom_id"]
+      @custom_id = attributes["custom_id"]
         
     end
-    if attributes["create_timestamp"]
-      @create_timestamp = attributes["create_timestamp"]
+    if attributes["tax_amount"]
+      @tax_amount = attributes["tax_amount"]
+        
+    end
+    if attributes["additional_currencies"]
+      @additional_currencies = AdditionalCurrencies.new(attributes["additional_currencies"])
+        
+    end
+    if attributes["invoice_place"]
+      @invoice_place = attributes["invoice_place"]
         
     end
     if attributes["total_amount"]
@@ -151,93 +209,40 @@ class Transactions
       @tax_entity_name = attributes["tax_entity_name"]
         
     end
-    if attributes["buyer_ip"]
-      @buyer_ip = attributes["buyer_ip"]
+    if attributes["evidence"]
+      @evidence = Evidence.new(attributes["evidence"])
         
     end
     if attributes["refunded_tax_amount"]
       @refunded_tax_amount = attributes["refunded_tax_amount"]
         
     end
-    if attributes["countries"]
-      @countries = Countries.new(attributes["countries"])
+    if attributes["manual"]
+      @manual = attributes["manual"]
         
     end
-    if attributes["invoice_place"]
-      @invoice_place = attributes["invoice_place"]
-        
-    end
-    if attributes["verification_token"]
-      @verification_token = attributes["verification_token"]
-        
-    end
-    if attributes["tax_deducted"]
-      @tax_deducted = attributes["tax_deducted"]
-        
-    end
-    if attributes["buyer_name"]
-      @buyer_name = attributes["buyer_name"]
-        
-    end
-    if attributes["confirm_timestamp"]
-      @confirm_timestamp = attributes["confirm_timestamp"]
-        
-    end
-    if attributes["evidence"]
-      @evidence = Evidence.new(attributes["evidence"])
-        
-    end
-    if attributes["amount"]
-      @amount = attributes["amount"]
-        
-    end
-    if attributes["custom_data"]
-      @custom_data = attributes["custom_data"]
-        
-    end
-    if attributes["invoice_image_url"]
-      @invoice_image_url = attributes["invoice_image_url"]
-        
-    end
-    if attributes["billing_country_code"]
-      @billing_country_code = attributes["billing_country_code"]
-        
-    end
-    if attributes["tax_supported"]
-      @tax_supported = attributes["tax_supported"]
-        
-    end
-    if attributes["invoice_number"]
-      @invoice_number = attributes["invoice_number"]
-        
-    end
-    if attributes["currency_code"]
-      @currency_code = attributes["currency_code"]
-        
-    end
-    if attributes["refunded_total_amount"]
-      @refunded_total_amount = attributes["refunded_total_amount"]
+    if attributes["tax_timezone"]
+      @tax_timezone = attributes["tax_timezone"]
         
     end
     if attributes["description"]
       @description = attributes["description"]
         
     end
-    if attributes["supply_date"]
-      @supply_date = attributes["supply_date"]
+    if attributes["test"]
+      @test = attributes["test"]
         
     end
-    if attributes["transaction_lines"]
-      if (value = attributes["transaction_lines"]).is_a?(Array)
-          @transaction_lines = value.map{ |v| TransactionLines.new(v) }
-        end
-      end
-    if attributes["order_date"]
-      @order_date = attributes["order_date"]
+    if attributes["tax_deducted"]
+      @tax_deducted = attributes["tax_deducted"]
         
     end
-    if attributes["key"]
-      @key = attributes["key"]
+    if attributes["tax_country_code"]
+      @tax_country_code = attributes["tax_country_code"]
+        
+    end
+    if attributes["refunded_total_amount"]
+      @refunded_total_amount = attributes["refunded_total_amount"]
         
     end
     

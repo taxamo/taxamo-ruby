@@ -11,26 +11,26 @@
 # limitations under the License.
 
 class InputTransactionLine
-  attr_accessor :custom_fields, :custom_id, :product_type, :quantity, :unit_price, :unit_of_measure, :total_amount, :tax_rate, :line_key, :amount, :informative, :description, :product_code, :supply_date, :tax_name
+  attr_accessor :product_type, :supply_date, :unit_price, :unit_of_measure, :quantity, :custom_fields, :line_key, :tax_name, :product_code, :amount, :custom_id, :informative, :tax_rate, :total_amount, :description
 
   # :internal => :external
   def self.attribute_map
     {
-      :custom_fields => :custom_fields,
-      :custom_id => :custom_id,
       :product_type => :product_type,
-      :quantity => :quantity,
+      :supply_date => :supply_date,
       :unit_price => :unit_price,
       :unit_of_measure => :unit_of_measure,
-      :total_amount => :total_amount,
-      :tax_rate => :tax_rate,
+      :quantity => :quantity,
+      :custom_fields => :custom_fields,
       :line_key => :line_key,
-      :amount => :amount,
-      :informative => :informative,
-      :description => :description,
+      :tax_name => :tax_name,
       :product_code => :product_code,
-      :supply_date => :supply_date,
-      :tax_name => :tax_name
+      :amount => :amount,
+      :custom_id => :custom_id,
+      :informative => :informative,
+      :tax_rate => :tax_rate,
+      :total_amount => :total_amount,
+      :description => :description
 
     }
   end
@@ -38,21 +38,12 @@ class InputTransactionLine
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["custom_fields"]
-      if (value = attributes["custom_fields"]).is_a?(Array)
-          @custom_fields = value.map{ |v| CustomFields.new(v) }
-        end
-      end
-    if attributes["custom_id"]
-      @custom_id = attributes["custom_id"]
-        
-    end
     if attributes["product_type"]
       @product_type = attributes["product_type"]
         
     end
-    if attributes["quantity"]
-      @quantity = attributes["quantity"]
+    if attributes["supply_date"]
+      @supply_date = attributes["supply_date"]
         
     end
     if attributes["unit_price"]
@@ -63,40 +54,49 @@ class InputTransactionLine
       @unit_of_measure = attributes["unit_of_measure"]
         
     end
-    if attributes["total_amount"]
-      @total_amount = attributes["total_amount"]
+    if attributes["quantity"]
+      @quantity = attributes["quantity"]
         
     end
-    if attributes["tax_rate"]
-      @tax_rate = attributes["tax_rate"]
-        
-    end
+    if attributes["custom_fields"]
+      if (value = attributes["custom_fields"]).is_a?(Array)
+          @custom_fields = value.map{ |v| CustomFields.new(v) }
+        end
+      end
     if attributes["line_key"]
       @line_key = attributes["line_key"]
         
     end
-    if attributes["amount"]
-      @amount = attributes["amount"]
-        
-    end
-    if attributes["informative"]
-      @informative = attributes["informative"]
-        
-    end
-    if attributes["description"]
-      @description = attributes["description"]
+    if attributes["tax_name"]
+      @tax_name = attributes["tax_name"]
         
     end
     if attributes["product_code"]
       @product_code = attributes["product_code"]
         
     end
-    if attributes["supply_date"]
-      @supply_date = attributes["supply_date"]
+    if attributes["amount"]
+      @amount = attributes["amount"]
         
     end
-    if attributes["tax_name"]
-      @tax_name = attributes["tax_name"]
+    if attributes["custom_id"]
+      @custom_id = attributes["custom_id"]
+        
+    end
+    if attributes["informative"]
+      @informative = attributes["informative"]
+        
+    end
+    if attributes["tax_rate"]
+      @tax_rate = attributes["tax_rate"]
+        
+    end
+    if attributes["total_amount"]
+      @total_amount = attributes["total_amount"]
+        
+    end
+    if attributes["description"]
+      @description = attributes["description"]
         
     end
     

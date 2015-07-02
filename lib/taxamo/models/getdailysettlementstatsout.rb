@@ -10,17 +10,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-class ByTaxationType
-  attr_accessor :taxed_count, :deducted_count, :transactions_count, :eu_b2b, :eu_taxed
+class GetDailySettlementStatsOut
+  attr_accessor :settlement_daily
 
   # :internal => :external
   def self.attribute_map
     {
-      :taxed_count => :taxed_count,
-      :deducted_count => :deducted_count,
-      :transactions_count => :transactions_count,
-      :eu_b2b => :eu_b2b,
-      :eu_taxed => :eu_taxed
+      :settlement_daily => :settlement_daily
 
     }
   end
@@ -28,26 +24,11 @@ class ByTaxationType
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["taxed_count"]
-      @taxed_count = attributes["taxed_count"]
-        
-    end
-    if attributes["deducted_count"]
-      @deducted_count = attributes["deducted_count"]
-        
-    end
-    if attributes["transactions_count"]
-      @transactions_count = attributes["transactions_count"]
-        
-    end
-    if attributes["eu_b2b"]
-      @eu_b2b = attributes["eu_b2b"]
-        
-    end
-    if attributes["eu_taxed"]
-      @eu_taxed = attributes["eu_taxed"]
-        
-    end
+    if attributes["settlement_daily"]
+      if (value = attributes["settlement_daily"]).is_a?(Array)
+          @settlement_daily = value.map{ |v| SettlementDailyStatsSchema.new(v) }
+        end
+      end
     
 
   end

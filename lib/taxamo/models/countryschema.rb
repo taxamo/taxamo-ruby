@@ -11,22 +11,22 @@
 # limitations under the License.
 
 class CountrySchema
-  attr_accessor :ccn3, :name, :code, :code_long, :currency, :cca2, :calling_code, :cca3, :tax_number_country_code, :codenum, :tax_supported
+  attr_accessor :code_long, :codenum, :currency, :tax_supported, :name, :ccn3, :cca3, :calling_code, :tax_number_country_code, :code, :cca2
 
   # :internal => :external
   def self.attribute_map
     {
-      :ccn3 => :ccn3,
-      :name => :name,
-      :code => :code,
       :code_long => :code_long,
-      :currency => :currency,
-      :cca2 => :cca2,
-      :calling_code => :callingCode,
-      :cca3 => :cca3,
-      :tax_number_country_code => :tax_number_country_code,
       :codenum => :codenum,
-      :tax_supported => :tax_supported
+      :currency => :currency,
+      :tax_supported => :tax_supported,
+      :name => :name,
+      :ccn3 => :ccn3,
+      :cca3 => :cca3,
+      :calling_code => :callingCode,
+      :tax_number_country_code => :tax_number_country_code,
+      :code => :code,
+      :cca2 => :cca2
 
     }
   end
@@ -34,20 +34,12 @@ class CountrySchema
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["ccn3"]
-      @ccn3 = attributes["ccn3"]
-        
-    end
-    if attributes["name"]
-      @name = attributes["name"]
-        
-    end
-    if attributes["code"]
-      @code = attributes["code"]
-        
-    end
     if attributes["code_long"]
       @code_long = attributes["code_long"]
+        
+    end
+    if attributes["codenum"]
+      @codenum = attributes["codenum"]
         
     end
     if attributes["currency"]
@@ -55,8 +47,20 @@ class CountrySchema
           @currency = value
         end
       end
-    if attributes["cca2"]
-      @cca2 = attributes["cca2"]
+    if attributes["tax_supported"]
+      @tax_supported = attributes["tax_supported"]
+        
+    end
+    if attributes["name"]
+      @name = attributes["name"]
+        
+    end
+    if attributes["ccn3"]
+      @ccn3 = attributes["ccn3"]
+        
+    end
+    if attributes["cca3"]
+      @cca3 = attributes["cca3"]
         
     end
     if attributes["calling_code"]
@@ -64,20 +68,16 @@ class CountrySchema
           @calling_code = value
         end
       end
-    if attributes["cca3"]
-      @cca3 = attributes["cca3"]
-        
-    end
     if attributes["tax_number_country_code"]
       @tax_number_country_code = attributes["tax_number_country_code"]
         
     end
-    if attributes["codenum"]
-      @codenum = attributes["codenum"]
+    if attributes["code"]
+      @code = attributes["code"]
         
     end
-    if attributes["tax_supported"]
-      @tax_supported = attributes["tax_supported"]
+    if attributes["cca2"]
+      @cca2 = attributes["cca2"]
         
     end
     

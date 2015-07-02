@@ -14,7 +14,7 @@ require "uri"
 require "swagger"
 require "taxamo/version"
 require "require_all"
-require_rel "taxamo/models/*"
+require_all "lib/taxamo/models/*"
 
 module Taxamo
   class <<self
@@ -456,18 +456,18 @@ module Taxamo
 
       # set default values and merge with input
       options = {
-          :statuses => statuses,
-          :sort_reverse => sort_reverse,
-          :tax_country_code => tax_country_code,
-          :order_date_from => order_date_from,
-          :key_or_custom_id => key_or_custom_id,
-          :offset => offset,
           :filter_text => filter_text,
-          :format => format,
-          :invoice_number => invoice_number,
-          :order_date_to => order_date_to,
+          :offset => offset,
+          :key_or_custom_id => key_or_custom_id,
           :currency_code => currency_code,
-          :limit => limit}.merge(opts)
+          :order_date_to => order_date_to,
+          :sort_reverse => sort_reverse,
+          :limit => limit,
+          :invoice_number => invoice_number,
+          :statuses => statuses,
+          :order_date_from => order_date_from,
+          :format => format,
+          :tax_country_code => tax_country_code}.merge(opts)
 
       #resource path
       path = "/api/v1/transactions".sub('{format}','json')
@@ -537,18 +537,18 @@ module Taxamo
       raise "currency_code is required" if currency_code.nil?
       # set default values and merge with input
       options = {
-          :buyer_credit_card_prefix => buyer_credit_card_prefix,
-          :buyer_tax_number => buyer_tax_number,
           :product_type => product_type,
-          :force_country_code => force_country_code,
-          :quantity => quantity,
+          :buyer_credit_card_prefix => buyer_credit_card_prefix,
+          :currency_code => currency_code,
           :unit_price => unit_price,
-          :total_amount => total_amount,
-          :tax_deducted => tax_deducted,
+          :quantity => quantity,
+          :buyer_tax_number => buyer_tax_number,
+          :force_country_code => force_country_code,
+          :order_date => order_date,
           :amount => amount,
           :billing_country_code => billing_country_code,
-          :currency_code => currency_code,
-          :order_date => order_date}.merge(opts)
+          :total_amount => total_amount,
+          :tax_deducted => tax_deducted}.merge(opts)
 
       #resource path
       path = "/api/v1/tax/calculate".sub('{format}','json')
@@ -743,6 +743,35 @@ module Taxamo
       post_body = nil
       response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
       GetSettlementStatsByTaxationTypeOut.new(response)
+
+    end
+
+    def get_daily_settlement_stats (interval,date_from,date_to,opts={})
+      query_param_keys = [:interval,:date_from,:date_to]
+
+      # verify existence of params
+      raise "interval is required" if interval.nil?
+      raise "date_from is required" if date_from.nil?
+      raise "date_to is required" if date_to.nil?
+      # set default values and merge with input
+      options = {
+          :interval => interval,
+          :date_from => date_from,
+          :date_to => date_to}.merge(opts)
+
+      #resource path
+      path = "/api/v1/stats/settlement/daily".sub('{format}','json')
+
+
+      # pull querystring keys from options
+      queryopts = options.select do |key,value|
+        query_param_keys.include? key
+      end
+
+      headers = nil
+      post_body = nil
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      GetDailySettlementStatsOut.new(response)
 
     end
 

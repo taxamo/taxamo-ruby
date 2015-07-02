@@ -19,6 +19,9 @@ gem "taxamo", github: "taxamo/taxamo-ruby"
 
 ## Changes
 
+1.0.5 (2015-07-02):
+ * sync with the newest API model, including addition of getsettlementdailystats operation
+ 
 1.0.4 (2015-04-15):
  * sync with the newest API data model, including unconfirm transaction and email invoice operations and a default currency code for each country
  * please note, that the list_transactions operation has new argument: invoice_number, changing the argument count to 12
