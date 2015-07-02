@@ -287,8 +287,8 @@ class TransactionsApiTest < Test::Unit::TestCase
                                     nil, #tax_country_code
                                     '2001-12-01', #order_date_from
                                     nil, #key_or_custom_id
-                                    nil, #filter_text
                                     0, #offset
+                                    nil, #filter_text
                                     nil, #format,
                                     nil, #invoice_number
                                     '2099-12-31', #order_date_to,
