@@ -8,7 +8,7 @@ To install it, just fetch this repository and issue the following command:
 
 ```shell
 $ gem build taxamo.gemspec
-$ gem install taxamo-1.0.5.gem
+$ gem install taxamo-1.0.6.gem
 ```
 
 Alternatively, add the following line to your project's `Gemfile` file:
@@ -18,6 +18,9 @@ gem "taxamo", github: "taxamo/taxamo-ruby"
 ```
 
 ## Changes
+
+1.0.6 (2015-07-20):
+ * fix regression with require_rel
 
 1.0.5 (2015-07-02):
  * sync with the newest API model, including addition of getsettlementdailystats operation

@@ -14,7 +14,7 @@ require "uri"
 require "swagger"
 require "taxamo/version"
 require "require_all"
-require_all "lib/taxamo/models/*"
+require_rel "taxamo/models/*"
 
 module Taxamo
   class <<self
