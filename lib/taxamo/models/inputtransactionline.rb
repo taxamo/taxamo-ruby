@@ -11,7 +11,7 @@
 # limitations under the License.
 
 class InputTransactionLine
-  attr_accessor :product_type, :supply_date, :unit_price, :unit_of_measure, :quantity, :custom_fields, :line_key, :tax_name, :product_code, :amount, :custom_id, :informative, :tax_rate, :total_amount, :description
+  attr_accessor :product_type, :supply_date, :unit_price, :unit_of_measure, :quantity, :custom_fields, :line_key, :tax_name, :product_code, :amount, :custom_id, :informative, :tax_rate, :total_amount, :product_tax_code, :description
 
   # :internal => :external
   def self.attribute_map
@@ -30,6 +30,7 @@ class InputTransactionLine
       :informative => :informative,
       :tax_rate => :tax_rate,
       :total_amount => :total_amount,
+      :product_tax_code => :product_tax_code,
       :description => :description
 
     }
@@ -93,6 +94,10 @@ class InputTransactionLine
     end
     if attributes["total_amount"]
       @total_amount = attributes["total_amount"]
+        
+    end
+    if attributes["product_tax_code"]
+      @product_tax_code = attributes["product_tax_code"]
         
     end
     if attributes["description"]

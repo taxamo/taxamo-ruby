@@ -11,7 +11,7 @@
 # limitations under the License.
 
 class InputTransactionUpdate
-  attr_accessor :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :currency_code, :supply_date, :invoice_address, :verification_token, :transaction_lines, :buyer_tax_number, :custom_fields, :force_country_code, :invoice_number, :order_date, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :additional_currencies, :invoice_place, :evidence, :description, :tax_deducted, :tax_country_code
+  attr_accessor :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :currency_code, :supply_date, :invoice_address, :verification_token, :tax_data, :transaction_lines, :buyer_tax_number, :status, :custom_fields, :force_country_code, :invoice_number, :order_date, :customer_id, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :additional_currencies, :invoice_place, :evidence, :description, :tax_deducted, :tax_country_code
 
   # :internal => :external
   def self.attribute_map
@@ -24,12 +24,15 @@ class InputTransactionUpdate
       :supply_date => :supply_date,
       :invoice_address => :invoice_address,
       :verification_token => :verification_token,
+      :tax_data => :tax_data,
       :transaction_lines => :transaction_lines,
       :buyer_tax_number => :buyer_tax_number,
+      :status => :status,
       :custom_fields => :custom_fields,
       :force_country_code => :force_country_code,
       :invoice_number => :invoice_number,
       :order_date => :order_date,
+      :customer_id => :customer_id,
       :buyer_ip => :buyer_ip,
       :buyer_email => :buyer_email,
       :original_transaction_key => :original_transaction_key,
@@ -80,6 +83,10 @@ class InputTransactionUpdate
       @verification_token = attributes["verification_token"]
         
     end
+    if attributes["tax_data"]
+      @tax_data = TaxDataSchema.new(attributes["tax_data"])
+        
+    end
     if attributes["transaction_lines"]
       if (value = attributes["transaction_lines"]).is_a?(Array)
           @transaction_lines = value.map{ |v| InputTransactionLine.new(v) }
@@ -87,6 +94,10 @@ class InputTransactionUpdate
       end
     if attributes["buyer_tax_number"]
       @buyer_tax_number = attributes["buyer_tax_number"]
+        
+    end
+    if attributes["status"]
+      @status = attributes["status"]
         
     end
     if attributes["custom_fields"]
@@ -104,6 +115,10 @@ class InputTransactionUpdate
     end
     if attributes["order_date"]
       @order_date = attributes["order_date"]
+        
+    end
+    if attributes["customer_id"]
+      @customer_id = attributes["customer_id"]
         
     end
     if attributes["buyer_ip"]

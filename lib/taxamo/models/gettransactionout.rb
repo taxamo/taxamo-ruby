@@ -11,12 +11,14 @@
 # limitations under the License.
 
 class GetTransactionOut
-  attr_accessor :transaction
+  attr_accessor :transaction, :tax_required_fields, :storage_required_fields
 
   # :internal => :external
   def self.attribute_map
     {
-      :transaction => :transaction
+      :transaction => :transaction,
+      :tax_required_fields => :tax_required_fields,
+      :storage_required_fields => :storage_required_fields
 
     }
   end
@@ -28,6 +30,16 @@ class GetTransactionOut
       @transaction = Transaction.new(attributes["transaction"])
         
     end
+    if attributes["tax_required_fields"]
+      if (value = attributes["tax_required_fields"]).is_a?(Array)
+          @tax_required_fields = value.map{ |v| TaxRequiredFields.new(v) }
+        end
+      end
+    if attributes["storage_required_fields"]
+      if (value = attributes["storage_required_fields"]).is_a?(Array)
+          @storage_required_fields = value.map{ |v| StorageRequiredFields.new(v) }
+        end
+      end
     
 
   end

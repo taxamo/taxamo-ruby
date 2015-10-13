@@ -11,12 +11,13 @@
 # limitations under the License.
 
 class Transaction
-  attr_accessor :confirm_timestamp, :deducted_tax_amount, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :create_timestamp, :currency_code, :supply_date, :invoice_image_url, :key, :invoice_address, :buyer_tax_number_valid, :verification_token, :tax_supported, :transaction_lines, :buyer_tax_number, :status, :custom_fields, :force_country_code, :countries, :invoice_number, :order_date, :source, :amount, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :tax_amount, :additional_currencies, :invoice_place, :total_amount, :tax_entity_name, :evidence, :refunded_tax_amount, :manual, :tax_timezone, :description, :test, :tax_deducted, :tax_country_code, :refunded_total_amount
+  attr_accessor :confirm_timestamp, :fully_informative, :deducted_tax_amount, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :create_timestamp, :currency_code, :supply_date, :invoice_image_url, :key, :invoice_address, :buyer_tax_number_valid, :verification_token, :tax_supported, :tax_data, :transaction_lines, :buyer_tax_number, :external_key, :status, :custom_fields, :force_country_code, :countries, :invoice_number, :order_date, :customer_id, :kind, :source, :amount, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :tax_amount, :additional_currencies, :invoice_place, :total_amount, :tax_entity_name, :evidence, :refunded_tax_amount, :manual, :tax_timezone, :description, :test, :tax_deducted, :tax_country_code, :refunded_total_amount
 
   # :internal => :external
   def self.attribute_map
     {
       :confirm_timestamp => :confirm_timestamp,
+      :fully_informative => :fully_informative,
       :deducted_tax_amount => :deducted_tax_amount,
       :buyer_credit_card_prefix => :buyer_credit_card_prefix,
       :custom_data => :custom_data,
@@ -31,14 +32,18 @@ class Transaction
       :buyer_tax_number_valid => :buyer_tax_number_valid,
       :verification_token => :verification_token,
       :tax_supported => :tax_supported,
+      :tax_data => :tax_data,
       :transaction_lines => :transaction_lines,
       :buyer_tax_number => :buyer_tax_number,
+      :external_key => :external_key,
       :status => :status,
       :custom_fields => :custom_fields,
       :force_country_code => :force_country_code,
       :countries => :countries,
       :invoice_number => :invoice_number,
       :order_date => :order_date,
+      :customer_id => :customer_id,
+      :kind => :kind,
       :source => :source,
       :amount => :amount,
       :buyer_ip => :buyer_ip,
@@ -69,6 +74,10 @@ class Transaction
     # Morph attribute keys into undescored rubyish style
     if attributes["confirm_timestamp"]
       @confirm_timestamp = attributes["confirm_timestamp"]
+        
+    end
+    if attributes["fully_informative"]
+      @fully_informative = attributes["fully_informative"]
         
     end
     if attributes["deducted_tax_amount"]
@@ -127,6 +136,10 @@ class Transaction
       @tax_supported = attributes["tax_supported"]
         
     end
+    if attributes["tax_data"]
+      @tax_data = TaxDataSchema.new(attributes["tax_data"])
+        
+    end
     if attributes["transaction_lines"]
       if (value = attributes["transaction_lines"]).is_a?(Array)
           @transaction_lines = value.map{ |v| TransactionLines.new(v) }
@@ -134,6 +147,10 @@ class Transaction
       end
     if attributes["buyer_tax_number"]
       @buyer_tax_number = attributes["buyer_tax_number"]
+        
+    end
+    if attributes["external_key"]
+      @external_key = attributes["external_key"]
         
     end
     if attributes["status"]
@@ -159,6 +176,14 @@ class Transaction
     end
     if attributes["order_date"]
       @order_date = attributes["order_date"]
+        
+    end
+    if attributes["customer_id"]
+      @customer_id = attributes["customer_id"]
+        
+    end
+    if attributes["kind"]
+      @kind = attributes["kind"]
         
     end
     if attributes["source"]

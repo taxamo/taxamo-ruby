@@ -87,18 +87,23 @@ class TaxTest < Test::Unit::TestCase
     Swagger.configure do |config|
       config.api_key = 'SamplePrivateTestKey1'
     end
-    resp = Taxamo.calculate_simple_tax(nil,
-                                       nil,
-                                       'e-book', #product_type
+    #,,,,,
+    resp = Taxamo.calculate_simple_tax('e-book', #product_type
+                                       nil, #invoice_address_city
+                                       nil, #buyer_credit_card_prefix
+                                       'USD', #currency_code
+                                       nil, #invoice_address_region
+                                       nil, #unit_price
+                                       nil, #quantity
+                                       nil, #buyer_tax_number
                                        'FR', #force_country_code
-                                       nil,
-                                       nil,
-                                       nil,
-                                       nil,
+                                       nil, #order_date
                                        100, #amount
                                        'IE', #billing_country_code
-                                       'USD', #currency_code
-                                       nil)
+                                       nil, #invoice_address_postal_code
+                                       nil, #total_amount
+                                       nil  #tax_deducted
+                                       )
 
     assert_equal resp.transaction.tax_country_code, 'FR'
     assert_equal resp.transaction.amount, 100

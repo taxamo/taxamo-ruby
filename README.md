@@ -19,6 +19,10 @@ gem "taxamo", github: "taxamo/taxamo-ruby"
 
 ## Changes
 
+1.1.0 (2015-10-13):
+ * update API client with multiple region support. Please note that the following methods have their arity changed: 
+`list_transactions`, `calculate_simple_tax`, `get_refunds`, `get_settlement`, `get_settlement_summary` 
+ 
 1.0.6.1 (2015-07-20):
  * fix for rubygems.org publishing issue  
  

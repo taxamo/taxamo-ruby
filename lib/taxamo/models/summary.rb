@@ -11,7 +11,7 @@
 # limitations under the License.
 
 class Summary
-  attr_accessor :quarter, :tax_amount, :currency_code, :indicative, :fx_rate_date, :tax_entity_name
+  attr_accessor :quarter, :tax_amount, :currency_code, :indicative, :fx_rate_date, :start_date, :end_date, :tax_entity_name
 
   # :internal => :external
   def self.attribute_map
@@ -21,6 +21,8 @@ class Summary
       :currency_code => :currency_code,
       :indicative => :indicative,
       :fx_rate_date => :fx_rate_date,
+      :start_date => :start_date,
+      :end_date => :end_date,
       :tax_entity_name => :tax_entity_name
 
     }
@@ -47,6 +49,14 @@ class Summary
     end
     if attributes["fx_rate_date"]
       @fx_rate_date = attributes["fx_rate_date"]
+        
+    end
+    if attributes["start_date"]
+      @start_date = attributes["start_date"]
+        
+    end
+    if attributes["end_date"]
+      @end_date = attributes["end_date"]
         
     end
     if attributes["tax_entity_name"]

@@ -10,15 +10,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-class CalculateSimpleTaxOut
-  attr_accessor :transaction, :tax_required_fields, :storage_required_fields
+class UsTaxId
+  attr_accessor :tax_id_type, :tax_id, :state_of_issue
 
   # :internal => :external
   def self.attribute_map
     {
-      :transaction => :transaction,
-      :tax_required_fields => :tax_required_fields,
-      :storage_required_fields => :storage_required_fields
+      :tax_id_type => :tax_id_type,
+      :tax_id => :tax_id,
+      :state_of_issue => :state_of_issue
 
     }
   end
@@ -26,20 +26,18 @@ class CalculateSimpleTaxOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["transaction"]
-      @transaction = Transaction.new(attributes["transaction"])
+    if attributes["tax_id_type"]
+      @tax_id_type = attributes["tax_id_type"]
         
     end
-    if attributes["tax_required_fields"]
-      if (value = attributes["tax_required_fields"]).is_a?(Array)
-          @tax_required_fields = value.map{ |v| TaxRequiredFields.new(v) }
-        end
-      end
-    if attributes["storage_required_fields"]
-      if (value = attributes["storage_required_fields"]).is_a?(Array)
-          @storage_required_fields = value.map{ |v| StorageRequiredFields.new(v) }
-        end
-      end
+    if attributes["tax_id"]
+      @tax_id = attributes["tax_id"]
+        
+    end
+    if attributes["state_of_issue"]
+      @state_of_issue = attributes["state_of_issue"]
+        
+    end
     
 
   end

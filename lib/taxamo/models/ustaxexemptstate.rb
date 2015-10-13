@@ -10,15 +10,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-class CalculateSimpleTaxOut
-  attr_accessor :transaction, :tax_required_fields, :storage_required_fields
+class UsTaxExemptState
+  attr_accessor :state_abbr, :reason_for_exemption, :identifier_for_exemption_reason
 
   # :internal => :external
   def self.attribute_map
     {
-      :transaction => :transaction,
-      :tax_required_fields => :tax_required_fields,
-      :storage_required_fields => :storage_required_fields
+      :state_abbr => :state_abbr,
+      :reason_for_exemption => :reason_for_exemption,
+      :identifier_for_exemption_reason => :identifier_for_exemption_reason
 
     }
   end
@@ -26,20 +26,18 @@ class CalculateSimpleTaxOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["transaction"]
-      @transaction = Transaction.new(attributes["transaction"])
+    if attributes["state_abbr"]
+      @state_abbr = attributes["state_abbr"]
         
     end
-    if attributes["tax_required_fields"]
-      if (value = attributes["tax_required_fields"]).is_a?(Array)
-          @tax_required_fields = value.map{ |v| TaxRequiredFields.new(v) }
-        end
-      end
-    if attributes["storage_required_fields"]
-      if (value = attributes["storage_required_fields"]).is_a?(Array)
-          @storage_required_fields = value.map{ |v| StorageRequiredFields.new(v) }
-        end
-      end
+    if attributes["reason_for_exemption"]
+      @reason_for_exemption = attributes["reason_for_exemption"]
+        
+    end
+    if attributes["identifier_for_exemption_reason"]
+      @identifier_for_exemption_reason = attributes["identifier_for_exemption_reason"]
+        
+    end
     
 
   end

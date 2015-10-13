@@ -451,8 +451,8 @@ module Taxamo
 
     end
 
-    def list_transactions (statuses,sort_reverse,tax_country_code,order_date_from,key_or_custom_id,offset,filter_text,format,invoice_number,order_date_to,currency_code,limit,opts={})
-      query_param_keys = [:statuses,:sort_reverse,:tax_country_code,:order_date_from,:key_or_custom_id,:offset,:filter_text,:format,:invoice_number,:order_date_to,:currency_code,:limit]
+    def list_transactions (filter_text,offset,key_or_custom_id,currency_code,order_date_to,sort_reverse,limit,invoice_number,statuses,order_date_from,total_amount_greater_than,format,total_amount_less_than,tax_country_code,opts={})
+      query_param_keys = [:filter_text,:offset,:key_or_custom_id,:currency_code,:order_date_to,:sort_reverse,:limit,:invoice_number,:statuses,:order_date_from,:total_amount_greater_than,:format,:total_amount_less_than,:tax_country_code]
 
       # set default values and merge with input
       options = {
@@ -466,7 +466,9 @@ module Taxamo
           :invoice_number => invoice_number,
           :statuses => statuses,
           :order_date_from => order_date_from,
+          :total_amount_greater_than => total_amount_greater_than,
           :format => format,
+          :total_amount_less_than => total_amount_less_than,
           :tax_country_code => tax_country_code}.merge(opts)
 
       #resource path
@@ -530,16 +532,18 @@ module Taxamo
 
     end
 
-    def calculate_simple_tax (buyer_credit_card_prefix,buyer_tax_number,product_type,force_country_code,quantity,unit_price,total_amount,tax_deducted,amount,billing_country_code,currency_code,order_date,opts={})
-      query_param_keys = [:buyer_credit_card_prefix,:buyer_tax_number,:product_type,:force_country_code,:quantity,:unit_price,:total_amount,:tax_deducted,:amount,:billing_country_code,:currency_code,:order_date]
+    def calculate_simple_tax (product_type,invoice_address_city,buyer_credit_card_prefix,currency_code,invoice_address_region,unit_price,quantity,buyer_tax_number,force_country_code,order_date,amount,billing_country_code,invoice_address_postal_code,total_amount,tax_deducted,opts={})
+      query_param_keys = [:product_type,:invoice_address_city,:buyer_credit_card_prefix,:currency_code,:invoice_address_region,:unit_price,:quantity,:buyer_tax_number,:force_country_code,:order_date,:amount,:billing_country_code,:invoice_address_postal_code,:total_amount,:tax_deducted]
 
       # verify existence of params
       raise "currency_code is required" if currency_code.nil?
       # set default values and merge with input
       options = {
           :product_type => product_type,
+          :invoice_address_city => invoice_address_city,
           :buyer_credit_card_prefix => buyer_credit_card_prefix,
           :currency_code => currency_code,
+          :invoice_address_region => invoice_address_region,
           :unit_price => unit_price,
           :quantity => quantity,
           :buyer_tax_number => buyer_tax_number,
@@ -547,6 +551,7 @@ module Taxamo
           :order_date => order_date,
           :amount => amount,
           :billing_country_code => billing_country_code,
+          :invoice_address_postal_code => invoice_address_postal_code,
           :total_amount => total_amount,
           :tax_deducted => tax_deducted}.merge(opts)
 
@@ -664,6 +669,34 @@ module Taxamo
 
     end
 
+    def get_transactions_stats_by_country (global_currency_code,date_from,date_to,opts={})
+      query_param_keys = [:global_currency_code,:date_from,:date_to]
+
+      # verify existence of params
+      raise "date_from is required" if date_from.nil?
+      raise "date_to is required" if date_to.nil?
+      # set default values and merge with input
+      options = {
+          :global_currency_code => global_currency_code,
+          :date_from => date_from,
+          :date_to => date_to}.merge(opts)
+
+      #resource path
+      path = "/api/v1/stats/transactions/by_country".sub('{format}','json')
+
+
+      # pull querystring keys from options
+      queryopts = options.select do |key,value|
+        query_param_keys.include? key
+      end
+
+      headers = nil
+      post_body = nil
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      GetTransactionsStatsByCountryOut.new(response)
+
+    end
+
     def get_transactions_stats (date_from,date_to,interval,opts={})
       query_param_keys = [:date_from,:date_to,:interval]
 
@@ -775,8 +808,8 @@ module Taxamo
 
     end
 
-    def get_refunds (format,moss_country_code,date_from,opts={})
-      query_param_keys = [:format,:moss_country_code,:date_from]
+    def get_refunds (format,moss_country_code,tax_region,date_from,opts={})
+      query_param_keys = [:format,:moss_country_code,:tax_region,:date_from]
 
       # verify existence of params
       raise "date_from is required" if date_from.nil?
@@ -784,6 +817,7 @@ module Taxamo
       options = {
           :format => format,
           :moss_country_code => moss_country_code,
+          :tax_region => tax_region,
           :date_from => date_from}.merge(opts)
 
       #resource path
@@ -802,8 +836,8 @@ module Taxamo
 
     end
 
-    def get_settlement (format,moss_country_code,moss_tax_id,quarter,opts={})
-      query_param_keys = [:format,:moss_country_code,:moss_tax_id]
+    def get_settlement (format,moss_country_code,tax_country_code,currency_code,moss_tax_id,tax_id,start_month,end_month,quarter,opts={})
+      query_param_keys = [:format,:moss_country_code,:tax_country_code,:currency_code,:moss_tax_id,:tax_id,:start_month,:end_month]
 
       # verify existence of params
       raise "quarter is required" if quarter.nil?
@@ -811,7 +845,12 @@ module Taxamo
       options = {
           :format => format,
           :moss_country_code => moss_country_code,
+          :tax_country_code => tax_country_code,
+          :currency_code => currency_code,
           :moss_tax_id => moss_tax_id,
+          :tax_id => tax_id,
+          :start_month => start_month,
+          :end_month => end_month,
           :quarter => quarter}.merge(opts)
 
       #resource path
@@ -830,14 +869,17 @@ module Taxamo
 
     end
 
-    def get_settlement_summary (moss_country_code,quarter,opts={})
-      query_param_keys = [:moss_country_code]
+    def get_settlement_summary (moss_country_code,tax_region,start_month,end_month,quarter,opts={})
+      query_param_keys = [:moss_country_code,:tax_region,:start_month,:end_month]
 
       # verify existence of params
       raise "quarter is required" if quarter.nil?
       # set default values and merge with input
       options = {
           :moss_country_code => moss_country_code,
+          :tax_region => tax_region,
+          :start_month => start_month,
+          :end_month => end_month,
           :quarter => quarter}.merge(opts)
 
       #resource path

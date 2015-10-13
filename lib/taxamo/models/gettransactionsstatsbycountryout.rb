@@ -10,15 +10,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-class CalculateSimpleTaxOut
-  attr_accessor :transaction, :tax_required_fields, :storage_required_fields
+class GetTransactionsStatsByCountryOut
+  attr_accessor :by_country
 
   # :internal => :external
   def self.attribute_map
     {
-      :transaction => :transaction,
-      :tax_required_fields => :tax_required_fields,
-      :storage_required_fields => :storage_required_fields
+      :by_country => :by_country
 
     }
   end
@@ -26,18 +24,9 @@ class CalculateSimpleTaxOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["transaction"]
-      @transaction = Transaction.new(attributes["transaction"])
-        
-    end
-    if attributes["tax_required_fields"]
-      if (value = attributes["tax_required_fields"]).is_a?(Array)
-          @tax_required_fields = value.map{ |v| TaxRequiredFields.new(v) }
-        end
-      end
-    if attributes["storage_required_fields"]
-      if (value = attributes["storage_required_fields"]).is_a?(Array)
-          @storage_required_fields = value.map{ |v| StorageRequiredFields.new(v) }
+    if attributes["by_country"]
+      if (value = attributes["by_country"]).is_a?(Array)
+          @by_country = value.map{ |v| ByCountry.new(v) }
         end
       end
     

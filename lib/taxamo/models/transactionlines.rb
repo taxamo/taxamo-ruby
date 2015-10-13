@@ -11,7 +11,7 @@
 # limitations under the License.
 
 class TransactionLines
-  attr_accessor :product_type, :deducted_tax_amount, :supply_date, :id, :unit_price, :unit_of_measure, :quantity, :custom_fields, :line_key, :tax_name, :product_code, :amount, :custom_id, :informative, :tax_amount, :tax_rate, :additional_currencies, :total_amount, :refunded_tax_amount, :description, :refunded_total_amount
+  attr_accessor :product_type, :deducted_tax_amount, :supply_date, :id, :unit_price, :unit_of_measure, :quantity, :custom_fields, :line_key, :tax_name, :product_code, :amount, :custom_id, :informative, :tax_amount, :tax_rate, :additional_currencies, :total_amount, :product_tax_code, :refunded_tax_amount, :description, :refunded_total_amount
 
   # :internal => :external
   def self.attribute_map
@@ -34,6 +34,7 @@ class TransactionLines
       :tax_rate => :tax_rate,
       :additional_currencies => :additional_currencies,
       :total_amount => :total_amount,
+      :product_tax_code => :product_tax_code,
       :refunded_tax_amount => :refunded_tax_amount,
       :description => :description,
       :refunded_total_amount => :refunded_total_amount
@@ -115,6 +116,10 @@ class TransactionLines
     end
     if attributes["total_amount"]
       @total_amount = attributes["total_amount"]
+        
+    end
+    if attributes["product_tax_code"]
+      @product_tax_code = attributes["product_tax_code"]
         
     end
     if attributes["refunded_tax_amount"]

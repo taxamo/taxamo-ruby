@@ -11,7 +11,7 @@
 # limitations under the License.
 
 class CountrySchema
-  attr_accessor :code_long, :codenum, :currency, :tax_supported, :name, :ccn3, :cca3, :calling_code, :tax_number_country_code, :code, :cca2
+  attr_accessor :code_long, :codenum, :currency, :tax_supported, :name, :ccn3, :tax_region, :cca3, :calling_code, :tax_number_country_code, :code, :cca2
 
   # :internal => :external
   def self.attribute_map
@@ -22,6 +22,7 @@ class CountrySchema
       :tax_supported => :tax_supported,
       :name => :name,
       :ccn3 => :ccn3,
+      :tax_region => :tax_region,
       :cca3 => :cca3,
       :calling_code => :callingCode,
       :tax_number_country_code => :tax_number_country_code,
@@ -57,6 +58,10 @@ class CountrySchema
     end
     if attributes["ccn3"]
       @ccn3 = attributes["ccn3"]
+        
+    end
+    if attributes["tax_region"]
+      @tax_region = attributes["tax_region"]
         
     end
     if attributes["cca3"]
