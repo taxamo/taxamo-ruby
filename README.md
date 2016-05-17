@@ -8,7 +8,7 @@ To install it, just fetch this repository and issue the following command:
 
 ```shell
 $ gem build taxamo.gemspec
-$ gem install taxamo-1.0.6.1.gem
+$ gem install taxamo-1.1.1.gem
 ```
 
 Alternatively, add the following line to your project's `Gemfile` file:
@@ -18,6 +18,9 @@ gem "taxamo", github: "taxamo/taxamo-ruby"
 ```
 
 ## Changes
+
+1.1.1 (2016-05-17):
+ * bring API client up-to-date with current api endpoints. Please note that the following methods have their arity changed: `list_transactions`
 
 1.1.0 (2015-10-13):
  * update API client with multiple region support. Please note that the following methods have their arity changed: 

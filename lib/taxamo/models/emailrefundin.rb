@@ -10,17 +10,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-class CreateRefundIn
-  attr_accessor :line_key, :custom_id, :amount, :total_amount, :refund_reason
+class EmailRefundIn
+  attr_accessor :buyer_email
 
   # :internal => :external
   def self.attribute_map
     {
-      :line_key => :line_key,
-      :custom_id => :custom_id,
-      :amount => :amount,
-      :total_amount => :total_amount,
-      :refund_reason => :refund_reason
+      :buyer_email => :buyer_email
 
     }
   end
@@ -28,24 +24,8 @@ class CreateRefundIn
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["line_key"]
-      @line_key = attributes["line_key"]
-        
-    end
-    if attributes["custom_id"]
-      @custom_id = attributes["custom_id"]
-        
-    end
-    if attributes["amount"]
-      @amount = attributes["amount"]
-        
-    end
-    if attributes["total_amount"]
-      @total_amount = attributes["total_amount"]
-        
-    end
-    if attributes["refund_reason"]
-      @refund_reason = attributes["refund_reason"]
+    if attributes["buyer_email"]
+      @buyer_email = attributes["buyer_email"]
         
     end
     

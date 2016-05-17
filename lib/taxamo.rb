@@ -69,6 +69,31 @@ module Taxamo
 
     end
 
+    def list_refunds (key,opts={})
+      query_param_keys = []
+
+      # verify existence of params
+      raise "key is required" if key.nil?
+      # set default values and merge with input
+      options = {
+          :key => key}.merge(opts)
+
+      #resource path
+      path = "/api/v1/transactions/{key}/refunds".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+
+
+      # pull querystring keys from options
+      queryopts = options.select do |key,value|
+        query_param_keys.include? key
+      end
+
+      headers = nil
+      post_body = nil
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      ListRefundsOut.new(response)
+
+    end
+
     def create_payment (key,body,opts={})
       query_param_keys = []
 
@@ -212,6 +237,55 @@ module Taxamo
       end
       response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
       EmailInvoiceOut.new(response)
+
+    end
+
+    def email_refund (key,refund_note_number,body,opts={})
+      query_param_keys = []
+
+      # verify existence of params
+      raise "key is required" if key.nil?
+      raise "refund_note_number is required" if refund_note_number.nil?
+      raise "body is required" if body.nil?
+      # set default values and merge with input
+      options = {
+          :key => key,
+          :refund_note_number => refund_note_number,
+          :body => body}.merge(opts)
+
+      #resource path
+      path = "/api/v1/transactions/{key}/invoice/refunds/{refund_note_number}/send_email".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key)).sub('{' + 'refund_note_number' + '}', escapeString(refund_note_number))
+
+
+      # pull querystring keys from options
+      queryopts = options.select do |key,value|
+        query_param_keys.include? key
+      end
+
+      headers = nil
+      post_body = nil
+      if body != nil
+        if body.is_a?(Array)
+          array = Array.new
+          body.each do |item|
+            if item.respond_to?("to_body".to_sym)
+              array.push item.to_body
+            else
+              array.push item
+            end
+          end
+          post_body = array
+
+        else
+          if body.respond_to?("to_body".to_sym)
+            post_body = body.to_body
+          else
+            post_body = body
+          end
+        end
+      end
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      EmailRefundOut.new(response)
 
     end
 
@@ -451,8 +525,8 @@ module Taxamo
 
     end
 
-    def list_transactions (filter_text,offset,key_or_custom_id,currency_code,order_date_to,sort_reverse,limit,invoice_number,statuses,order_date_from,total_amount_greater_than,format,total_amount_less_than,tax_country_code,opts={})
-      query_param_keys = [:filter_text,:offset,:key_or_custom_id,:currency_code,:order_date_to,:sort_reverse,:limit,:invoice_number,:statuses,:order_date_from,:total_amount_greater_than,:format,:total_amount_less_than,:tax_country_code]
+    def list_transactions (filter_text,offset,key_or_custom_id,currency_code,order_date_to,sort_reverse,limit,invoice_number,statuses,order_date_from,total_amount_greater_than,format,total_amount_less_than,tax_country_code,original_transaction_key,opts={})
+      query_param_keys = [:filter_text,:offset,:key_or_custom_id,:currency_code,:order_date_to,:sort_reverse,:limit,:invoice_number,:statuses,:original_transaction_key,:order_date_from,:total_amount_greater_than,:format,:total_amount_less_than,:tax_country_code]
 
       # set default values and merge with input
       options = {
@@ -465,6 +539,7 @@ module Taxamo
           :limit => limit,
           :invoice_number => invoice_number,
           :statuses => statuses,
+          :original_transaction_key => original_transaction_key,
           :order_date_from => order_date_from,
           :total_amount_greater_than => total_amount_greater_than,
           :format => format,
@@ -805,6 +880,72 @@ module Taxamo
       post_body = nil
       response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
       GetDailySettlementStatsOut.new(response)
+
+    end
+
+    def get_eu_vies_report (format,transformation,eu_country_code,currency_code,tax_id,start_month,end_month,fx_date_type,opts={})
+      query_param_keys = [:format,:transformation,:eu_country_code,:currency_code,:tax_id,:start_month,:end_month,:fx_date_type]
+
+      # verify existence of params
+      raise "eu_country_code is required" if eu_country_code.nil?
+      raise "start_month is required" if start_month.nil?
+      raise "end_month is required" if end_month.nil?
+      # set default values and merge with input
+      options = {
+          :format => format,
+          :transformation => transformation,
+          :eu_country_code => eu_country_code,
+          :currency_code => currency_code,
+          :tax_id => tax_id,
+          :start_month => start_month,
+          :end_month => end_month,
+          :fx_date_type => fx_date_type}.merge(opts)
+
+      #resource path
+      path = "/api/v1/reports/eu/vies".sub('{format}','json')
+
+
+      # pull querystring keys from options
+      queryopts = options.select do |key,value|
+        query_param_keys.include? key
+      end
+
+      headers = nil
+      post_body = nil
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      GetEuViesReportOut.new(response)
+
+    end
+
+    def get_domestic_summary_report (format,country_code,currency_code,start_month,end_month,fx_date_type,opts={})
+      query_param_keys = [:format,:country_code,:currency_code,:start_month,:end_month,:fx_date_type]
+
+      # verify existence of params
+      raise "country_code is required" if country_code.nil?
+      raise "start_month is required" if start_month.nil?
+      raise "end_month is required" if end_month.nil?
+      # set default values and merge with input
+      options = {
+          :format => format,
+          :country_code => country_code,
+          :currency_code => currency_code,
+          :start_month => start_month,
+          :end_month => end_month,
+          :fx_date_type => fx_date_type}.merge(opts)
+
+      #resource path
+      path = "/api/v1/reports/domestic/summary".sub('{format}','json')
+
+
+      # pull querystring keys from options
+      queryopts = options.select do |key,value|
+        query_param_keys.include? key
+      end
+
+      headers = nil
+      post_body = nil
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      GetDomesticSummaryReportOut.new(response)
 
     end
 

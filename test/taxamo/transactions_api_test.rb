@@ -120,17 +120,18 @@ class TransactionsApiTest < Test::Unit::TestCase
     resp = Taxamo.list_transactions(nil, #filter_text
                                     0, #offset
                                     nil, #key_or_custom_id
-                                    'EUR', #currency_code,
-                                    '2099-12-31', #order_date_to,
+                                    nil, #currency_code,
+                                    nil, #order_date_to,
                                     'true', #sort_reverse
                                     100, #limit
                                     nil,#invoice_number
                                     'C', #statuses
-                                    '2014-01-01', #order_date_from
+                                    nil, #order_date_from
                                     nil, #total_amount_greater_than
                                     nil, #format,
                                     nil, #total_amount_less_than
-                                    nil #tax_country_code
+                                    nil, #tax_country_code
+                                    nil #original_transaction_key
                                     )
 
     assert_true resp.transactions.length > 0
@@ -143,19 +144,20 @@ class TransactionsApiTest < Test::Unit::TestCase
     resp = Taxamo.list_transactions(nil, #filter_text
                                     0, #offset
                                     nil, #key_or_custom_id
-                                    'EUR', #currency_code,
-                                    '2099-12-31', #order_date_to,
+                                    nil, #currency_code,
+                                    nil, #order_date_to,
                                     'true', #sort_reverse
                                     10, #limit
                                     nil,#invoice_number
                                     'N', #statuses
-                                    '2099-12-01', #order_date_from
+                                    nil, #order_date_from
                                     nil, #total_amount_greater_than
                                     nil, #format,
                                     nil, #total_amount_less_than
-                                    nil #tax_country_code
+                                    nil, #tax_country_code
+                                    nil #original_transaction_key
                                     )
-    assert_true resp.transactions.length == 0
+    assert_true resp.transactions.length != 0
 
   end
 
@@ -291,17 +293,18 @@ class TransactionsApiTest < Test::Unit::TestCase
  resp = Taxamo.list_transactions(   nil, #filter_text
                                     0, #offset
                                     nil, #key_or_custom_id
-                                    'CHF', #currency_code,
-                                    '2099-12-31', #order_date_to,
+                                    nil, #currency_code,
+                                    nil, #order_date_to,
                                     'true', #sort_reverse
                                     10, #limit
                                     nil,#invoice_number
                                     'N', #statuses
-                                    '2001-12-01', #order_date_from
+                                    nil, #order_date_from
                                     nil, #total_amount_greater_than
                                     nil, #format,
                                     nil, #total_amount_less_than
-                                    nil #tax_country_code
+                                    nil, #tax_country_code
+                                    nil #original_transaction_key
                                     )
 
     assert_false resp.transactions[0].key.nil?

@@ -10,15 +10,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-class CreateRefundIn
-  attr_accessor :line_key, :custom_id, :amount, :total_amount, :refund_reason
+class Refunds
+  attr_accessor :refund_note_url, :refund_note_number, :line_key, :refund_timestamp, :amount, :informative, :tax_amount, :tax_rate, :total_amount, :refund_reason
 
   # :internal => :external
   def self.attribute_map
     {
+      :refund_note_url => :refund_note_url,
+      :refund_note_number => :refund_note_number,
       :line_key => :line_key,
-      :custom_id => :custom_id,
+      :refund_timestamp => :refund_timestamp,
       :amount => :amount,
+      :informative => :informative,
+      :tax_amount => :tax_amount,
+      :tax_rate => :tax_rate,
       :total_amount => :total_amount,
       :refund_reason => :refund_reason
 
@@ -28,16 +33,36 @@ class CreateRefundIn
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
+    if attributes["refund_note_url"]
+      @refund_note_url = attributes["refund_note_url"]
+        
+    end
+    if attributes["refund_note_number"]
+      @refund_note_number = attributes["refund_note_number"]
+        
+    end
     if attributes["line_key"]
       @line_key = attributes["line_key"]
         
     end
-    if attributes["custom_id"]
-      @custom_id = attributes["custom_id"]
+    if attributes["refund_timestamp"]
+      @refund_timestamp = attributes["refund_timestamp"]
         
     end
     if attributes["amount"]
       @amount = attributes["amount"]
+        
+    end
+    if attributes["informative"]
+      @informative = attributes["informative"]
+        
+    end
+    if attributes["tax_amount"]
+      @tax_amount = attributes["tax_amount"]
+        
+    end
+    if attributes["tax_rate"]
+      @tax_rate = attributes["tax_rate"]
         
     end
     if attributes["total_amount"]

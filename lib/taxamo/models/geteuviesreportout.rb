@@ -10,17 +10,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-class CreateRefundIn
-  attr_accessor :line_key, :custom_id, :amount, :total_amount, :refund_reason
+class GetEuViesReportOut
+  attr_accessor :report, :currency_code, :start_date, :end_date
 
   # :internal => :external
   def self.attribute_map
     {
-      :line_key => :line_key,
-      :custom_id => :custom_id,
-      :amount => :amount,
-      :total_amount => :total_amount,
-      :refund_reason => :refund_reason
+      :report => :report,
+      :currency_code => :currency_code,
+      :start_date => :start_date,
+      :end_date => :end_date
 
     }
   end
@@ -28,24 +27,21 @@ class CreateRefundIn
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["line_key"]
-      @line_key = attributes["line_key"]
+    if attributes["report"]
+      if (value = attributes["report"]).is_a?(Array)
+          @report = value.map{ |v| Report.new(v) }
+        end
+      end
+    if attributes["currency_code"]
+      @currency_code = attributes["currency_code"]
         
     end
-    if attributes["custom_id"]
-      @custom_id = attributes["custom_id"]
+    if attributes["start_date"]
+      @start_date = attributes["start_date"]
         
     end
-    if attributes["amount"]
-      @amount = attributes["amount"]
-        
-    end
-    if attributes["total_amount"]
-      @total_amount = attributes["total_amount"]
-        
-    end
-    if attributes["refund_reason"]
-      @refund_reason = attributes["refund_reason"]
+    if attributes["end_date"]
+      @end_date = attributes["end_date"]
         
     end
     
