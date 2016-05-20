@@ -18,7 +18,8 @@ module Swagger
       # Set default headers
       default_headers = {
         'Content-Type' => "application/#{attributes[:format].downcase}",
-        'Token' => Swagger.configuration.api_key
+        'Token' => Swagger.configuration.api_key,
+        'Source-Id' => "taxamo-ruby/" + Taxamo::VERSION
       }
 
       # api_key from headers hash trumps the default, even if its value is blank
