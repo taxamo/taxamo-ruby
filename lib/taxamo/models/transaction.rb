@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class Transaction
   attr_accessor :confirm_timestamp, :fully_informative, :deducted_tax_amount, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :create_timestamp, :currency_code, :supply_date, :invoice_image_url, :key, :invoice_address, :buyer_tax_number_valid, :verification_token, :tax_supported, :tax_data, :transaction_lines, :buyer_tax_number, :external_key, :status, :custom_fields, :force_country_code, :countries, :invoice_number, :order_date, :customer_id, :kind, :source, :amount, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :tax_amount, :additional_currencies, :invoice_place, :total_amount, :tax_entity_name, :evidence, :refunded_tax_amount, :manual, :tax_timezone, :description, :test, :tax_deducted, :tax_country_code, :refunded_total_amount
 
@@ -301,4 +302,4 @@ class Transaction
     body
   end
 end
-
+end

@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class ListTransactionsOut
   attr_accessor :transactions
 
@@ -60,4 +61,4 @@ class ListTransactionsOut
     body
   end
 end
-
+end

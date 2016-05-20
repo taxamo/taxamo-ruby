@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class Report
   attr_accessor :currency_code, :skip_moss, :country_code, :tax_region, :country_subdivision, :amount, :tax_amount, :tax_rate, :country_name
 
@@ -99,4 +100,4 @@ class Report
     body
   end
 end
-
+end

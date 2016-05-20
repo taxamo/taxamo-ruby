@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class ByTaxationType
   attr_accessor :taxed_count, :deducted_count, :transactions_count, :eu_b2b, :eu_taxed
 
@@ -79,4 +80,4 @@ class ByTaxationType
     body
   end
 end
-
+end

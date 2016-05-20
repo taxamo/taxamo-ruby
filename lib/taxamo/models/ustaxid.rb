@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class UsTaxId
   attr_accessor :tax_id_type, :tax_id, :state_of_issue
 
@@ -69,4 +70,4 @@ class UsTaxId
     body
   end
 end
-
+end

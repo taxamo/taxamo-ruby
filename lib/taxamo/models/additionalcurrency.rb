@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class AdditionalCurrency
   attr_accessor :currency_code, :amount, :tax_amount, :fx_rate, :total_amount
 
@@ -79,4 +80,4 @@ class AdditionalCurrency
     body
   end
 end
-
+end

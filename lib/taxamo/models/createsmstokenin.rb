@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class CreateSMSTokenIn
   attr_accessor :country_code, :recipient
 
@@ -64,4 +65,4 @@ class CreateSMSTokenIn
     body
   end
 end
-
+end

@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class CreateTransactionIn
   attr_accessor :manual_mode, :transaction
 
@@ -64,4 +65,4 @@ class CreateTransactionIn
     body
   end
 end
-
+end

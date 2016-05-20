@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class CurrencySchema
   attr_accessor :code, :minorunits, :description, :isocode, :isonum
 
@@ -79,4 +80,4 @@ class CurrencySchema
     body
   end
 end
-
+end

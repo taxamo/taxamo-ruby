@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class Summary
   attr_accessor :quarter, :tax_amount, :currency_code, :indicative, :fx_rate_date, :start_date, :end_date, :tax_entity_name
 
@@ -94,4 +95,4 @@ class Summary
     body
   end
 end
-
+end

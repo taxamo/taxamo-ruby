@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class Country
   attr_accessor :code_long, :codenum, :currency, :tax_supported, :name, :ccn3, :tax_region, :cca3, :calling_code, :tax_number_country_code, :code, :cca2
 
@@ -116,4 +117,4 @@ class Country
     body
   end
 end
-
+end

@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class CreateRefundOut
   attr_accessor :total_amount, :tax_amount, :refunded_total_amount, :refunded_tax_amount
 
@@ -74,4 +75,4 @@ class CreateRefundOut
     body
   end
 end
-
+end

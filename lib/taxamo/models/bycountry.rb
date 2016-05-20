@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class ByCountry
   attr_accessor :value, :tax_country_name, :tax_country_code, :currency_code
 
@@ -74,4 +75,4 @@ class ByCountry
     body
   end
 end
-
+end

@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class InputTransactionLine
   attr_accessor :product_type, :supply_date, :unit_price, :unit_of_measure, :quantity, :custom_fields, :line_key, :tax_name, :product_code, :amount, :custom_id, :informative, :tax_rate, :total_amount, :product_tax_code, :description
 
@@ -135,4 +136,4 @@ class InputTransactionLine
     body
   end
 end
-
+end

@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class UsTaxExemptState
   attr_accessor :state_abbr, :reason_for_exemption, :identifier_for_exemption_reason
 
@@ -69,4 +70,4 @@ class UsTaxExemptState
     body
   end
 end
-
+end

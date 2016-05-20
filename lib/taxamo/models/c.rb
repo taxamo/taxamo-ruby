@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class C
   attr_accessor :day_raw, :value, :status, :day
 
@@ -74,4 +75,4 @@ class C
     body
   end
 end
-
+end

@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class GetSettlementOut
   attr_accessor :report, :start_date, :end_date, :indicative, :fx_rate_date
 
@@ -80,4 +81,4 @@ class GetSettlementOut
     body
   end
 end
-
+end

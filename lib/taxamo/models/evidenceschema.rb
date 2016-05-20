@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class EvidenceSchema
   attr_accessor :used, :resolved_country_code, :evidence_type, :evidence_value
 
@@ -74,4 +75,4 @@ class EvidenceSchema
     body
   end
 end
-
+end

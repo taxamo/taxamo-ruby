@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class CreatePaymentOut
   attr_accessor :success
 
@@ -59,4 +60,4 @@ class CreatePaymentOut
     body
   end
 end
-
+end

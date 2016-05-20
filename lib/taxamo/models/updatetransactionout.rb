@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class UpdateTransactionOut
   attr_accessor :transaction, :tax_required_fields, :storage_required_fields
 
@@ -71,4 +72,4 @@ class UpdateTransactionOut
     body
   end
 end
-
+end

@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class CalculateTaxLocationOut
   attr_accessor :tax_country_code, :tax_deducted, :tax_supported, :countries, :buyer_ip, :billing_country_code, :buyer_credit_card_prefix, :evidence
 
@@ -94,4 +95,4 @@ class CalculateTaxLocationOut
     body
   end
 end
-
+end

@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class CreateSMSTokenOut
   attr_accessor :success
 
@@ -59,4 +60,4 @@ class CreateSMSTokenOut
     body
   end
 end
-
+end

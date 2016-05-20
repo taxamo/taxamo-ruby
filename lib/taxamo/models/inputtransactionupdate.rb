@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class InputTransactionUpdate
   attr_accessor :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :currency_code, :supply_date, :invoice_address, :verification_token, :tax_data, :transaction_lines, :buyer_tax_number, :status, :custom_fields, :force_country_code, :invoice_number, :order_date, :customer_id, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :additional_currencies, :invoice_place, :evidence, :description, :tax_deducted, :tax_country_code
 
@@ -196,4 +197,4 @@ class InputTransactionUpdate
     body
   end
 end
-
+end

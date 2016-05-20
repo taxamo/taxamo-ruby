@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class LocateGivenIPOut
   attr_accessor :remote_addr, :country_code, :country
 
@@ -69,4 +70,4 @@ class LocateGivenIPOut
     body
   end
 end
-
+end
