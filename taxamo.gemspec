@@ -12,11 +12,8 @@ spec = Gem::Specification.new do |s|
   s.homepage = 'https://www.taxamo.com/apidocs/index.html'
   s.license = 'Apache'
 
-  #s.add_dependency('rest-client', '~> 1.4')
-  #s.add_dependency('mime-types', '>= 1.25', '< 3.0')
-  #s.add_dependency('json', '~> 1.8.1')
   s.add_dependency('addressable', '~> 2')
-  s.add_dependency('typhoeus', '~> 0.6.0')
+  s.add_dependency('typhoeus', '> 0.6.0')
   s.add_dependency('require_all', '~> 1.3.2')
 
   s.add_development_dependency('mocha', '~> 0.13.2')

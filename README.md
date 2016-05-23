@@ -8,7 +8,7 @@ To install it, just fetch this repository and issue the following command:
 
 ```shell
 $ gem build taxamo.gemspec
-$ gem install taxamo-2.0.0.gem
+$ gem install taxamo-2.0.1.gem
 ```
 
 Alternatively, add the following line to your project's `Gemfile` file:
@@ -24,6 +24,9 @@ gem "taxamo", github: "taxamo/taxamo-ruby", '~> 1.1'
 ```
 
 ## Changes
+
+2.0.1 (2016-05-23):
+ * bring dependencies up-to-date
 
 2.0.0 (2016-05-20):
  * introduce namespaces to taxamo.models.*
