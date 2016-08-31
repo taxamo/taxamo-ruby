@@ -1040,7 +1040,7 @@ module Taxamo
     end
 
     def create_s_m_s_token (body,opts={})
-      query_param_keys = []
+      query_param_keys = [:country_code, :recipient]
 
       # verify existence of params
       raise "body is required" if body.nil?
