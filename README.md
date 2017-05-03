@@ -8,13 +8,13 @@ To install it, just fetch this repository and issue the following command:
 
 ```shell
 $ gem build taxamo.gemspec
-$ gem install taxamo-2.0.1.gem
+$ gem install taxamo-ns-2.2.0.gem
 ```
 
 Alternatively, add the following line to your project's `Gemfile` file:
 
 ```ruby
-gem "taxamo", github: "taxamo/taxamo-ruby", '~> 2.0'
+gem "taxamo-ns", github: "taxamo/taxamo-ruby", '~> 2.0'
 ```
 
 If your code relies on 1.x version and uses the classes for constructing input, without the namespaces, you can keep on using it:
@@ -25,6 +25,9 @@ gem "taxamo", github: "taxamo/taxamo-ruby", '~> 1.1'
 
 ## Changes
 
+2.2.0 (2017-05-03):
+ * rename the gem to taxamo-ns to distinguish it from non-namespaced version
+ 
 2.1.0 (2017-05-03):
  * bring API client up-to-date with current api endpoints. Please note that the following methods have their arity changed: `get_eu_vies_report`, `get_settlement`, `list_transactions`.
  
