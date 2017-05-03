@@ -525,19 +525,21 @@ module Taxamo
 
     end
 
-    def list_transactions (filter_text,offset,key_or_custom_id,currency_code,order_date_to,sort_reverse,limit,invoice_number,statuses,order_date_from,total_amount_greater_than,format,total_amount_less_than,tax_country_code,original_transaction_key,opts={})
-      query_param_keys = [:filter_text,:offset,:key_or_custom_id,:currency_code,:order_date_to,:sort_reverse,:limit,:invoice_number,:statuses,:original_transaction_key,:order_date_from,:total_amount_greater_than,:format,:total_amount_less_than,:tax_country_code]
+    def list_transactions (filter_text,offset,key_or_custom_id,currency_code,order_date_to,sort_reverse,limit,invoice_number,statuses,order_date_from,total_amount_greater_than,format,total_amount_less_than,tax_country_code,original_transaction_key,has_note,tax_country_codes, opts={})
+      query_param_keys = [:filter_text,:offset,:key_or_custom_id,:currency_code,:order_date_to,:sort_reverse,:limit,:invoice_number,:statuses,:original_transaction_key,:order_date_from,:total_amount_greater_than,:format,:total_amount_less_than,:tax_country_code,:has_note, :tax_country_codes]
 
       # set default values and merge with input
       options = {
           :filter_text => filter_text,
           :offset => offset,
+          :has_note => has_note,
           :key_or_custom_id => key_or_custom_id,
           :currency_code => currency_code,
           :order_date_to => order_date_to,
           :sort_reverse => sort_reverse,
           :limit => limit,
           :invoice_number => invoice_number,
+          :tax_country_codes => tax_country_codes,
           :statuses => statuses,
           :original_transaction_key => original_transaction_key,
           :order_date_from => order_date_from,
@@ -883,23 +885,25 @@ module Taxamo
 
     end
 
-    def get_eu_vies_report (format,transformation,eu_country_code,currency_code,tax_id,start_month,end_month,fx_date_type,opts={})
-      query_param_keys = [:format,:transformation,:eu_country_code,:currency_code,:tax_id,:start_month,:end_month,:fx_date_type]
+    def get_eu_vies_report (period_length,lff_sequence_number,transformation,currency_code,end_month,tax_id,start_month,eu_country_code,fx_date_type,format,opts={})
+      query_param_keys = [:period_length,:lff_sequence_number,:transformation,:currency_code,:end_month,:tax_id,:start_month,:eu_country_code,:fx_date_type,:format]
 
       # verify existence of params
-      raise "eu_country_code is required" if eu_country_code.nil?
-      raise "start_month is required" if start_month.nil?
       raise "end_month is required" if end_month.nil?
+      raise "start_month is required" if start_month.nil?
+      raise "eu_country_code is required" if eu_country_code.nil?
       # set default values and merge with input
       options = {
-          :format => format,
+          :period_length => period_length,
+          :lff_sequence_number => lff_sequence_number,
           :transformation => transformation,
-          :eu_country_code => eu_country_code,
           :currency_code => currency_code,
+          :end_month => end_month,
           :tax_id => tax_id,
           :start_month => start_month,
-          :end_month => end_month,
-          :fx_date_type => fx_date_type}.merge(opts)
+          :eu_country_code => eu_country_code,
+          :fx_date_type => fx_date_type,
+          :format => format}.merge(opts)
 
       #resource path
       path = "/api/v1/reports/eu/vies".sub('{format}','json')
@@ -949,6 +953,34 @@ module Taxamo
 
     end
 
+    def get_detailed_refunds (format,country_codes,date_from,date_to,limit,offset,opts={})
+      query_param_keys = [:format,:country_codes,:date_from,:date_to,:limit,:offset]
+
+      # set default values and merge with input
+      options = {
+          :format => format,
+          :country_codes => country_codes,
+          :date_from => date_from,
+          :date_to => date_to,
+          :limit => limit,
+          :offset => offset}.merge(opts)
+
+      #resource path
+      path = "/api/v1/settlement/detailed_refunds".sub('{format}','json')
+
+
+      # pull querystring keys from options
+      queryopts = options.select do |key,value|
+        query_param_keys.include? key
+      end
+
+      headers = nil
+      post_body = nil
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      GetDetailedRefundsOut.new(response)
+
+    end
+
     def get_refunds (format,moss_country_code,tax_region,date_from,opts={})
       query_param_keys = [:format,:moss_country_code,:tax_region,:date_from]
 
@@ -977,21 +1009,22 @@ module Taxamo
 
     end
 
-    def get_settlement (format,moss_country_code,tax_country_code,currency_code,moss_tax_id,tax_id,start_month,end_month,quarter,opts={})
-      query_param_keys = [:format,:moss_country_code,:tax_country_code,:currency_code,:moss_tax_id,:tax_id,:start_month,:end_month]
+    def get_settlement (moss_tax_id,currency_code,end_month,tax_id,refund_date_kind_override,start_month,moss_country_code,format,tax_country_code,quarter,opts={})
+      query_param_keys = [:moss_tax_id,:currency_code,:end_month,:tax_id,:refund_date_kind_override,:start_month,:moss_country_code,:format,:tax_country_code]
 
       # verify existence of params
       raise "quarter is required" if quarter.nil?
       # set default values and merge with input
       options = {
-          :format => format,
-          :moss_country_code => moss_country_code,
-          :tax_country_code => tax_country_code,
-          :currency_code => currency_code,
           :moss_tax_id => moss_tax_id,
-          :tax_id => tax_id,
-          :start_month => start_month,
+          :currency_code => currency_code,
           :end_month => end_month,
+          :tax_id => tax_id,
+          :refund_date_kind_override => refund_date_kind_override,
+          :start_month => start_month,
+          :moss_country_code => moss_country_code,
+          :format => format,
+          :tax_country_code => tax_country_code,
           :quarter => quarter}.merge(opts)
 
       #resource path

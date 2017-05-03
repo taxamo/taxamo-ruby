@@ -11,18 +11,13 @@
 # limitations under the License.
 
 module Taxamo
-class AdditionalCurrency
-  attr_accessor :currency_code, :amount, :tax_amount, :fx_rate, :fx_date, :total_amount
+class GetDetailedRefundsOut
+  attr_accessor :report
 
   # :internal => :external
   def self.attribute_map
     {
-      :currency_code => :currency_code,
-      :amount => :amount,
-      :tax_amount => :tax_amount,
-      :fx_rate => :fx_rate,
-      :fx_date => :fx_date,
-      :total_amount => :total_amount
+      :report => :report
 
     }
   end
@@ -30,30 +25,11 @@ class AdditionalCurrency
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["currency_code"]
-      @currency_code = attributes["currency_code"]
-        
-    end
-    if attributes["amount"]
-      @amount = attributes["amount"]
-        
-    end
-    if attributes["tax_amount"]
-      @tax_amount = attributes["tax_amount"]
-        
-    end
-    if attributes["fx_rate"]
-      @fx_rate = attributes["fx_rate"]
-        
-    end
-    if attributes["fx_date"]
-      @fx_date = attributes["fx_date"]
-        
-    end
-    if attributes["total_amount"]
-      @total_amount = attributes["total_amount"]
-        
-    end
+    if attributes["report"]
+      if (value = attributes["report"]).is_a?(Array)
+          @report = value.map{ |v| Report.new(v) }
+        end
+      end
     
 
   end

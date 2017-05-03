@@ -25,6 +25,9 @@ gem "taxamo", github: "taxamo/taxamo-ruby", '~> 1.1'
 
 ## Changes
 
+2.1.0 (2017-05-03):
+ * bring API client up-to-date with current api endpoints. Please note that the following methods have their arity changed: `get_eu_vies_report`, `get_settlement`, `list_transactions`.
+ 
 2.0.1 (2016-05-23):
  * bring dependencies up-to-date
 

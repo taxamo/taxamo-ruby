@@ -131,7 +131,9 @@ class TransactionsApiTest < Test::Unit::TestCase
                                     nil, #format,
                                     nil, #total_amount_less_than
                                     nil, #tax_country_code
-                                    nil #original_transaction_key
+                                    nil, #original_transaction_key
+                                    nil, #has_note
+                                    nil #tax_country_codes
                                     )
 
     assert_true resp.transactions.length > 0
@@ -155,7 +157,9 @@ class TransactionsApiTest < Test::Unit::TestCase
                                     nil, #format,
                                     nil, #total_amount_less_than
                                     nil, #tax_country_code
-                                    nil #original_transaction_key
+                                    nil, #original_transaction_key
+                                    nil, #has_note
+                                    nil #tax_country_codes
                                     )
     assert_true resp.transactions.length != 0
 
@@ -304,7 +308,9 @@ class TransactionsApiTest < Test::Unit::TestCase
                                     nil, #format,
                                     nil, #total_amount_less_than
                                     nil, #tax_country_code
-                                    nil #original_transaction_key
+                                    nil, #original_transaction_key
+                                    nil, #has_note
+                                    nil #tax_country_codes
                                     )
 
     assert_false resp.transactions[0].key.nil?
