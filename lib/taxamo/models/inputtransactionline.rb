@@ -10,13 +10,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class InputTransactionLine
-  attr_accessor :product_type, :supply_date, :unit_price, :unit_of_measure, :quantity, :custom_fields, :line_key, :tax_name, :product_code, :amount, :custom_id, :informative, :tax_rate, :total_amount, :product_tax_code, :description
+  attr_accessor :product_type, :deducted_tax_rate, :supply_date, :unit_price, :unit_of_measure, :quantity, :custom_fields, :line_key, :tax_name, :product_code, :amount, :custom_id, :informative, :tax_rate, :total_amount, :product_tax_code, :description
 
   # :internal => :external
   def self.attribute_map
     {
       :product_type => :product_type,
+      :deducted_tax_rate => :deducted_tax_rate,
       :supply_date => :supply_date,
       :unit_price => :unit_price,
       :unit_of_measure => :unit_of_measure,
@@ -41,6 +43,10 @@ class InputTransactionLine
     # Morph attribute keys into undescored rubyish style
     if attributes["product_type"]
       @product_type = attributes["product_type"]
+        
+    end
+    if attributes["deducted_tax_rate"]
+      @deducted_tax_rate = attributes["deducted_tax_rate"]
         
     end
     if attributes["supply_date"]
@@ -135,4 +141,4 @@ class InputTransactionLine
     body
   end
 end
-
+end

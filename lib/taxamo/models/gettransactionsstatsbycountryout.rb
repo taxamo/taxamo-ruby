@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class GetTransactionsStatsByCountryOut
   attr_accessor :by_country
 
@@ -60,4 +61,4 @@ class GetTransactionsStatsByCountryOut
     body
   end
 end
-
+end

@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class GetCurrenciesDictOut
   attr_accessor :dictionary
 
@@ -60,4 +61,4 @@ class GetCurrenciesDictOut
     body
   end
 end
-
+end

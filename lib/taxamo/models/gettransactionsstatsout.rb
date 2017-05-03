@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class GetTransactionsStatsOut
   attr_accessor :by_status
 
@@ -59,4 +60,4 @@ class GetTransactionsStatsOut
     body
   end
 end
-
+end

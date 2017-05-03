@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class Evidence
   attr_accessor :by_token, :by_cc, :by_2003_rules, :forced, :by_payment_method, :by_ip, :guessed_from_ip, :other_commercially_relevant_info, :by_billing, :by_tax_number, :self_declaration
 
@@ -109,4 +110,4 @@ class Evidence
     body
   end
 end
-
+end

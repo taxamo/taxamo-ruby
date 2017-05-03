@@ -10,8 +10,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class Transactions
-  attr_accessor :confirm_timestamp, :fully_informative, :deducted_tax_amount, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :create_timestamp, :currency_code, :supply_date, :invoice_image_url, :key, :invoice_address, :buyer_tax_number_valid, :verification_token, :tax_supported, :tax_data, :transaction_lines, :buyer_tax_number, :external_key, :status, :custom_fields, :force_country_code, :countries, :invoice_number, :order_date, :customer_id, :kind, :source, :amount, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :tax_amount, :additional_currencies, :invoice_place, :total_amount, :tax_entity_name, :evidence, :refunded_tax_amount, :manual, :tax_timezone, :description, :test, :tax_deducted, :tax_country_code, :refunded_total_amount
+  attr_accessor :confirm_timestamp, :fully_informative, :deducted_tax_amount, :order_date_type, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :create_timestamp, :currency_code, :sub_account_id, :supply_date, :invoice_image_url, :key, :tax_number_service, :invoice_address, :buyer_tax_number_valid, :verification_token, :note, :tax_supported, :tax_data, :transaction_lines, :buyer_tax_number, :external_key, :status, :custom_fields, :force_country_code, :countries, :invoice_number, :order_date, :customer_id, :kind, :source, :amount, :comments, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :tax_amount, :additional_currencies, :invoice_place, :total_amount, :tax_entity_name, :evidence, :refunded_tax_amount, :manual, :tax_timezone, :description, :test, :tax_deducted, :tax_country_code, :refunded_total_amount
 
   # :internal => :external
   def self.attribute_map
@@ -19,18 +20,22 @@ class Transactions
       :confirm_timestamp => :confirm_timestamp,
       :fully_informative => :fully_informative,
       :deducted_tax_amount => :deducted_tax_amount,
+      :order_date_type => :order_date_type,
       :buyer_credit_card_prefix => :buyer_credit_card_prefix,
       :custom_data => :custom_data,
       :buyer_name => :buyer_name,
       :invoice_date => :invoice_date,
       :create_timestamp => :create_timestamp,
       :currency_code => :currency_code,
+      :sub_account_id => :sub_account_id,
       :supply_date => :supply_date,
       :invoice_image_url => :invoice_image_url,
       :key => :key,
+      :tax_number_service => :tax_number_service,
       :invoice_address => :invoice_address,
       :buyer_tax_number_valid => :buyer_tax_number_valid,
       :verification_token => :verification_token,
+      :note => :note,
       :tax_supported => :tax_supported,
       :tax_data => :tax_data,
       :transaction_lines => :transaction_lines,
@@ -46,6 +51,7 @@ class Transactions
       :kind => :kind,
       :source => :source,
       :amount => :amount,
+      :comments => :comments,
       :buyer_ip => :buyer_ip,
       :buyer_email => :buyer_email,
       :original_transaction_key => :original_transaction_key,
@@ -84,6 +90,10 @@ class Transactions
       @deducted_tax_amount = attributes["deducted_tax_amount"]
         
     end
+    if attributes["order_date_type"]
+      @order_date_type = attributes["order_date_type"]
+        
+    end
     if attributes["buyer_credit_card_prefix"]
       @buyer_credit_card_prefix = attributes["buyer_credit_card_prefix"]
         
@@ -108,6 +118,10 @@ class Transactions
       @currency_code = attributes["currency_code"]
         
     end
+    if attributes["sub_account_id"]
+      @sub_account_id = attributes["sub_account_id"]
+        
+    end
     if attributes["supply_date"]
       @supply_date = attributes["supply_date"]
         
@@ -120,6 +134,10 @@ class Transactions
       @key = attributes["key"]
         
     end
+    if attributes["tax_number_service"]
+      @tax_number_service = attributes["tax_number_service"]
+        
+    end
     if attributes["invoice_address"]
       @invoice_address = InvoiceAddress.new(attributes["invoice_address"])
         
@@ -130,6 +148,10 @@ class Transactions
     end
     if attributes["verification_token"]
       @verification_token = attributes["verification_token"]
+        
+    end
+    if attributes["note"]
+      @note = attributes["note"]
         
     end
     if attributes["tax_supported"]
@@ -192,6 +214,10 @@ class Transactions
     end
     if attributes["amount"]
       @amount = attributes["amount"]
+        
+    end
+    if attributes["comments"]
+      @comments = attributes["comments"]
         
     end
     if attributes["buyer_ip"]
@@ -301,4 +327,4 @@ class Transactions
     body
   end
 end
-
+end

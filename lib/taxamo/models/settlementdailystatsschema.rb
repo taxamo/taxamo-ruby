@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class SettlementDailyStatsSchema
   attr_accessor :b2c, :untaxed, :eu_taxed, :eu_b2b, :count, :eu_total, :day_raw, :b2b, :day
 
@@ -99,4 +100,4 @@ class SettlementDailyStatsSchema
     body
   end
 end
-
+end

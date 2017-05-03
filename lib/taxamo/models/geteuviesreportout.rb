@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class GetEuViesReportOut
   attr_accessor :report, :currency_code, :start_date, :end_date
 
@@ -75,4 +76,4 @@ class GetEuViesReportOut
     body
   end
 end
-
+end

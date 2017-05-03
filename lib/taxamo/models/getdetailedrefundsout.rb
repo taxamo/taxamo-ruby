@@ -11,15 +11,13 @@
 # limitations under the License.
 
 module Taxamo
-class UpdateTransactionOut
-  attr_accessor :transaction, :tax_required_fields, :storage_required_fields
+class GetDetailedRefundsOut
+  attr_accessor :report
 
   # :internal => :external
   def self.attribute_map
     {
-      :transaction => :transaction,
-      :tax_required_fields => :tax_required_fields,
-      :storage_required_fields => :storage_required_fields
+      :report => :report
 
     }
   end
@@ -27,18 +25,9 @@ class UpdateTransactionOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["transaction"]
-      @transaction = Transaction.new(attributes["transaction"])
-        
-    end
-    if attributes["tax_required_fields"]
-      if (value = attributes["tax_required_fields"]).is_a?(Array)
-          @tax_required_fields = value.map{ |v| TaxRequiredFields.new(v) }
-        end
-      end
-    if attributes["storage_required_fields"]
-      if (value = attributes["storage_required_fields"]).is_a?(Array)
-          @storage_required_fields = value.map{ |v| StorageRequiredFields.new(v) }
+    if attributes["report"]
+      if (value = attributes["report"]).is_a?(Array)
+          @report = value.map{ |v| Report.new(v) }
         end
       end
     

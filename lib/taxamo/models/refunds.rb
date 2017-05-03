@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class Refunds
   attr_accessor :refund_note_url, :refund_note_number, :line_key, :refund_timestamp, :amount, :informative, :tax_amount, :tax_rate, :total_amount, :refund_reason
 
@@ -104,4 +105,4 @@ class Refunds
     body
   end
 end
-
+end

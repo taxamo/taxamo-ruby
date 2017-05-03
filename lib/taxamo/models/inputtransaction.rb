@@ -10,20 +10,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class InputTransaction
-  attr_accessor :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :currency_code, :supply_date, :invoice_address, :verification_token, :tax_data, :transaction_lines, :buyer_tax_number, :status, :custom_fields, :force_country_code, :invoice_number, :order_date, :customer_id, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :additional_currencies, :invoice_place, :evidence, :description, :tax_deducted, :tax_country_code
+  attr_accessor :order_date_type, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :currency_code, :sub_account_id, :supply_date, :invoice_address, :verification_token, :note, :tax_data, :transaction_lines, :buyer_tax_number, :status, :custom_fields, :force_country_code, :invoice_number, :order_date, :customer_id, :comments, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :additional_currencies, :invoice_place, :evidence, :description, :tax_deducted, :tax_country_code
 
   # :internal => :external
   def self.attribute_map
     {
+      :order_date_type => :order_date_type,
       :buyer_credit_card_prefix => :buyer_credit_card_prefix,
       :custom_data => :custom_data,
       :buyer_name => :buyer_name,
       :invoice_date => :invoice_date,
       :currency_code => :currency_code,
+      :sub_account_id => :sub_account_id,
       :supply_date => :supply_date,
       :invoice_address => :invoice_address,
       :verification_token => :verification_token,
+      :note => :note,
       :tax_data => :tax_data,
       :transaction_lines => :transaction_lines,
       :buyer_tax_number => :buyer_tax_number,
@@ -33,6 +37,7 @@ class InputTransaction
       :invoice_number => :invoice_number,
       :order_date => :order_date,
       :customer_id => :customer_id,
+      :comments => :comments,
       :buyer_ip => :buyer_ip,
       :buyer_email => :buyer_email,
       :original_transaction_key => :original_transaction_key,
@@ -51,6 +56,10 @@ class InputTransaction
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
+    if attributes["order_date_type"]
+      @order_date_type = attributes["order_date_type"]
+        
+    end
     if attributes["buyer_credit_card_prefix"]
       @buyer_credit_card_prefix = attributes["buyer_credit_card_prefix"]
         
@@ -71,6 +80,10 @@ class InputTransaction
       @currency_code = attributes["currency_code"]
         
     end
+    if attributes["sub_account_id"]
+      @sub_account_id = attributes["sub_account_id"]
+        
+    end
     if attributes["supply_date"]
       @supply_date = attributes["supply_date"]
         
@@ -81,6 +94,10 @@ class InputTransaction
     end
     if attributes["verification_token"]
       @verification_token = attributes["verification_token"]
+        
+    end
+    if attributes["note"]
+      @note = attributes["note"]
         
     end
     if attributes["tax_data"]
@@ -119,6 +136,10 @@ class InputTransaction
     end
     if attributes["customer_id"]
       @customer_id = attributes["customer_id"]
+        
+    end
+    if attributes["comments"]
+      @comments = attributes["comments"]
         
     end
     if attributes["buyer_ip"]
@@ -196,4 +217,4 @@ class InputTransaction
     body
   end
 end
-
+end

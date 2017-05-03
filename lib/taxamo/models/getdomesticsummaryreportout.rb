@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class GetDomesticSummaryReportOut
   attr_accessor :end_date, :domestic_refunds_amount, :currency_code, :global_refunds_tax_amount, :domestic_refunds_tax_amount, :eu_tax_deducted_refunds, :global_sales_amount, :global_refunds_amount, :global_sales_tax_amount, :eu_tax_deducted_sales, :start_date, :domestic_tax_amount, :domestic_sales_amount
 
@@ -119,4 +120,4 @@ class GetDomesticSummaryReportOut
     body
   end
 end
-
+end

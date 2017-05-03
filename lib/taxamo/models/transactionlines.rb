@@ -10,14 +10,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class TransactionLines
-  attr_accessor :product_type, :deducted_tax_amount, :supply_date, :id, :unit_price, :unit_of_measure, :quantity, :custom_fields, :line_key, :tax_name, :product_code, :amount, :custom_id, :informative, :tax_amount, :tax_rate, :additional_currencies, :total_amount, :product_tax_code, :refunded_tax_amount, :description, :refunded_total_amount
+  attr_accessor :product_type, :deducted_tax_amount, :deducted_tax_rate, :supply_date, :id, :unit_price, :unit_of_measure, :quantity, :custom_fields, :line_key, :tax_name, :product_code, :amount, :custom_id, :informative, :tax_amount, :tax_rate, :additional_currencies, :total_amount, :product_tax_code, :refunded_tax_amount, :description, :refunded_total_amount
 
   # :internal => :external
   def self.attribute_map
     {
       :product_type => :product_type,
       :deducted_tax_amount => :deducted_tax_amount,
+      :deducted_tax_rate => :deducted_tax_rate,
       :supply_date => :supply_date,
       :id => :id,
       :unit_price => :unit_price,
@@ -51,6 +53,10 @@ class TransactionLines
     end
     if attributes["deducted_tax_amount"]
       @deducted_tax_amount = attributes["deducted_tax_amount"]
+        
+    end
+    if attributes["deducted_tax_rate"]
+      @deducted_tax_rate = attributes["deducted_tax_rate"]
         
     end
     if attributes["supply_date"]
@@ -165,4 +171,4 @@ class TransactionLines
     body
   end
 end
-
+end

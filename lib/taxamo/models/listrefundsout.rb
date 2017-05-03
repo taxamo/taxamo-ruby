@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class ListRefundsOut
   attr_accessor :refunds
 
@@ -60,4 +61,4 @@ class ListRefundsOut
     body
   end
 end
-
+end

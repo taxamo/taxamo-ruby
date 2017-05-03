@@ -8,16 +8,35 @@ To install it, just fetch this repository and issue the following command:
 
 ```shell
 $ gem build taxamo.gemspec
-$ gem install taxamo-1.1.1.gem
+$ gem install taxamo-ns-2.2.0.gem
 ```
 
 Alternatively, add the following line to your project's `Gemfile` file:
 
 ```ruby
-gem "taxamo", github: "taxamo/taxamo-ruby"
+gem "taxamo-ns", github: "taxamo/taxamo-ruby", '~> 2.0'
+```
+
+If your code relies on 1.x version and uses the classes for constructing input, without the namespaces, you can keep on using it:
+
+```ruby
+gem "taxamo", github: "taxamo/taxamo-ruby", '~> 1.1'
 ```
 
 ## Changes
+
+2.2.0 (2017-05-03):
+ * rename the gem to taxamo-ns to distinguish it from non-namespaced version
+ 
+2.1.0 (2017-05-03):
+ * bring API client up-to-date with current api endpoints. Please note that the following methods have their arity changed: `get_eu_vies_report`, `get_settlement`, `list_transactions`.
+ 
+2.0.1 (2016-05-23):
+ * bring dependencies up-to-date
+
+2.0.0 (2016-05-20):
+ * introduce namespaces to taxamo.models.*
+ * send a Source-Id header in all HTTP requests. The header will contain current library version.
 
 1.1.1 (2016-05-17):
  * bring API client up-to-date with current api endpoints. Please note that the following methods have their arity changed: `list_transactions`
@@ -87,13 +106,13 @@ resp = Taxamo.calculate_tax(
 But also regular classes:
 
 ```ruby
-taxIn = CalculateTaxIn.new
-taxIn.transaction = InputTransaction.new
+taxIn = Taxamo::CalculateTaxIn.new
+taxIn.transaction = Taxamo::InputTransaction.new
 taxIn.transaction.currency_code = 'USD'
 taxIn.transaction.buyer_ip = '127.0.0.1'
 taxIn.transaction.billing_country_code = 'IE'
 taxIn.transaction.force_country_code = 'FR'
-taxIn.transaction.transaction_lines = [InputTransactionLine.new, InputTransactionLine.new]
+taxIn.transaction.transaction_lines = [Taxamo::InputTransactionLine.new, Taxamo::InputTransactionLine.new]
 taxIn.transaction.transaction_lines[0].amount = 200
 taxIn.transaction.transaction_lines[0].custom_id = 'line1'
 taxIn.transaction.transaction_lines[1].amount = 100
@@ -120,7 +139,7 @@ Please see http://www.taxamo.com/documentation/ for the most up-to-date document
 
 ## License
 
-Copyright 2014-2015 Taxamo, Ltd.
+Copyright 2014-2016 Taxamo, Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

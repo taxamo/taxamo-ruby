@@ -10,8 +10,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class AdditionalCurrency
-  attr_accessor :currency_code, :amount, :tax_amount, :fx_rate, :total_amount
+  attr_accessor :currency_code, :amount, :tax_amount, :fx_rate, :fx_date, :total_amount
 
   # :internal => :external
   def self.attribute_map
@@ -20,6 +21,7 @@ class AdditionalCurrency
       :amount => :amount,
       :tax_amount => :tax_amount,
       :fx_rate => :fx_rate,
+      :fx_date => :fx_date,
       :total_amount => :total_amount
 
     }
@@ -42,6 +44,10 @@ class AdditionalCurrency
     end
     if attributes["fx_rate"]
       @fx_rate = attributes["fx_rate"]
+        
+    end
+    if attributes["fx_date"]
+      @fx_date = attributes["fx_date"]
         
     end
     if attributes["total_amount"]
@@ -79,4 +85,4 @@ class AdditionalCurrency
     body
   end
 end
-
+end

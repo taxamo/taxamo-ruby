@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class UsTaxExemptionCertificateDetailsSchema
   attr_accessor :single_purchase_order_identifier, :purchaser_business_type, :purchaser_exemption_reason_value, :purchaser_state, :purchaser_zip, :purchaser_city, :purchaser_last_name, :purchaser_exemption_reason, :single_purchase, :purchaser_tax_id, :purchaser_address2, :purchaser_address1, :purchaser_business_type_other_value, :purchaser_first_name, :exempt_states, :purchaser_title
 
@@ -135,4 +136,4 @@ class UsTaxExemptionCertificateDetailsSchema
     body
   end
 end
-
+end

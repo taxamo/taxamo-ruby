@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class UsTaxExemptionCertificateSchema
   attr_accessor :certificate_id, :detail
 
@@ -64,4 +65,4 @@ class UsTaxExemptionCertificateSchema
     body
   end
 end
-
+end

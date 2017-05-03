@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class InvoiceAddress
   attr_accessor :freeform_address, :building_number, :street_name, :address_detail, :city, :postal_code, :region, :country
 
@@ -94,4 +95,4 @@ class InvoiceAddress
     body
   end
 end
-
+end

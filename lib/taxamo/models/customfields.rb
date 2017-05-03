@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class CustomFields
   attr_accessor :key, :value
 
@@ -64,4 +65,4 @@ class CustomFields
     body
   end
 end
-
+end

@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class ListPaymentsOut
   attr_accessor :payments
 
@@ -60,4 +61,4 @@ class ListPaymentsOut
     body
   end
 end
-
+end

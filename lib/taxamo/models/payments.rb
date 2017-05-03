@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class Payments
   attr_accessor :amount, :payment_timestamp, :payment_information
 
@@ -69,4 +70,4 @@ class Payments
     body
   end
 end
-
+end

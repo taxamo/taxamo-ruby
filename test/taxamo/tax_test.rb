@@ -54,13 +54,13 @@ class TaxTest < Test::Unit::TestCase
       config.api_key = 'SamplePrivateTestKey1'
     end
 
-    taxIn = CalculateTaxIn.new
-    taxIn.transaction = InputTransaction.new
+    taxIn = Taxamo::CalculateTaxIn.new
+    taxIn.transaction = Taxamo::InputTransaction.new
     taxIn.transaction.currency_code = 'USD'
     taxIn.transaction.buyer_ip = '127.0.0.1'
     taxIn.transaction.billing_country_code = 'IE'
     taxIn.transaction.force_country_code = 'FR'
-    taxIn.transaction.transaction_lines = [InputTransactionLine.new, InputTransactionLine.new]
+    taxIn.transaction.transaction_lines = [Taxamo::InputTransactionLine.new, Taxamo::InputTransactionLine.new]
     taxIn.transaction.transaction_lines[0].amount = 200
     taxIn.transaction.transaction_lines[0].custom_id = 'line1'
     taxIn.transaction.transaction_lines[1].amount = 100

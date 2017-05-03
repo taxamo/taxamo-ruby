@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class EmailInvoiceIn
   attr_accessor :buyer_email
 
@@ -59,4 +60,4 @@ class EmailInvoiceIn
     body
   end
 end
-
+end

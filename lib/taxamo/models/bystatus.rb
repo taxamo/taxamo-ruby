@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class ByStatus
   attr_accessor :_n, :_c
 
@@ -66,4 +67,4 @@ class ByStatus
     body
   end
 end
-
+end

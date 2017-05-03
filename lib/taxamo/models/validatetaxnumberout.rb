@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class ValidateTaxNumberOut
   attr_accessor :tax_deducted, :buyer_tax_number, :buyer_tax_number_valid, :billing_country_code
 
@@ -74,4 +75,4 @@ class ValidateTaxNumberOut
     body
   end
 end
-
+end

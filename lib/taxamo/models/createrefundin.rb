@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class CreateRefundIn
   attr_accessor :line_key, :custom_id, :amount, :total_amount, :refund_reason
 
@@ -79,4 +80,4 @@ class CreateRefundIn
     body
   end
 end
-
+end

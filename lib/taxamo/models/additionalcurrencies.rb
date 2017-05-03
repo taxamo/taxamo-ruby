@@ -10,6 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+module Taxamo
 class AdditionalCurrencies
   attr_accessor :invoice
 
@@ -59,4 +60,4 @@ class AdditionalCurrencies
     body
   end
 end
-
+end
