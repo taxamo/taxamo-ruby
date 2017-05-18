@@ -25,7 +25,7 @@ class VerifySMSTokenOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["country_code"]
+    unless attributes["country_code"].nil?
       @country_code = attributes["country_code"]
         
     end

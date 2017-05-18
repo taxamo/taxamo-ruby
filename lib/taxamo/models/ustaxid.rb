@@ -27,15 +27,15 @@ class UsTaxId
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["tax_id_type"]
+    unless attributes["tax_id_type"].nil?
       @tax_id_type = attributes["tax_id_type"]
         
     end
-    if attributes["tax_id"]
+    unless attributes["tax_id"].nil?
       @tax_id = attributes["tax_id"]
         
     end
-    if attributes["state_of_issue"]
+    unless attributes["state_of_issue"].nil?
       @state_of_issue = attributes["state_of_issue"]
         
     end

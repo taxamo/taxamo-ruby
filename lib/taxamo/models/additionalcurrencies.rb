@@ -25,7 +25,7 @@ class AdditionalCurrencies
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["invoice"]
+    unless attributes["invoice"].nil?
       @invoice = AdditionalCurrency.new(attributes["invoice"])
         
     end

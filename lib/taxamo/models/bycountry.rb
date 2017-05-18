@@ -28,19 +28,19 @@ class ByCountry
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["value"]
+    unless attributes["value"].nil?
       @value = attributes["value"]
         
     end
-    if attributes["tax_country_name"]
+    unless attributes["tax_country_name"].nil?
       @tax_country_name = attributes["tax_country_name"]
         
     end
-    if attributes["tax_country_code"]
+    unless attributes["tax_country_code"].nil?
       @tax_country_code = attributes["tax_country_code"]
         
     end
-    if attributes["currency_code"]
+    unless attributes["currency_code"].nil?
       @currency_code = attributes["currency_code"]
         
     end

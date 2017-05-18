@@ -25,7 +25,7 @@ class GetTransactionsStatsByCountryOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["by_country"]
+    unless attributes["by_country"].nil?
       if (value = attributes["by_country"]).is_a?(Array)
           @by_country = value.map{ |v| ByCountry.new(v) }
         end

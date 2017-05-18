@@ -11,7 +11,7 @@
 # limitations under the License.
 
 module Taxamo
-  VERSION = "2.2.0"
+  VERSION = "2.3.0"
 end
 
 

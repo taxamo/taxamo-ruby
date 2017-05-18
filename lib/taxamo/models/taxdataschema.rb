@@ -25,7 +25,7 @@ class TaxDataSchema
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["us_tax_exemption_certificate"]
+    unless attributes["us_tax_exemption_certificate"].nil?
       @us_tax_exemption_certificate = UsTaxExemptionCertificateSchema.new(attributes["us_tax_exemption_certificate"])
         
     end

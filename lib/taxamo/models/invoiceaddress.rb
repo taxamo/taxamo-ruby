@@ -32,35 +32,35 @@ class InvoiceAddress
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["freeform_address"]
+    unless attributes["freeform_address"].nil?
       @freeform_address = attributes["freeform_address"]
         
     end
-    if attributes["building_number"]
+    unless attributes["building_number"].nil?
       @building_number = attributes["building_number"]
         
     end
-    if attributes["street_name"]
+    unless attributes["street_name"].nil?
       @street_name = attributes["street_name"]
         
     end
-    if attributes["address_detail"]
+    unless attributes["address_detail"].nil?
       @address_detail = attributes["address_detail"]
         
     end
-    if attributes["city"]
+    unless attributes["city"].nil?
       @city = attributes["city"]
         
     end
-    if attributes["postal_code"]
+    unless attributes["postal_code"].nil?
       @postal_code = attributes["postal_code"]
         
     end
-    if attributes["region"]
+    unless attributes["region"].nil?
       @region = attributes["region"]
         
     end
-    if attributes["country"]
+    unless attributes["country"].nil?
       @country = attributes["country"]
         
     end

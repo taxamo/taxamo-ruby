@@ -25,7 +25,7 @@ class GetCountriesDictOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["dictionary"]
+    unless attributes["dictionary"].nil?
       if (value = attributes["dictionary"]).is_a?(Array)
           @dictionary = value.map{ |v| CountrySchema.new(v) }
         end

@@ -20,7 +20,7 @@ The library can also be installed directy - just fetch this repository and issue
 
 ```shell
 $ gem build taxamo.gemspec
-$ gem install taxamo-ns-2.2.0.gem
+$ gem install taxamo-ns-2.3.0.gem
 ```
 
 Finally, you can use this github repo and add the following line to your project's `Gemfile` file:
@@ -37,6 +37,9 @@ gem "taxamo", github: "taxamo/taxamo-ruby", '~> 1.1'
 
 ## Changes
 
+2.3.0 (2017-05-18):
+ * set attr if `false` value is provided in the JSON response to differentiate `nil` and `false`
+ 
 2.2.0 (2017-05-03):
  * rename the gem to taxamo-ns to distinguish it from non-namespaced version
  
@@ -151,7 +154,7 @@ Please see http://www.taxamo.com/documentation/ for the most up-to-date document
 
 ## License
 
-Copyright 2014-2016 Taxamo, Ltd.
+Copyright 2014-2017 Taxamo, Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

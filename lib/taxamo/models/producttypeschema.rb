@@ -25,7 +25,7 @@ class ProductTypeSchema
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["code"]
+    unless attributes["code"].nil?
       @code = attributes["code"]
         
     end

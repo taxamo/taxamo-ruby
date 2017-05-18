@@ -36,53 +36,53 @@ class CountrySchema
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["code_long"]
+    unless attributes["code_long"].nil?
       @code_long = attributes["code_long"]
         
     end
-    if attributes["codenum"]
+    unless attributes["codenum"].nil?
       @codenum = attributes["codenum"]
         
     end
-    if attributes["currency"]
+    unless attributes["currency"].nil?
       if (value = attributes["currency"]).is_a?(Array)
           @currency = value
         end
       end
-    if attributes["tax_supported"]
+    unless attributes["tax_supported"].nil?
       @tax_supported = attributes["tax_supported"]
         
     end
-    if attributes["name"]
+    unless attributes["name"].nil?
       @name = attributes["name"]
         
     end
-    if attributes["ccn3"]
+    unless attributes["ccn3"].nil?
       @ccn3 = attributes["ccn3"]
         
     end
-    if attributes["tax_region"]
+    unless attributes["tax_region"].nil?
       @tax_region = attributes["tax_region"]
         
     end
-    if attributes["cca3"]
+    unless attributes["cca3"].nil?
       @cca3 = attributes["cca3"]
         
     end
-    if attributes["calling_code"]
+    unless attributes["calling_code"].nil?
       if (value = attributes["callingCode"]).is_a?(Array)
           @calling_code = value
         end
       end
-    if attributes["tax_number_country_code"]
+    unless attributes["tax_number_country_code"].nil?
       @tax_number_country_code = attributes["tax_number_country_code"]
         
     end
-    if attributes["code"]
+    unless attributes["code"].nil?
       @code = attributes["code"]
         
     end
-    if attributes["cca2"]
+    unless attributes["cca2"].nil?
       @cca2 = attributes["cca2"]
         
     end

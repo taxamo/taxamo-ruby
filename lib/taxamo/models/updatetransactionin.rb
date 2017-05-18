@@ -25,7 +25,7 @@ class UpdateTransactionIn
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["transaction"]
+    unless attributes["transaction"].nil?
       @transaction = Transaction.new(attributes["transaction"])
         
     end

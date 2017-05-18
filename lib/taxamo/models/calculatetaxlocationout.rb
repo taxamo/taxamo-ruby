@@ -32,35 +32,35 @@ class CalculateTaxLocationOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["tax_country_code"]
+    unless attributes["tax_country_code"].nil?
       @tax_country_code = attributes["tax_country_code"]
         
     end
-    if attributes["tax_deducted"]
+    unless attributes["tax_deducted"].nil?
       @tax_deducted = attributes["tax_deducted"]
         
     end
-    if attributes["tax_supported"]
+    unless attributes["tax_supported"].nil?
       @tax_supported = attributes["tax_supported"]
         
     end
-    if attributes["countries"]
+    unless attributes["countries"].nil?
       @countries = Countries.new(attributes["countries"])
         
     end
-    if attributes["buyer_ip"]
+    unless attributes["buyer_ip"].nil?
       @buyer_ip = attributes["buyer_ip"]
         
     end
-    if attributes["billing_country_code"]
+    unless attributes["billing_country_code"].nil?
       @billing_country_code = attributes["billing_country_code"]
         
     end
-    if attributes["buyer_credit_card_prefix"]
+    unless attributes["buyer_credit_card_prefix"].nil?
       @buyer_credit_card_prefix = attributes["buyer_credit_card_prefix"]
         
     end
-    if attributes["evidence"]
+    unless attributes["evidence"].nil?
       @evidence = Evidence.new(attributes["evidence"])
         
     end

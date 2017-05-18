@@ -35,47 +35,47 @@ class Evidence
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["by_token"]
+    unless attributes["by_token"].nil?
       @by_token = EvidenceSchema.new(attributes["by_token"])
         
     end
-    if attributes["by_cc"]
+    unless attributes["by_cc"].nil?
       @by_cc = EvidenceSchema.new(attributes["by_cc"])
         
     end
-    if attributes["by_2003_rules"]
+    unless attributes["by_2003_rules"].nil?
       @by_2003_rules = EvidenceSchema.new(attributes["by_2003_rules"])
         
     end
-    if attributes["forced"]
+    unless attributes["forced"].nil?
       @forced = EvidenceSchema.new(attributes["forced"])
         
     end
-    if attributes["by_payment_method"]
+    unless attributes["by_payment_method"].nil?
       @by_payment_method = EvidenceSchema.new(attributes["by_payment_method"])
         
     end
-    if attributes["by_ip"]
+    unless attributes["by_ip"].nil?
       @by_ip = EvidenceSchema.new(attributes["by_ip"])
         
     end
-    if attributes["guessed_from_ip"]
+    unless attributes["guessed_from_ip"].nil?
       @guessed_from_ip = EvidenceSchema.new(attributes["guessed_from_ip"])
         
     end
-    if attributes["other_commercially_relevant_info"]
+    unless attributes["other_commercially_relevant_info"].nil?
       @other_commercially_relevant_info = EvidenceSchema.new(attributes["other_commercially_relevant_info"])
         
     end
-    if attributes["by_billing"]
+    unless attributes["by_billing"].nil?
       @by_billing = EvidenceSchema.new(attributes["by_billing"])
         
     end
-    if attributes["by_tax_number"]
+    unless attributes["by_tax_number"].nil?
       @by_tax_number = EvidenceSchema.new(attributes["by_tax_number"])
         
     end
-    if attributes["self_declaration"]
+    unless attributes["self_declaration"].nil?
       @self_declaration = EvidenceSchema.new(attributes["self_declaration"])
         
     end

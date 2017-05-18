@@ -25,7 +25,7 @@ class GetTransactionsStatsOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["by_status"]
+    unless attributes["by_status"].nil?
       @by_status = ByStatus.new(attributes["by_status"])
         
     end
