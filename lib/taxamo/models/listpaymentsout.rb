@@ -25,7 +25,7 @@ class ListPaymentsOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["payments"]
+    unless attributes["payments"].nil?
       if (value = attributes["payments"]).is_a?(Array)
           @payments = value.map{ |v| Payments.new(v) }
         end

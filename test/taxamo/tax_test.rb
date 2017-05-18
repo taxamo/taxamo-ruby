@@ -131,7 +131,11 @@ class TaxTest < Test::Unit::TestCase
 
     resp = Taxamo.validate_tax_number('IE', '6388047V12121')
 
-    assert_equal resp.tax_deducted, nil
+    assert_equal resp.tax_deducted, false
+
+    resp = Taxamo.validate_tax_number(nil, 'FR00300076967')
+
+    assert_equal resp.tax_deducted, false
   end
 
 

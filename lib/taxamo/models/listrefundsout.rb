@@ -25,7 +25,7 @@ class ListRefundsOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["refunds"]
+    unless attributes["refunds"].nil?
       if (value = attributes["refunds"]).is_a?(Array)
           @refunds = value.map{ |v| Refunds.new(v) }
         end

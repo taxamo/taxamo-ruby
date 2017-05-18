@@ -26,11 +26,11 @@ class CustomFields
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["key"]
+    unless attributes["key"].nil?
       @key = attributes["key"]
         
     end
-    if attributes["value"]
+    unless attributes["value"].nil?
       @value = attributes["value"]
         
     end

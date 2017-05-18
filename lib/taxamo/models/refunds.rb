@@ -34,43 +34,43 @@ class Refunds
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["refund_note_url"]
+    unless attributes["refund_note_url"].nil?
       @refund_note_url = attributes["refund_note_url"]
         
     end
-    if attributes["refund_note_number"]
+    unless attributes["refund_note_number"].nil?
       @refund_note_number = attributes["refund_note_number"]
         
     end
-    if attributes["line_key"]
+    unless attributes["line_key"].nil?
       @line_key = attributes["line_key"]
         
     end
-    if attributes["refund_timestamp"]
+    unless attributes["refund_timestamp"].nil?
       @refund_timestamp = attributes["refund_timestamp"]
         
     end
-    if attributes["amount"]
+    unless attributes["amount"].nil?
       @amount = attributes["amount"]
         
     end
-    if attributes["informative"]
+    unless attributes["informative"].nil?
       @informative = attributes["informative"]
         
     end
-    if attributes["tax_amount"]
+    unless attributes["tax_amount"].nil?
       @tax_amount = attributes["tax_amount"]
         
     end
-    if attributes["tax_rate"]
+    unless attributes["tax_rate"].nil?
       @tax_rate = attributes["tax_rate"]
         
     end
-    if attributes["total_amount"]
+    unless attributes["total_amount"].nil?
       @total_amount = attributes["total_amount"]
         
     end
-    if attributes["refund_reason"]
+    unless attributes["refund_reason"].nil?
       @refund_reason = attributes["refund_reason"]
         
     end

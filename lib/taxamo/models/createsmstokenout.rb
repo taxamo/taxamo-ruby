@@ -25,7 +25,7 @@ class CreateSMSTokenOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["success"]
+    unless attributes["success"].nil?
       @success = attributes["success"]
         
     end

@@ -25,7 +25,7 @@ class GetSettlementStatsByTaxationTypeOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["by_taxation_type"]
+    unless attributes["by_taxation_type"].nil?
       @by_taxation_type = ByTaxationType.new(attributes["by_taxation_type"])
         
     end

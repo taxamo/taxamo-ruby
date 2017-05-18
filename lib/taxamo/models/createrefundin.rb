@@ -29,23 +29,23 @@ class CreateRefundIn
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["line_key"]
+    unless attributes["line_key"].nil?
       @line_key = attributes["line_key"]
         
     end
-    if attributes["custom_id"]
+    unless attributes["custom_id"].nil?
       @custom_id = attributes["custom_id"]
         
     end
-    if attributes["amount"]
+    unless attributes["amount"].nil?
       @amount = attributes["amount"]
         
     end
-    if attributes["total_amount"]
+    unless attributes["total_amount"].nil?
       @total_amount = attributes["total_amount"]
         
     end
-    if attributes["refund_reason"]
+    unless attributes["refund_reason"].nil?
       @refund_reason = attributes["refund_reason"]
         
     end

@@ -25,7 +25,7 @@ class GetDetailedRefundsOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["report"]
+    unless attributes["report"].nil?
       if (value = attributes["report"]).is_a?(Array)
           @report = value.map{ |v| Report.new(v) }
         end

@@ -26,12 +26,12 @@ class ByStatus
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["_n"]
+    unless attributes["_n"].nil?
       if (value = attributes["N"]).is_a?(Array)
           @_n = value.map{ |v| N.new(v) }
         end
       end
-    if attributes["_c"]
+    unless attributes["_c"].nil?
       if (value = attributes["C"]).is_a?(Array)
           @_c = value.map{ |v| C.new(v) }
         end

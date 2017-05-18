@@ -25,7 +25,7 @@ class GetDailySettlementStatsOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["settlement_daily"]
+    unless attributes["settlement_daily"].nil?
       if (value = attributes["settlement_daily"]).is_a?(Array)
           @settlement_daily = value.map{ |v| SettlementDailyStatsSchema.new(v) }
         end

@@ -78,221 +78,221 @@ class Transactions
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["confirm_timestamp"]
+    unless attributes["confirm_timestamp"].nil?
       @confirm_timestamp = attributes["confirm_timestamp"]
         
     end
-    if attributes["fully_informative"]
+    unless attributes["fully_informative"].nil?
       @fully_informative = attributes["fully_informative"]
         
     end
-    if attributes["deducted_tax_amount"]
+    unless attributes["deducted_tax_amount"].nil?
       @deducted_tax_amount = attributes["deducted_tax_amount"]
         
     end
-    if attributes["order_date_type"]
+    unless attributes["order_date_type"].nil?
       @order_date_type = attributes["order_date_type"]
         
     end
-    if attributes["buyer_credit_card_prefix"]
+    unless attributes["buyer_credit_card_prefix"].nil?
       @buyer_credit_card_prefix = attributes["buyer_credit_card_prefix"]
         
     end
-    if attributes["custom_data"]
+    unless attributes["custom_data"].nil?
       @custom_data = attributes["custom_data"]
         
     end
-    if attributes["buyer_name"]
+    unless attributes["buyer_name"].nil?
       @buyer_name = attributes["buyer_name"]
         
     end
-    if attributes["invoice_date"]
+    unless attributes["invoice_date"].nil?
       @invoice_date = attributes["invoice_date"]
         
     end
-    if attributes["create_timestamp"]
+    unless attributes["create_timestamp"].nil?
       @create_timestamp = attributes["create_timestamp"]
         
     end
-    if attributes["currency_code"]
+    unless attributes["currency_code"].nil?
       @currency_code = attributes["currency_code"]
         
     end
-    if attributes["sub_account_id"]
+    unless attributes["sub_account_id"].nil?
       @sub_account_id = attributes["sub_account_id"]
         
     end
-    if attributes["supply_date"]
+    unless attributes["supply_date"].nil?
       @supply_date = attributes["supply_date"]
         
     end
-    if attributes["invoice_image_url"]
+    unless attributes["invoice_image_url"].nil?
       @invoice_image_url = attributes["invoice_image_url"]
         
     end
-    if attributes["key"]
+    unless attributes["key"].nil?
       @key = attributes["key"]
         
     end
-    if attributes["tax_number_service"]
+    unless attributes["tax_number_service"].nil?
       @tax_number_service = attributes["tax_number_service"]
         
     end
-    if attributes["invoice_address"]
+    unless attributes["invoice_address"].nil?
       @invoice_address = InvoiceAddress.new(attributes["invoice_address"])
         
     end
-    if attributes["buyer_tax_number_valid"]
+    unless attributes["buyer_tax_number_valid"].nil?
       @buyer_tax_number_valid = attributes["buyer_tax_number_valid"]
         
     end
-    if attributes["verification_token"]
+    unless attributes["verification_token"].nil?
       @verification_token = attributes["verification_token"]
         
     end
-    if attributes["note"]
+    unless attributes["note"].nil?
       @note = attributes["note"]
         
     end
-    if attributes["tax_supported"]
+    unless attributes["tax_supported"].nil?
       @tax_supported = attributes["tax_supported"]
         
     end
-    if attributes["tax_data"]
+    unless attributes["tax_data"].nil?
       @tax_data = TaxDataSchema.new(attributes["tax_data"])
         
     end
-    if attributes["transaction_lines"]
+    unless attributes["transaction_lines"].nil?
       if (value = attributes["transaction_lines"]).is_a?(Array)
           @transaction_lines = value.map{ |v| TransactionLines.new(v) }
         end
       end
-    if attributes["buyer_tax_number"]
+    unless attributes["buyer_tax_number"].nil?
       @buyer_tax_number = attributes["buyer_tax_number"]
         
     end
-    if attributes["external_key"]
+    unless attributes["external_key"].nil?
       @external_key = attributes["external_key"]
         
     end
-    if attributes["status"]
+    unless attributes["status"].nil?
       @status = attributes["status"]
         
     end
-    if attributes["custom_fields"]
+    unless attributes["custom_fields"].nil?
       if (value = attributes["custom_fields"]).is_a?(Array)
           @custom_fields = value.map{ |v| CustomFields.new(v) }
         end
       end
-    if attributes["force_country_code"]
+    unless attributes["force_country_code"].nil?
       @force_country_code = attributes["force_country_code"]
         
     end
-    if attributes["countries"]
+    unless attributes["countries"].nil?
       @countries = Countries.new(attributes["countries"])
         
     end
-    if attributes["invoice_number"]
+    unless attributes["invoice_number"].nil?
       @invoice_number = attributes["invoice_number"]
         
     end
-    if attributes["order_date"]
+    unless attributes["order_date"].nil?
       @order_date = attributes["order_date"]
         
     end
-    if attributes["customer_id"]
+    unless attributes["customer_id"].nil?
       @customer_id = attributes["customer_id"]
         
     end
-    if attributes["kind"]
+    unless attributes["kind"].nil?
       @kind = attributes["kind"]
         
     end
-    if attributes["source"]
+    unless attributes["source"].nil?
       @source = attributes["source"]
         
     end
-    if attributes["amount"]
+    unless attributes["amount"].nil?
       @amount = attributes["amount"]
         
     end
-    if attributes["comments"]
+    unless attributes["comments"].nil?
       @comments = attributes["comments"]
         
     end
-    if attributes["buyer_ip"]
+    unless attributes["buyer_ip"].nil?
       @buyer_ip = attributes["buyer_ip"]
         
     end
-    if attributes["buyer_email"]
+    unless attributes["buyer_email"].nil?
       @buyer_email = attributes["buyer_email"]
         
     end
-    if attributes["original_transaction_key"]
+    unless attributes["original_transaction_key"].nil?
       @original_transaction_key = attributes["original_transaction_key"]
         
     end
-    if attributes["billing_country_code"]
+    unless attributes["billing_country_code"].nil?
       @billing_country_code = attributes["billing_country_code"]
         
     end
-    if attributes["custom_id"]
+    unless attributes["custom_id"].nil?
       @custom_id = attributes["custom_id"]
         
     end
-    if attributes["tax_amount"]
+    unless attributes["tax_amount"].nil?
       @tax_amount = attributes["tax_amount"]
         
     end
-    if attributes["additional_currencies"]
+    unless attributes["additional_currencies"].nil?
       @additional_currencies = AdditionalCurrencies.new(attributes["additional_currencies"])
         
     end
-    if attributes["invoice_place"]
+    unless attributes["invoice_place"].nil?
       @invoice_place = attributes["invoice_place"]
         
     end
-    if attributes["total_amount"]
+    unless attributes["total_amount"].nil?
       @total_amount = attributes["total_amount"]
         
     end
-    if attributes["tax_entity_name"]
+    unless attributes["tax_entity_name"].nil?
       @tax_entity_name = attributes["tax_entity_name"]
         
     end
-    if attributes["evidence"]
+    unless attributes["evidence"].nil?
       @evidence = Evidence.new(attributes["evidence"])
         
     end
-    if attributes["refunded_tax_amount"]
+    unless attributes["refunded_tax_amount"].nil?
       @refunded_tax_amount = attributes["refunded_tax_amount"]
         
     end
-    if attributes["manual"]
+    unless attributes["manual"].nil?
       @manual = attributes["manual"]
         
     end
-    if attributes["tax_timezone"]
+    unless attributes["tax_timezone"].nil?
       @tax_timezone = attributes["tax_timezone"]
         
     end
-    if attributes["description"]
+    unless attributes["description"].nil?
       @description = attributes["description"]
         
     end
-    if attributes["test"]
+    unless attributes["test"].nil?
       @test = attributes["test"]
         
     end
-    if attributes["tax_deducted"]
+    unless attributes["tax_deducted"].nil?
       @tax_deducted = attributes["tax_deducted"]
         
     end
-    if attributes["tax_country_code"]
+    unless attributes["tax_country_code"].nil?
       @tax_country_code = attributes["tax_country_code"]
         
     end
-    if attributes["refunded_total_amount"]
+    unless attributes["refunded_total_amount"].nil?
       @refunded_total_amount = attributes["refunded_total_amount"]
         
     end

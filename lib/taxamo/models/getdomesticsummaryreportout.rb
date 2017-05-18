@@ -37,55 +37,55 @@ class GetDomesticSummaryReportOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["end_date"]
+    unless attributes["end_date"].nil?
       @end_date = attributes["end_date"]
         
     end
-    if attributes["domestic_refunds_amount"]
+    unless attributes["domestic_refunds_amount"].nil?
       @domestic_refunds_amount = attributes["domestic_refunds_amount"]
         
     end
-    if attributes["currency_code"]
+    unless attributes["currency_code"].nil?
       @currency_code = attributes["currency_code"]
         
     end
-    if attributes["global_refunds_tax_amount"]
+    unless attributes["global_refunds_tax_amount"].nil?
       @global_refunds_tax_amount = attributes["global_refunds_tax_amount"]
         
     end
-    if attributes["domestic_refunds_tax_amount"]
+    unless attributes["domestic_refunds_tax_amount"].nil?
       @domestic_refunds_tax_amount = attributes["domestic_refunds_tax_amount"]
         
     end
-    if attributes["eu_tax_deducted_refunds"]
+    unless attributes["eu_tax_deducted_refunds"].nil?
       @eu_tax_deducted_refunds = attributes["eu_tax_deducted_refunds"]
         
     end
-    if attributes["global_sales_amount"]
+    unless attributes["global_sales_amount"].nil?
       @global_sales_amount = attributes["global_sales_amount"]
         
     end
-    if attributes["global_refunds_amount"]
+    unless attributes["global_refunds_amount"].nil?
       @global_refunds_amount = attributes["global_refunds_amount"]
         
     end
-    if attributes["global_sales_tax_amount"]
+    unless attributes["global_sales_tax_amount"].nil?
       @global_sales_tax_amount = attributes["global_sales_tax_amount"]
         
     end
-    if attributes["eu_tax_deducted_sales"]
+    unless attributes["eu_tax_deducted_sales"].nil?
       @eu_tax_deducted_sales = attributes["eu_tax_deducted_sales"]
         
     end
-    if attributes["start_date"]
+    unless attributes["start_date"].nil?
       @start_date = attributes["start_date"]
         
     end
-    if attributes["domestic_tax_amount"]
+    unless attributes["domestic_tax_amount"].nil?
       @domestic_tax_amount = attributes["domestic_tax_amount"]
         
     end
-    if attributes["domestic_sales_amount"]
+    unless attributes["domestic_sales_amount"].nil?
       @domestic_sales_amount = attributes["domestic_sales_amount"]
         
     end

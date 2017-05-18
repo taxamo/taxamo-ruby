@@ -27,15 +27,15 @@ class LocateGivenIPOut
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["remote_addr"]
+    unless attributes["remote_addr"].nil?
       @remote_addr = attributes["remote_addr"]
         
     end
-    if attributes["country_code"]
+    unless attributes["country_code"].nil?
       @country_code = attributes["country_code"]
         
     end
-    if attributes["country"]
+    unless attributes["country"].nil?
       @country = Country.new(attributes["country"])
         
     end

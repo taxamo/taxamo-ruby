@@ -28,19 +28,19 @@ class EvidenceSchema
   def initialize(attributes = {})
     return if attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    if attributes["used"]
+    unless attributes["used"].nil?
       @used = attributes["used"]
         
     end
-    if attributes["resolved_country_code"]
+    unless attributes["resolved_country_code"].nil?
       @resolved_country_code = attributes["resolved_country_code"]
         
     end
-    if attributes["evidence_type"]
+    unless attributes["evidence_type"].nil?
       @evidence_type = attributes["evidence_type"]
         
     end
-    if attributes["evidence_value"]
+    unless attributes["evidence_value"].nil?
       @evidence_value = attributes["evidence_value"]
         
     end
