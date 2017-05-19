@@ -4,14 +4,26 @@ This package provides [Taxamo](http://www.taxamo.com) API bindings for Ruby and 
 
 ## Installation
 
-To install it, just fetch this repository and issue the following command:
+Taxamo Ruby client is available on RubyGems [https://rubygems.org/gems/taxamo-ns](https://rubygems.org/gems/taxamo-ns), either with Gemfile:
+
+```
+gem 'taxamo-ns', '~> 2'
+```
+
+or with `gem install`:
+
+```
+gem install taxamo-ns
+```
+
+The library can also be installed directy - just fetch this repository and issue the following command:
 
 ```shell
 $ gem build taxamo.gemspec
 $ gem install taxamo-ns-2.3.1.gem
 ```
 
-Alternatively, add the following line to your project's `Gemfile` file:
+Finally, you can use this github repo and add the following line to your project's `Gemfile` file:
 
 ```ruby
 gem "taxamo-ns", github: "taxamo/taxamo-ruby", '~> 2'
