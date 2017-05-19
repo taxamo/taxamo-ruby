@@ -23,9 +23,9 @@ class CreatePaymentOut
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["success"].nil?
+    if attributes.key?("success")
       @success = attributes["success"]
         
     end

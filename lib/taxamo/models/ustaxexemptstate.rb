@@ -25,17 +25,17 @@ class UsTaxExemptState
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["state_abbr"].nil?
+    if attributes.key?("state_abbr")
       @state_abbr = attributes["state_abbr"]
         
     end
-    unless attributes["reason_for_exemption"].nil?
+    if attributes.key?("reason_for_exemption")
       @reason_for_exemption = attributes["reason_for_exemption"]
         
     end
-    unless attributes["identifier_for_exemption_reason"].nil?
+    if attributes.key?("identifier_for_exemption_reason")
       @identifier_for_exemption_reason = attributes["identifier_for_exemption_reason"]
         
     end

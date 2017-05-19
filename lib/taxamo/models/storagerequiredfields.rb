@@ -23,9 +23,9 @@ class StorageRequiredFields
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["field_name"].nil?
+    if attributes.key?("field_name")
       @field_name = attributes["field_name"]
         
     end

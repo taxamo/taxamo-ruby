@@ -31,41 +31,41 @@ class Report
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["currency_code"].nil?
+    if attributes.key?("currency_code")
       @currency_code = attributes["currency_code"]
         
     end
-    unless attributes["skip_moss"].nil?
+    if attributes.key?("skip_moss")
       @skip_moss = attributes["skip_moss"]
         
     end
-    unless attributes["country_code"].nil?
+    if attributes.key?("country_code")
       @country_code = attributes["country_code"]
         
     end
-    unless attributes["tax_region"].nil?
+    if attributes.key?("tax_region")
       @tax_region = attributes["tax_region"]
         
     end
-    unless attributes["country_subdivision"].nil?
+    if attributes.key?("country_subdivision")
       @country_subdivision = attributes["country_subdivision"]
         
     end
-    unless attributes["amount"].nil?
+    if attributes.key?("amount")
       @amount = attributes["amount"]
         
     end
-    unless attributes["tax_amount"].nil?
+    if attributes.key?("tax_amount")
       @tax_amount = attributes["tax_amount"]
         
     end
-    unless attributes["tax_rate"].nil?
+    if attributes.key?("tax_rate")
       @tax_rate = attributes["tax_rate"]
         
     end
-    unless attributes["country_name"].nil?
+    if attributes.key?("country_name")
       @country_name = attributes["country_name"]
         
     end

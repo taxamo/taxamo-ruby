@@ -27,25 +27,25 @@ class ByTaxationType
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["taxed_count"].nil?
+    if attributes.key?("taxed_count")
       @taxed_count = attributes["taxed_count"]
         
     end
-    unless attributes["deducted_count"].nil?
+    if attributes.key?("deducted_count")
       @deducted_count = attributes["deducted_count"]
         
     end
-    unless attributes["transactions_count"].nil?
+    if attributes.key?("transactions_count")
       @transactions_count = attributes["transactions_count"]
         
     end
-    unless attributes["eu_b2b"].nil?
+    if attributes.key?("eu_b2b")
       @eu_b2b = attributes["eu_b2b"]
         
     end
-    unless attributes["eu_taxed"].nil?
+    if attributes.key?("eu_taxed")
       @eu_taxed = attributes["eu_taxed"]
         
     end

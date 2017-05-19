@@ -33,49 +33,49 @@ class Evidence
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["by_token"].nil?
+    if attributes.key?("by_token")
       @by_token = EvidenceSchema.new(attributes["by_token"])
         
     end
-    unless attributes["by_cc"].nil?
+    if attributes.key?("by_cc")
       @by_cc = EvidenceSchema.new(attributes["by_cc"])
         
     end
-    unless attributes["by_2003_rules"].nil?
+    if attributes.key?("by_2003_rules")
       @by_2003_rules = EvidenceSchema.new(attributes["by_2003_rules"])
         
     end
-    unless attributes["forced"].nil?
+    if attributes.key?("forced")
       @forced = EvidenceSchema.new(attributes["forced"])
         
     end
-    unless attributes["by_payment_method"].nil?
+    if attributes.key?("by_payment_method")
       @by_payment_method = EvidenceSchema.new(attributes["by_payment_method"])
         
     end
-    unless attributes["by_ip"].nil?
+    if attributes.key?("by_ip")
       @by_ip = EvidenceSchema.new(attributes["by_ip"])
         
     end
-    unless attributes["guessed_from_ip"].nil?
+    if attributes.key?("guessed_from_ip")
       @guessed_from_ip = EvidenceSchema.new(attributes["guessed_from_ip"])
         
     end
-    unless attributes["other_commercially_relevant_info"].nil?
+    if attributes.key?("other_commercially_relevant_info")
       @other_commercially_relevant_info = EvidenceSchema.new(attributes["other_commercially_relevant_info"])
         
     end
-    unless attributes["by_billing"].nil?
+    if attributes.key?("by_billing")
       @by_billing = EvidenceSchema.new(attributes["by_billing"])
         
     end
-    unless attributes["by_tax_number"].nil?
+    if attributes.key?("by_tax_number")
       @by_tax_number = EvidenceSchema.new(attributes["by_tax_number"])
         
     end
-    unless attributes["self_declaration"].nil?
+    if attributes.key?("self_declaration")
       @self_declaration = EvidenceSchema.new(attributes["self_declaration"])
         
     end

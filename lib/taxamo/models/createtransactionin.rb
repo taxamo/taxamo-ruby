@@ -24,13 +24,13 @@ class CreateTransactionIn
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["manual_mode"].nil?
+    if attributes.key?("manual_mode")
       @manual_mode = attributes["manual_mode"]
         
     end
-    unless attributes["transaction"].nil?
+    if attributes.key?("transaction")
       @transaction = InputTransaction.new(attributes["transaction"])
         
     end

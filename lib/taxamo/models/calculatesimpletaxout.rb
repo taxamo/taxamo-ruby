@@ -25,18 +25,18 @@ class CalculateSimpleTaxOut
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["transaction"].nil?
+    if attributes.key?("transaction")
       @transaction = Transaction.new(attributes["transaction"])
         
     end
-    unless attributes["tax_required_fields"].nil?
+    if attributes.key?("tax_required_fields")
       if (value = attributes["tax_required_fields"]).is_a?(Array)
           @tax_required_fields = value.map{ |v| TaxRequiredFields.new(v) }
         end
       end
-    unless attributes["storage_required_fields"].nil?
+    if attributes.key?("storage_required_fields")
       if (value = attributes["storage_required_fields"]).is_a?(Array)
           @storage_required_fields = value.map{ |v| StorageRequiredFields.new(v) }
         end

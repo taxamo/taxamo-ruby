@@ -26,21 +26,21 @@ class CreateRefundOut
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["total_amount"].nil?
+    if attributes.key?("total_amount")
       @total_amount = attributes["total_amount"]
         
     end
-    unless attributes["tax_amount"].nil?
+    if attributes.key?("tax_amount")
       @tax_amount = attributes["tax_amount"]
         
     end
-    unless attributes["refunded_total_amount"].nil?
+    if attributes.key?("refunded_total_amount")
       @refunded_total_amount = attributes["refunded_total_amount"]
         
     end
-    unless attributes["refunded_tax_amount"].nil?
+    if attributes.key?("refunded_tax_amount")
       @refunded_tax_amount = attributes["refunded_tax_amount"]
         
     end

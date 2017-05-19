@@ -33,49 +33,49 @@ class Countries
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["by_token"].nil?
+    if attributes.key?("by_token")
       @by_token = CountrySchema.new(attributes["by_token"])
         
     end
-    unless attributes["by_cc"].nil?
+    if attributes.key?("by_cc")
       @by_cc = CountrySchema.new(attributes["by_cc"])
         
     end
-    unless attributes["by_2003_rules"].nil?
+    if attributes.key?("by_2003_rules")
       @by_2003_rules = CountrySchema.new(attributes["by_2003_rules"])
         
     end
-    unless attributes["forced"].nil?
+    if attributes.key?("forced")
       @forced = CountrySchema.new(attributes["forced"])
         
     end
-    unless attributes["by_ip"].nil?
+    if attributes.key?("by_ip")
       @by_ip = CountrySchema.new(attributes["by_ip"])
         
     end
-    unless attributes["guessed_from_ip"].nil?
+    if attributes.key?("guessed_from_ip")
       @guessed_from_ip = CountrySchema.new(attributes["guessed_from_ip"])
         
     end
-    unless attributes["other_commercially_relevant_info"].nil?
+    if attributes.key?("other_commercially_relevant_info")
       @other_commercially_relevant_info = CountrySchema.new(attributes["other_commercially_relevant_info"])
         
     end
-    unless attributes["by_billing"].nil?
+    if attributes.key?("by_billing")
       @by_billing = CountrySchema.new(attributes["by_billing"])
         
     end
-    unless attributes["by_tax_number"].nil?
+    if attributes.key?("by_tax_number")
       @by_tax_number = CountrySchema.new(attributes["by_tax_number"])
         
     end
-    unless attributes["detected"].nil?
+    if attributes.key?("detected")
       @detected = CountrySchema.new(attributes["detected"])
         
     end
-    unless attributes["self_declaration"].nil?
+    if attributes.key?("self_declaration")
       @self_declaration = CountrySchema.new(attributes["self_declaration"])
         
     end

@@ -87,7 +87,7 @@ class TaxTest < Test::Unit::TestCase
     Swagger.configure do |config|
       config.api_key = 'SamplePrivateTestKey1'
     end
-    #,,,,,
+
     resp = Taxamo.calculate_simple_tax('e-book', #product_type
                                        nil, #invoice_address_city
                                        nil, #buyer_credit_card_prefix
@@ -136,6 +136,8 @@ class TaxTest < Test::Unit::TestCase
     resp = Taxamo.validate_tax_number(nil, 'FR00300076967')
 
     assert_equal resp.tax_deducted, false
+
+    assert_true resp.instance_variable_defined?(:@tax_deducted)
   end
 
 

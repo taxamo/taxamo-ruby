@@ -27,25 +27,25 @@ class CurrencySchema
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["code"].nil?
+    if attributes.key?("code")
       @code = attributes["code"]
         
     end
-    unless attributes["minorunits"].nil?
+    if attributes.key?("minorunits")
       @minorunits = attributes["minorunits"]
         
     end
-    unless attributes["description"].nil?
+    if attributes.key?("description")
       @description = attributes["description"]
         
     end
-    unless attributes["isocode"].nil?
+    if attributes.key?("isocode")
       @isocode = attributes["isocode"]
         
     end
-    unless attributes["isonum"].nil?
+    if attributes.key?("isonum")
       @isonum = attributes["isonum"]
         
     end

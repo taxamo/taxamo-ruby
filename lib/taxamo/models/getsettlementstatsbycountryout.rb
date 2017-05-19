@@ -23,9 +23,9 @@ class GetSettlementStatsByCountryOut
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["by_country"].nil?
+    if attributes.key?("by_country")
       if (value = attributes["by_country"]).is_a?(Array)
           @by_country = value.map{ |v| ByCountry.new(v) }
         end

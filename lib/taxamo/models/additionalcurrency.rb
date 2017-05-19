@@ -28,29 +28,29 @@ class AdditionalCurrency
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["currency_code"].nil?
+    if attributes.key?("currency_code")
       @currency_code = attributes["currency_code"]
         
     end
-    unless attributes["amount"].nil?
+    if attributes.key?("amount")
       @amount = attributes["amount"]
         
     end
-    unless attributes["tax_amount"].nil?
+    if attributes.key?("tax_amount")
       @tax_amount = attributes["tax_amount"]
         
     end
-    unless attributes["fx_rate"].nil?
+    if attributes.key?("fx_rate")
       @fx_rate = attributes["fx_rate"]
         
     end
-    unless attributes["fx_date"].nil?
+    if attributes.key?("fx_date")
       @fx_date = attributes["fx_date"]
         
     end
-    unless attributes["total_amount"].nil?
+    if attributes.key?("total_amount")
       @total_amount = attributes["total_amount"]
         
     end

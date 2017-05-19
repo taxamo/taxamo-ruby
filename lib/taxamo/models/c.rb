@@ -26,21 +26,21 @@ class C
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["day_raw"].nil?
+    if attributes.key?("day_raw")
       @day_raw = attributes["day_raw"]
         
     end
-    unless attributes["value"].nil?
+    if attributes.key?("value")
       @value = attributes["value"]
         
     end
-    unless attributes["status"].nil?
+    if attributes.key?("status")
       @status = attributes["status"]
         
     end
-    unless attributes["day"].nil?
+    if attributes.key?("day")
       @day = attributes["day"]
         
     end

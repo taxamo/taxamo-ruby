@@ -8,13 +8,13 @@ To install it, just fetch this repository and issue the following command:
 
 ```shell
 $ gem build taxamo.gemspec
-$ gem install taxamo-ns-2.3.0.gem
+$ gem install taxamo-ns-2.3.1.gem
 ```
 
 Alternatively, add the following line to your project's `Gemfile` file:
 
 ```ruby
-gem "taxamo-ns", github: "taxamo/taxamo-ruby", '~> 2.3'
+gem "taxamo-ns", github: "taxamo/taxamo-ruby", '~> 2'
 ```
 
 If your code relies on 1.x version and uses the classes for constructing input, without the namespaces, you can keep on using it:
@@ -24,6 +24,9 @@ gem "taxamo", github: "taxamo/taxamo-ruby", '~> 1.1'
 ```
 
 ## Changes
+
+2.3.1 (2017-05-19):
+ * use `key?` when parsing the JSON response to differentiate `nil` and `false` and attribute not being present.
 
 2.3.0 (2017-05-18):
  * set attr if `false` value is provided in the JSON response to differentiate `nil` and `false`
