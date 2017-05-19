@@ -24,13 +24,13 @@ class UsTaxExemptionCertificateSchema
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["certificate_id"].nil?
+    if attributes.key?("certificate_id")
       @certificate_id = attributes["certificate_id"]
         
     end
-    unless attributes["detail"].nil?
+    if attributes.key?("detail")
       @detail = UsTaxExemptionCertificateDetailsSchema.new(attributes["detail"])
         
     end

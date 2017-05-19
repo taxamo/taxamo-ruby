@@ -20,7 +20,7 @@ The library can also be installed directy - just fetch this repository and issue
 
 ```shell
 $ gem build taxamo.gemspec
-$ gem install taxamo-ns-2.3.0.gem
+$ gem install taxamo-ns-2.3.1.gem
 ```
 
 Finally, you can use this github repo and add the following line to your project's `Gemfile` file:
@@ -36,6 +36,9 @@ gem "taxamo", github: "taxamo/taxamo-ruby", '~> 1.1'
 ```
 
 ## Changes
+
+2.3.1 (2017-05-19):
+ * use `key?` when parsing the JSON response to differentiate `nil` and `false` and attribute not being present.
 
 2.3.0 (2017-05-18):
  * set attr if `false` value is provided in the JSON response to differentiate `nil` and `false`

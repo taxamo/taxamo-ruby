@@ -35,57 +35,57 @@ class GetDomesticSummaryReportOut
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["end_date"].nil?
+    if attributes.key?("end_date")
       @end_date = attributes["end_date"]
         
     end
-    unless attributes["domestic_refunds_amount"].nil?
+    if attributes.key?("domestic_refunds_amount")
       @domestic_refunds_amount = attributes["domestic_refunds_amount"]
         
     end
-    unless attributes["currency_code"].nil?
+    if attributes.key?("currency_code")
       @currency_code = attributes["currency_code"]
         
     end
-    unless attributes["global_refunds_tax_amount"].nil?
+    if attributes.key?("global_refunds_tax_amount")
       @global_refunds_tax_amount = attributes["global_refunds_tax_amount"]
         
     end
-    unless attributes["domestic_refunds_tax_amount"].nil?
+    if attributes.key?("domestic_refunds_tax_amount")
       @domestic_refunds_tax_amount = attributes["domestic_refunds_tax_amount"]
         
     end
-    unless attributes["eu_tax_deducted_refunds"].nil?
+    if attributes.key?("eu_tax_deducted_refunds")
       @eu_tax_deducted_refunds = attributes["eu_tax_deducted_refunds"]
         
     end
-    unless attributes["global_sales_amount"].nil?
+    if attributes.key?("global_sales_amount")
       @global_sales_amount = attributes["global_sales_amount"]
         
     end
-    unless attributes["global_refunds_amount"].nil?
+    if attributes.key?("global_refunds_amount")
       @global_refunds_amount = attributes["global_refunds_amount"]
         
     end
-    unless attributes["global_sales_tax_amount"].nil?
+    if attributes.key?("global_sales_tax_amount")
       @global_sales_tax_amount = attributes["global_sales_tax_amount"]
         
     end
-    unless attributes["eu_tax_deducted_sales"].nil?
+    if attributes.key?("eu_tax_deducted_sales")
       @eu_tax_deducted_sales = attributes["eu_tax_deducted_sales"]
         
     end
-    unless attributes["start_date"].nil?
+    if attributes.key?("start_date")
       @start_date = attributes["start_date"]
         
     end
-    unless attributes["domestic_tax_amount"].nil?
+    if attributes.key?("domestic_tax_amount")
       @domestic_tax_amount = attributes["domestic_tax_amount"]
         
     end
-    unless attributes["domestic_sales_amount"].nil?
+    if attributes.key?("domestic_sales_amount")
       @domestic_sales_amount = attributes["domestic_sales_amount"]
         
     end

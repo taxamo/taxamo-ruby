@@ -39,74 +39,74 @@ class InputTransactionLine
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["product_type"].nil?
+    if attributes.key?("product_type")
       @product_type = attributes["product_type"]
         
     end
-    unless attributes["deducted_tax_rate"].nil?
+    if attributes.key?("deducted_tax_rate")
       @deducted_tax_rate = attributes["deducted_tax_rate"]
         
     end
-    unless attributes["supply_date"].nil?
+    if attributes.key?("supply_date")
       @supply_date = attributes["supply_date"]
         
     end
-    unless attributes["unit_price"].nil?
+    if attributes.key?("unit_price")
       @unit_price = attributes["unit_price"]
         
     end
-    unless attributes["unit_of_measure"].nil?
+    if attributes.key?("unit_of_measure")
       @unit_of_measure = attributes["unit_of_measure"]
         
     end
-    unless attributes["quantity"].nil?
+    if attributes.key?("quantity")
       @quantity = attributes["quantity"]
         
     end
-    unless attributes["custom_fields"].nil?
+    if attributes.key?("custom_fields")
       if (value = attributes["custom_fields"]).is_a?(Array)
           @custom_fields = value.map{ |v| CustomFields.new(v) }
         end
       end
-    unless attributes["line_key"].nil?
+    if attributes.key?("line_key")
       @line_key = attributes["line_key"]
         
     end
-    unless attributes["tax_name"].nil?
+    if attributes.key?("tax_name")
       @tax_name = attributes["tax_name"]
         
     end
-    unless attributes["product_code"].nil?
+    if attributes.key?("product_code")
       @product_code = attributes["product_code"]
         
     end
-    unless attributes["amount"].nil?
+    if attributes.key?("amount")
       @amount = attributes["amount"]
         
     end
-    unless attributes["custom_id"].nil?
+    if attributes.key?("custom_id")
       @custom_id = attributes["custom_id"]
         
     end
-    unless attributes["informative"].nil?
+    if attributes.key?("informative")
       @informative = attributes["informative"]
         
     end
-    unless attributes["tax_rate"].nil?
+    if attributes.key?("tax_rate")
       @tax_rate = attributes["tax_rate"]
         
     end
-    unless attributes["total_amount"].nil?
+    if attributes.key?("total_amount")
       @total_amount = attributes["total_amount"]
         
     end
-    unless attributes["product_tax_code"].nil?
+    if attributes.key?("product_tax_code")
       @product_tax_code = attributes["product_tax_code"]
         
     end
-    unless attributes["description"].nil?
+    if attributes.key?("description")
       @description = attributes["description"]
         
     end

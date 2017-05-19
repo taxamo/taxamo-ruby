@@ -30,37 +30,37 @@ class Summary
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["quarter"].nil?
+    if attributes.key?("quarter")
       @quarter = attributes["quarter"]
         
     end
-    unless attributes["tax_amount"].nil?
+    if attributes.key?("tax_amount")
       @tax_amount = attributes["tax_amount"]
         
     end
-    unless attributes["currency_code"].nil?
+    if attributes.key?("currency_code")
       @currency_code = attributes["currency_code"]
         
     end
-    unless attributes["indicative"].nil?
+    if attributes.key?("indicative")
       @indicative = attributes["indicative"]
         
     end
-    unless attributes["fx_rate_date"].nil?
+    if attributes.key?("fx_rate_date")
       @fx_rate_date = attributes["fx_rate_date"]
         
     end
-    unless attributes["start_date"].nil?
+    if attributes.key?("start_date")
       @start_date = attributes["start_date"]
         
     end
-    unless attributes["end_date"].nil?
+    if attributes.key?("end_date")
       @end_date = attributes["end_date"]
         
     end
-    unless attributes["tax_entity_name"].nil?
+    if attributes.key?("tax_entity_name")
       @tax_entity_name = attributes["tax_entity_name"]
         
     end

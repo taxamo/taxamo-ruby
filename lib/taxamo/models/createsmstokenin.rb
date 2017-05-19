@@ -24,13 +24,13 @@ class CreateSMSTokenIn
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["country_code"].nil?
+    if attributes.key?("country_code")
       @country_code = attributes["country_code"]
         
     end
-    unless attributes["recipient"].nil?
+    if attributes.key?("recipient")
       @recipient = attributes["recipient"]
         
     end

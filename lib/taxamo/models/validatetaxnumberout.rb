@@ -26,21 +26,21 @@ class ValidateTaxNumberOut
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["tax_deducted"].nil?
+    if attributes.key?("tax_deducted")
       @tax_deducted = attributes["tax_deducted"]
         
     end
-    unless attributes["buyer_tax_number"].nil?
+    if attributes.key?("buyer_tax_number")
       @buyer_tax_number = attributes["buyer_tax_number"]
         
     end
-    unless attributes["buyer_tax_number_valid"].nil?
+    if attributes.key?("buyer_tax_number_valid")
       @buyer_tax_number_valid = attributes["buyer_tax_number_valid"]
         
     end
-    unless attributes["billing_country_code"].nil?
+    if attributes.key?("billing_country_code")
       @billing_country_code = attributes["billing_country_code"]
         
     end

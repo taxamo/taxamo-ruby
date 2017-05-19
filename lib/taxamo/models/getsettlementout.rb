@@ -27,26 +27,26 @@ class GetSettlementOut
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["report"].nil?
+    if attributes.key?("report")
       if (value = attributes["report"]).is_a?(Array)
           @report = value.map{ |v| Report.new(v) }
         end
       end
-    unless attributes["start_date"].nil?
+    if attributes.key?("start_date")
       @start_date = attributes["start_date"]
         
     end
-    unless attributes["end_date"].nil?
+    if attributes.key?("end_date")
       @end_date = attributes["end_date"]
         
     end
-    unless attributes["indicative"].nil?
+    if attributes.key?("indicative")
       @indicative = attributes["indicative"]
         
     end
-    unless attributes["fx_rate_date"].nil?
+    if attributes.key?("fx_rate_date")
       @fx_rate_date = attributes["fx_rate_date"]
         
     end

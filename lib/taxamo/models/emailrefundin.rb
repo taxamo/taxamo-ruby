@@ -23,9 +23,9 @@ class EmailRefundIn
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["buyer_email"].nil?
+    if attributes.key?("buyer_email")
       @buyer_email = attributes["buyer_email"]
         
     end

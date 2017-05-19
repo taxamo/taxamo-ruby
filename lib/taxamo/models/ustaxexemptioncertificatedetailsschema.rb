@@ -38,70 +38,70 @@ class UsTaxExemptionCertificateDetailsSchema
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["single_purchase_order_identifier"].nil?
+    if attributes.key?("single_purchase_order_identifier")
       @single_purchase_order_identifier = attributes["single_purchase_order_identifier"]
         
     end
-    unless attributes["purchaser_business_type"].nil?
+    if attributes.key?("purchaser_business_type")
       @purchaser_business_type = attributes["purchaser_business_type"]
         
     end
-    unless attributes["purchaser_exemption_reason_value"].nil?
+    if attributes.key?("purchaser_exemption_reason_value")
       @purchaser_exemption_reason_value = attributes["purchaser_exemption_reason_value"]
         
     end
-    unless attributes["purchaser_state"].nil?
+    if attributes.key?("purchaser_state")
       @purchaser_state = attributes["purchaser_state"]
         
     end
-    unless attributes["purchaser_zip"].nil?
+    if attributes.key?("purchaser_zip")
       @purchaser_zip = attributes["purchaser_zip"]
         
     end
-    unless attributes["purchaser_city"].nil?
+    if attributes.key?("purchaser_city")
       @purchaser_city = attributes["purchaser_city"]
         
     end
-    unless attributes["purchaser_last_name"].nil?
+    if attributes.key?("purchaser_last_name")
       @purchaser_last_name = attributes["purchaser_last_name"]
         
     end
-    unless attributes["purchaser_exemption_reason"].nil?
+    if attributes.key?("purchaser_exemption_reason")
       @purchaser_exemption_reason = attributes["purchaser_exemption_reason"]
         
     end
-    unless attributes["single_purchase"].nil?
+    if attributes.key?("single_purchase")
       @single_purchase = attributes["single_purchase"]
         
     end
-    unless attributes["purchaser_tax_id"].nil?
+    if attributes.key?("purchaser_tax_id")
       @purchaser_tax_id = UsTaxId.new(attributes["purchaser_tax_id"])
         
     end
-    unless attributes["purchaser_address2"].nil?
+    if attributes.key?("purchaser_address2")
       @purchaser_address2 = attributes["purchaser_address2"]
         
     end
-    unless attributes["purchaser_address1"].nil?
+    if attributes.key?("purchaser_address1")
       @purchaser_address1 = attributes["purchaser_address1"]
         
     end
-    unless attributes["purchaser_business_type_other_value"].nil?
+    if attributes.key?("purchaser_business_type_other_value")
       @purchaser_business_type_other_value = attributes["purchaser_business_type_other_value"]
         
     end
-    unless attributes["purchaser_first_name"].nil?
+    if attributes.key?("purchaser_first_name")
       @purchaser_first_name = attributes["purchaser_first_name"]
         
     end
-    unless attributes["exempt_states"].nil?
+    if attributes.key?("exempt_states")
       if (value = attributes["exempt_states"]).is_a?(Array)
           @exempt_states = value.map{ |v| UsTaxExemptState.new(v) }
         end
       end
-    unless attributes["purchaser_title"].nil?
+    if attributes.key?("purchaser_title")
       @purchaser_title = attributes["purchaser_title"]
         
     end

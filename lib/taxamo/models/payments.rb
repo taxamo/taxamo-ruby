@@ -25,17 +25,17 @@ class Payments
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["amount"].nil?
+    if attributes.key?("amount")
       @amount = attributes["amount"]
         
     end
-    unless attributes["payment_timestamp"].nil?
+    if attributes.key?("payment_timestamp")
       @payment_timestamp = attributes["payment_timestamp"]
         
     end
-    unless attributes["payment_information"].nil?
+    if attributes.key?("payment_information")
       @payment_information = attributes["payment_information"]
         
     end

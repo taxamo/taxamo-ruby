@@ -23,9 +23,9 @@ class GetSettlementSummaryOut
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["summary"].nil?
+    if attributes.key?("summary")
       @summary = Summary.new(attributes["summary"])
         
     end

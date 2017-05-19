@@ -31,41 +31,41 @@ class SettlementDailyStatsSchema
   end
 
   def initialize(attributes = {})
-    return if attributes.empty?
+    return if attributes.nil? or attributes.empty?
     # Morph attribute keys into undescored rubyish style
-    unless attributes["b2c"].nil?
+    if attributes.key?("b2c")
       @b2c = attributes["b2c"]
         
     end
-    unless attributes["untaxed"].nil?
+    if attributes.key?("untaxed")
       @untaxed = attributes["untaxed"]
         
     end
-    unless attributes["eu_taxed"].nil?
+    if attributes.key?("eu_taxed")
       @eu_taxed = attributes["eu_taxed"]
         
     end
-    unless attributes["eu_b2b"].nil?
+    if attributes.key?("eu_b2b")
       @eu_b2b = attributes["eu_b2b"]
         
     end
-    unless attributes["count"].nil?
+    if attributes.key?("count")
       @count = attributes["count"]
         
     end
-    unless attributes["eu_total"].nil?
+    if attributes.key?("eu_total")
       @eu_total = attributes["eu_total"]
         
     end
-    unless attributes["day_raw"].nil?
+    if attributes.key?("day_raw")
       @day_raw = attributes["day_raw"]
         
     end
-    unless attributes["b2b"].nil?
+    if attributes.key?("b2b")
       @b2b = attributes["b2b"]
         
     end
-    unless attributes["day"].nil?
+    if attributes.key?("day")
       @day = attributes["day"]
         
     end
