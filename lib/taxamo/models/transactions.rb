@@ -12,7 +12,7 @@
 
 module Taxamo
 class Transactions
-  attr_accessor :confirm_timestamp, :fully_informative, :deducted_tax_amount, :order_date_type, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :create_timestamp, :currency_code, :sub_account_id, :supply_date, :invoice_image_url, :key, :tax_number_service, :invoice_address, :buyer_tax_number_valid, :verification_token, :note, :tax_supported, :tax_data, :transaction_lines, :buyer_tax_number, :external_key, :status, :custom_fields, :force_country_code, :countries, :invoice_number, :order_date, :customer_id, :kind, :source, :amount, :comments, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :tax_amount, :additional_currencies, :invoice_place, :total_amount, :tax_entity_name, :evidence, :refunded_tax_amount, :manual, :tax_timezone, :description, :test, :tax_deducted, :tax_country_code, :refunded_total_amount
+  attr_accessor :confirm_timestamp, :fully_informative, :deducted_tax_amount, :order_date_type, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :create_timestamp, :currency_code, :sub_account_id, :supply_date, :buyer_tax_number_normalized, :invoice_image_url, :key, :buyer_tax_number_format_valid, :tax_number_service, :invoice_address, :buyer_tax_number_valid, :verification_token, :note, :tax_supported, :tax_data, :transaction_lines, :buyer_tax_number, :external_key, :status, :custom_fields, :force_country_code, :countries, :invoice_number, :order_date, :customer_id, :kind, :source, :amount, :comments, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :tax_amount, :additional_currencies, :invoice_place, :total_amount, :tax_entity_name, :evidence, :refunded_tax_amount, :manual, :tax_timezone, :description, :test, :tax_deducted, :tax_country_code, :refunded_total_amount
 
   # :internal => :external
   def self.attribute_map
@@ -29,8 +29,10 @@ class Transactions
       :currency_code => :currency_code,
       :sub_account_id => :sub_account_id,
       :supply_date => :supply_date,
+      :buyer_tax_number_normalized => :buyer_tax_number_normalized,
       :invoice_image_url => :invoice_image_url,
       :key => :key,
+      :buyer_tax_number_format_valid => :buyer_tax_number_format_valid,
       :tax_number_service => :tax_number_service,
       :invoice_address => :invoice_address,
       :buyer_tax_number_valid => :buyer_tax_number_valid,
@@ -126,12 +128,20 @@ class Transactions
       @supply_date = attributes["supply_date"]
         
     end
+    if attributes.key?("buyer_tax_number_normalized")
+      @buyer_tax_number_normalized = attributes["buyer_tax_number_normalized"]
+        
+    end
     if attributes.key?("invoice_image_url")
       @invoice_image_url = attributes["invoice_image_url"]
         
     end
     if attributes.key?("key")
       @key = attributes["key"]
+        
+    end
+    if attributes.key?("buyer_tax_number_format_valid")
+      @buyer_tax_number_format_valid = attributes["buyer_tax_number_format_valid"]
         
     end
     if attributes.key?("tax_number_service")
