@@ -12,14 +12,16 @@
 
 module Taxamo
 class ValidateTaxNumberOut
-  attr_accessor :tax_deducted, :buyer_tax_number, :buyer_tax_number_valid, :billing_country_code
+  attr_accessor :tax_deducted, :buyer_tax_number, :buyer_tax_number_normalized, :buyer_tax_number_valid, :buyer_tax_number_format_valid, :billing_country_code
 
   # :internal => :external
   def self.attribute_map
     {
       :tax_deducted => :tax_deducted,
       :buyer_tax_number => :buyer_tax_number,
+      :buyer_tax_number_normalized => :buyer_tax_number_normalized,
       :buyer_tax_number_valid => :buyer_tax_number_valid,
+      :buyer_tax_number_format_valid => :buyer_tax_number_format_valid,
       :billing_country_code => :billing_country_code
 
     }
@@ -36,8 +38,16 @@ class ValidateTaxNumberOut
       @buyer_tax_number = attributes["buyer_tax_number"]
         
     end
+    if attributes.key?("buyer_tax_number_normalized")
+      @buyer_tax_number_normalized = attributes["buyer_tax_number_normalized"]
+        
+    end
     if attributes.key?("buyer_tax_number_valid")
       @buyer_tax_number_valid = attributes["buyer_tax_number_valid"]
+        
+    end
+    if attributes.key?("buyer_tax_number_format_valid")
+      @buyer_tax_number_format_valid = attributes["buyer_tax_number_format_valid"]
         
     end
     if attributes.key?("billing_country_code")

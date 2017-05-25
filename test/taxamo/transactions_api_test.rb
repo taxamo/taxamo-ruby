@@ -120,7 +120,7 @@ class TransactionsApiTest < Test::Unit::TestCase
     resp = Taxamo.list_transactions(nil, #filter_text
                                     0, #offset
                                     nil, #key_or_custom_id
-                                    nil, #currency_code,
+                                    'EUR', #currency_code,
                                     nil, #order_date_to,
                                     'true', #sort_reverse
                                     100, #limit
