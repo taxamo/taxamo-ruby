@@ -37,6 +37,9 @@ gem "taxamo", github: "taxamo/taxamo-ruby", '~> 1.1'
 
 ## Changes
 
+2.3.3 (2017-05-26):
+ * remove not needed camel case applied to 1st level attributes in request map
+ 
 2.3.2 (2017-05-25):
  * bring API client up-to-date with current api endpoints.
 
