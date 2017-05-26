@@ -105,12 +105,12 @@ module Swagger
     # If body is a hash, camelize all keys then convert to a json string
     #
     def body=(value)      
-      if value.is_a?(Hash)
-        value = value.inject({}) do |memo, (k,v)|
-          memo[k.to_s.camelize(:lower).to_sym] = v
-          memo
-        end
-      end
+      #if value.is_a?(Hash)
+      #  value = value.inject({}) do |memo, (k,v)|
+      #    memo[k.to_s.camelize(:lower).to_sym] = v
+      #    memo
+      #  end
+      #end
       @body = value
     end
     

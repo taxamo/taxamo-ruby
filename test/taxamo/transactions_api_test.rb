@@ -105,6 +105,14 @@ class TransactionsApiTest < Test::Unit::TestCase
     assert_equal resp.transaction.tax_amount, 82
     assert_equal resp.transaction.total_amount, 782
 
+    createRefundIn = Taxamo::CreateRefundIn.new;
+
+    createRefundIn.total_amount = 100
+    createRefundIn.custom_id='line1'
+
+    refundResp = Taxamo.create_refund(resp.transaction.key, {'total_amount' => 100, 'custom_id' => 'line1'})
+    refundResp = Taxamo.create_refund(resp.transaction.key, createRefundIn)
+
     resp = Taxamo.get_transaction(resp.transaction.key)
 
     assert_false resp.transaction.key.nil?
@@ -294,7 +302,7 @@ class TransactionsApiTest < Test::Unit::TestCase
 
     assert_raise(ValidationError) { Taxamo.capture_payment(resp.transaction.key)}
 
- resp = Taxamo.list_transactions(   nil, #filter_text
+    resp = Taxamo.list_transactions(nil, #filter_text
                                     0, #offset
                                     nil, #key_or_custom_id
                                     nil, #currency_code,
