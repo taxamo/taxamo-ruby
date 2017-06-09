@@ -5,20 +5,23 @@ module Swagger
     require 'addressable/uri'
     require 'typhoeus'
 
-    attr_accessor :host, :path, :format, :params, :body, :http_method, :headers
+    attr_accessor :host, :path, :format, :params, :body, :http_method, :headers, :configuration
 
 
     # All requests must have an HTTP method and a path
     # Optionals parameters are :params, :headers, :body, :format, :host
     # 
-    def initialize(http_method, path, attributes={})
-      attributes[:format] ||= Swagger.configuration.format
+    def initialize(http_method, path, attributes={}, configuration={})
+      self.configuration = Swagger.configuration.clone()
+      self.configuration.update(configuration || {})
+
+      attributes[:format] ||= self.configuration.format
       attributes[:params] ||= {}
 
       # Set default headers
       default_headers = {
         'Content-Type' => "application/#{attributes[:format].downcase}",
-        'Token' => Swagger.configuration.api_key,
+        'Token' => self.configuration.api_key,
         'Source-Id' => "taxamo-ruby/" + Taxamo::VERSION
       }
 
@@ -26,20 +29,15 @@ module Swagger
       if attributes[:headers].present? && attributes[:headers].has_key?(:api_key)
         default_headers.delete(:api_key)
       end
-      
+
       # api_key from params hash trumps all others (headers and default_headers)
       if attributes[:params].present? && attributes[:params].has_key?(:api_key)
         default_headers.delete(:api_key)
         attributes[:headers].delete(:api_key) if attributes[:headers].present?
       end
-      
+
       # Merge argument headers into defaults
       attributes[:headers] = default_headers.merge(attributes[:headers] || {})
-      
-      # Stick in the auth token if there is one
-      if Swagger.authenticated?
-        attributes[:headers].merge!({:auth_token => Swagger.configuration.auth_token})
-      end
 
       self.http_method = http_method.to_sym
       self.path = path
@@ -50,20 +48,20 @@ module Swagger
 
     # Construct a base URL
     #
-    def url(options = {})  
+    def url(options = {})
       u = Addressable::URI.new(
-        :scheme => Swagger.configuration.scheme,
-        :host => Swagger.configuration.host,
+        :scheme => self.configuration.scheme,
+        :host => self.configuration.host,
         :path => self.interpreted_path,
         :query => self.query_string.sub(/\?/, '')
       ).to_s
-      
+
       # Drop trailing question mark, if present
       u.sub! /\?$/, ''
-      
+
       # Obfuscate API key?
       u.sub! /api\_key=\w+/, 'api_key=YOUR_API_KEY' if options[:obfuscated]
-      
+
       u
     end
 
@@ -98,13 +96,13 @@ module Swagger
       #
       # p = p.sub("{format}", self.format.to_s)
       #
-      URI.encode [Swagger.configuration.base_path, p].join("/").gsub(/\/+/, '/')
+      URI.encode [self.configuration.base_path, p].join("/").gsub(/\/+/, '/')
     end
-  
+
     # Massage the request body into a state of readiness
     # If body is a hash, camelize all keys then convert to a json string
     #
-    def body=(value)      
+    def body=(value)
       #if value.is_a?(Hash)
       #  value = value.inject({}) do |memo, (k,v)|
       #    memo[k.to_s.camelize(:lower).to_sym] = v
@@ -113,13 +111,13 @@ module Swagger
       #end
       @body = value
     end
-    
+
     # If body is an object, JSONify it before making the actual request.
-    # 
+    #
     def outgoing_body
       body.is_a?(String) ? body : body.to_json
     end
-    
+
     # Construct a query string from the query-string-type params
     def query_string
 
@@ -130,7 +128,7 @@ module Swagger
       self.params.each_pair do |key, value|
         next if self.path.include? "{#{key}}"                                   # skip path params
         next if value.blank? && value.class != FalseClass                       # skip empties
-        if Swagger.configuration.camelize_params
+        if self.configuration.camelize_params
           key = key.to_s.camelize(:lower).to_sym unless key.to_sym == :api_key    # api_key is not a camelCased param
         end
         query_values[key.to_s] = value.to_s
@@ -147,6 +145,7 @@ module Swagger
     end
   
     def make
+      puts self.configuration
       logger = Logger.new STDOUT
       logger.debug self.url
       response = case self.http_method.to_sym

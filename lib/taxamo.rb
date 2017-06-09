@@ -64,7 +64,7 @@ module Taxamo
           end
         end
       end
-      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       CreateRefundOut.new(response)
 
     end
@@ -89,7 +89,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       ListRefundsOut.new(response)
 
     end
@@ -136,7 +136,7 @@ module Taxamo
           end
         end
       end
-      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       CreatePaymentOut.new(response)
 
     end
@@ -163,7 +163,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       ListPaymentsOut.new(response)
 
     end
@@ -188,7 +188,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       CapturePaymentOut.new(response)
 
     end
@@ -235,7 +235,7 @@ module Taxamo
           end
         end
       end
-      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       EmailInvoiceOut.new(response)
 
     end
@@ -284,7 +284,7 @@ module Taxamo
           end
         end
       end
-      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       EmailRefundOut.new(response)
 
     end
@@ -329,7 +329,7 @@ module Taxamo
           end
         end
       end
-      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       CreateTransactionOut.new(response)
 
     end
@@ -354,7 +354,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetTransactionOut.new(response)
 
     end
@@ -401,7 +401,7 @@ module Taxamo
           end
         end
       end
-      response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       UpdateTransactionOut.new(response)
 
     end
@@ -448,7 +448,7 @@ module Taxamo
           end
         end
       end
-      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       ConfirmTransactionOut.new(response)
 
     end
@@ -473,7 +473,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:DELETE, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:DELETE, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       CancelTransactionOut.new(response)
 
     end
@@ -520,7 +520,7 @@ module Taxamo
           end
         end
       end
-      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       UnconfirmTransactionOut.new(response)
 
     end
@@ -559,7 +559,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       ListTransactionsOut.new(response)
 
     end
@@ -604,7 +604,7 @@ module Taxamo
           end
         end
       end
-      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       CalculateTaxOut.new(response)
 
     end
@@ -643,7 +643,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       CalculateSimpleTaxOut.new(response)
 
     end
@@ -669,7 +669,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       ValidateTaxNumberOut.new(response)
 
     end
@@ -693,7 +693,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       CalculateTaxLocationOut.new(response)
 
     end
@@ -716,7 +716,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       LocateMyIPOut.new(response)
 
     end
@@ -741,7 +741,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       LocateGivenIPOut.new(response)
 
     end
@@ -769,7 +769,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetTransactionsStatsByCountryOut.new(response)
 
     end
@@ -797,7 +797,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetTransactionsStatsOut.new(response)
 
     end
@@ -824,7 +824,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetSettlementStatsByCountryOut.new(response)
 
     end
@@ -851,7 +851,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetSettlementStatsByTaxationTypeOut.new(response)
 
     end
@@ -880,7 +880,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetDailySettlementStatsOut.new(response)
 
     end
@@ -916,7 +916,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetEuViesReportOut.new(response)
 
     end
@@ -948,7 +948,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetDomesticSummaryReportOut.new(response)
 
     end
@@ -976,7 +976,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetDetailedRefundsOut.new(response)
 
     end
@@ -1004,7 +1004,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetRefundsOut.new(response)
 
     end
@@ -1038,7 +1038,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetSettlementOut.new(response)
 
     end
@@ -1067,7 +1067,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetSettlementSummaryOut.new(response)
 
     end
@@ -1112,7 +1112,7 @@ module Taxamo
           end
         end
       end
-      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       CreateSMSTokenOut.new(response)
 
     end
@@ -1137,7 +1137,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       VerifySMSTokenOut.new(response)
 
     end
@@ -1160,7 +1160,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetCurrenciesDictOut.new(response)
 
     end
@@ -1183,7 +1183,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetProductTypesDictOut.new(response)
 
     end
@@ -1206,7 +1206,7 @@ module Taxamo
 
       headers = nil
       post_body = nil
-      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+      response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }, opts[:configuration]).make.body
       GetCountriesDictOut.new(response)
 
     end
