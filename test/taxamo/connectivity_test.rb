@@ -36,20 +36,19 @@ class ConnectivityTest < Test::Unit::TestCase
 
   should 'test_auth' do
     Swagger.configure do |config|
-      config.api_key = 'SamplePrivateTestKey1!'
+      config.api_key = 'SamplePrivateTestKey1'
     end
     assert_raise(AuthenticationError) {
-      Taxamo.calculate_tax ({'__transaction' => {
-                               'currency_code' => 'USD',
-                               'buyer_ip' => '127.0.0.1',
-                               'billing_country_code' => 'IE',
-                               'force_country_code' => 'FR',
-                               'transaction_lines' => [{'amount' => 200,
-                                                        'custom_id' => 'line1'},
-                                                       {'amount' => 100,
-                                                        'product_type' => 'e-book',
-                                                        'custom_id' => 'line2'}]}})}
-
-
+      Taxamo.calculate_tax({'transaction' => {
+                              'currency_code' => 'USD',
+                              'buyer_ip' => '127.0.0.1',
+                              'billing_country_code' => 'IE',
+                              'force_country_code' => 'FR',
+                              'transaction_lines' => [{'amount' => 200,
+                                                       'custom_id' => 'line1'},
+                                                      {'amount' => 100,
+                                                       'product_type' => 'e-book',
+                                                       'custom_id' => 'line2'}]}},
+                                                       {:configuration => {:api_key => 'SamplePrivateTestKey1!'}})}
   end
 end
