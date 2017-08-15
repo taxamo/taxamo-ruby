@@ -111,8 +111,13 @@ class TransactionsApiTest < Test::Unit::TestCase
     createRefundIn.custom_id='line1'
 
     refundResp = Taxamo.create_refund(resp.transaction.key, {'total_amount' => 100, 'custom_id' => 'line1'})
+    assert_equal refundResp.total_amount, 100
+    assert_equal refundResp.refunded_total_amount, 100
+
     refundResp = Taxamo.create_refund(resp.transaction.key, createRefundIn)
 
+    assert_equal refundResp.total_amount, 100
+    assert_equal refundResp.refunded_total_amount, 200
     resp = Taxamo.get_transaction(resp.transaction.key)
 
     assert_false resp.transaction.key.nil?
