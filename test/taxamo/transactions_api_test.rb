@@ -173,6 +173,33 @@ class TransactionsApiTest < Test::Unit::TestCase
 
   end
 
+
+  should 'test_manual_mode' do
+    Swagger.configure do |config|
+      config.api_key = 'SamplePrivateTestKey1'
+    end
+
+    resp = Taxamo.create_transaction(
+        {   'manual_mode' => true,
+            'transaction' => {
+                'currency_code' => 'USD',
+                'tax_country_code' => 'GB',
+                'tax_deducted' => true,
+                'status' => 'C',
+                'order_date' => '2016-06-01',
+                'transaction_lines' => [{'amount' => 119,
+                                         'custom_id' => 'line1'},
+                                        {'amount' => 19.99,
+                                         'custom_id' => 'line2'}]
+            }})
+
+    createRefundIn = Taxamo::CreateRefundIn.new;
+
+    createRefundIn.total_amount = '138.99'
+
+    refundResp = Taxamo.create_refund(resp.transaction.key, createRefundIn)
+  end
+
   should "cancel test" do
     Swagger.configure do |config|
       config.api_key = 'SamplePrivateTestKey1'
