@@ -145,9 +145,9 @@ module Swagger
     end
   
     def make
-      puts self.configuration
-      logger = Logger.new STDOUT
-      logger.debug self.url
+      if self.configuration && self.configuration.logger
+        self.configuration.logger.debug self.url
+      end
       response = case self.http_method.to_sym
       when :get,:GET
         Typhoeus::Request.get(

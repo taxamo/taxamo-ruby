@@ -30,7 +30,7 @@ module Swagger
       yield(configuration) if block_given?
 
       # Configure logger.  Default to use Rails
-      self.logger ||= configuration.logger || (defined?(Rails) ? Rails.logger : Logger.new(STDOUT))
+      self.logger ||= configuration.logger || (defined?(Rails) ? Rails.logger : Logger.new(STDOUT, level: Logger::WARN))
 
       # remove :// from scheme
       configuration.scheme.sub!(/:\/\//, '')
