@@ -12,7 +12,7 @@
 
 module Taxamo
 class Transactions
-  attr_accessor :confirm_timestamp, :fully_informative, :deducted_tax_amount, :order_date_type, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :create_timestamp, :currency_code, :sub_account_id, :supply_date, :buyer_tax_number_normalized, :invoice_image_url, :key, :buyer_tax_number_format_valid, :tax_number_service, :invoice_address, :buyer_tax_number_valid, :verification_token, :note, :tax_supported, :tax_data, :transaction_lines, :buyer_tax_number, :external_key, :status, :custom_fields, :force_country_code, :countries, :invoice_number, :order_date, :customer_id, :kind, :source, :amount, :comments, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :tax_amount, :additional_currencies, :invoice_place, :total_amount, :tax_entity_name, :evidence, :refunded_tax_amount, :manual, :tax_timezone, :description, :test, :tax_deducted, :tax_country_code, :refunded_total_amount
+  attr_accessor :confirm_timestamp, :fully_informative, :deducted_tax_amount, :order_date_type, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :create_timestamp, :currency_code, :sub_account_id, :supply_date, :buyer_tax_number_normalized, :invoice_image_url, :key, :buyer_tax_number_format_valid, :tax_number_service, :invoice_address, :buyer_tax_number_valid, :verification_token, :note, :tax_supported, :tax_data, :transaction_lines, :buyer_tax_number, :external_key, :status, :custom_fields, :force_country_code, :countries, :invoice_number, :order_date, :customer_id, :kind, :source, :amount, :comments, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :tax_amount, :tax_entity_additional_id, :warnings, :additional_currencies, :invoice_place, :total_amount, :tax_entity_name, :evidence, :refunded_tax_amount, :manual, :tax_timezone, :description, :test, :tax_deducted, :tax_country_code, :refunded_total_amount
 
   # :internal => :external
   def self.attribute_map
@@ -60,6 +60,8 @@ class Transactions
       :billing_country_code => :billing_country_code,
       :custom_id => :custom_id,
       :tax_amount => :tax_amount,
+      :tax_entity_additional_id => :tax_entity_additional_id,
+      :warnings => :warnings,
       :additional_currencies => :additional_currencies,
       :invoice_place => :invoice_place,
       :total_amount => :total_amount,
@@ -254,6 +256,15 @@ class Transactions
       @tax_amount = attributes["tax_amount"]
         
     end
+    if attributes.key?("tax_entity_additional_id")
+      @tax_entity_additional_id = attributes["tax_entity_additional_id"]
+        
+    end
+    if attributes.key?("warnings")
+      if (value = attributes["warnings"]).is_a?(Array)
+          @warnings = value.map{ |v| Warnings.new(v) }
+        end
+      end
     if attributes.key?("additional_currencies")
       @additional_currencies = AdditionalCurrencies.new(attributes["additional_currencies"])
         
