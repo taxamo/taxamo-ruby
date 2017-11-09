@@ -12,7 +12,7 @@
 
 module Taxamo
 class InputTransactionUpdate
-  attr_accessor :order_date_type, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :currency_code, :sub_account_id, :supply_date, :invoice_address, :verification_token, :note, :tax_data, :transaction_lines, :buyer_tax_number, :status, :custom_fields, :force_country_code, :invoice_number, :order_date, :customer_id, :comments, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :additional_currencies, :invoice_place, :evidence, :description, :tax_deducted, :tax_country_code
+  attr_accessor :order_date_type, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :currency_code, :sub_account_id, :supply_date, :control_flags, :invoice_address, :verification_token, :note, :tax_data, :transaction_lines, :buyer_tax_number, :status, :custom_fields, :force_country_code, :invoice_number, :order_date, :customer_id, :comments, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :additional_currencies, :invoice_place, :evidence, :description, :tax_deducted, :tax_country_code
 
   # :internal => :external
   def self.attribute_map
@@ -25,6 +25,7 @@ class InputTransactionUpdate
       :currency_code => :currency_code,
       :sub_account_id => :sub_account_id,
       :supply_date => :supply_date,
+      :control_flags => :control_flags,
       :invoice_address => :invoice_address,
       :verification_token => :verification_token,
       :note => :note,
@@ -88,6 +89,11 @@ class InputTransactionUpdate
       @supply_date = attributes["supply_date"]
         
     end
+    if attributes.key?("control_flags")
+      if (value = attributes["control_flags"]).is_a?(Array)
+          @control_flags = value.map{ |v| ControlFlags.new(v) }
+        end
+      end
     if attributes.key?("invoice_address")
       @invoice_address = InvoiceAddress.new(attributes["invoice_address"])
         
