@@ -20,7 +20,7 @@ The library can also be installed directy - just fetch this repository and issue
 
 ```shell
 $ gem build taxamo.gemspec
-$ gem install taxamo-ns-2.3.5.gem
+$ gem install taxamo-ns-2.3.6.gem
 ```
 
 Finally, you can use this github repo and add the following line to your project's `Gemfile` file:
@@ -36,6 +36,9 @@ gem "taxamo", github: "taxamo/taxamo-ruby", '~> 1.1'
 ```
 
 ## Changes
+
+2.3.6 (2017-11-09):
+ * add control_flags to transaction class and update calculate_simple_tax with new fields
 
 2.3.5 (2017-11-01):
  * add warnings and tax_entity_additional_id field to the transaction object

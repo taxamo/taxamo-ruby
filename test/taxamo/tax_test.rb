@@ -116,6 +116,46 @@ class TaxTest < Test::Unit::TestCase
 
   end
 
+
+   should 'test simple calculate with b2b flags' do
+
+    Swagger.configure do |config|
+      config.api_key = 'SamplePrivateTestKey1'
+    end
+
+    resp = Taxamo.calculate_simple_tax('e-book', #product_type
+                                       nil, #invoice_address_city
+                                       nil, #buyer_credit_card_prefix
+                                       'USD', #currency_code
+                                       nil, #invoice_address_region
+                                       nil, #unit_price
+                                       nil, #quantity
+                                       "PL0000000000", #buyer_tax_number
+                                       nil, #force_country_code
+                                       nil, #order_date
+                                       100, #amount
+                                       'IE', #billing_country_code
+                                       nil, #invoice_address_postal_code
+                                       nil, #total_amount
+                                       nil,  #tax_deducted
+                                       "accept", #b2b_number_service_on_error
+                                       "001", #b2b_number_service_timeoutms
+                                       "0" #b2b_number_service_cache_expiry_days
+                                       )
+
+    assert_equal resp.transaction.buyer_tax_number_valid, true
+    assert_equal resp.transaction.note, "b2b_error_accept"
+    assert_equal resp.transaction.warnings[0].type, "vies-error"
+    assert_equal resp.transaction.warnings[0].message, "Read timed out"
+
+    #assert_equal resp.transaction.tax_country_code, 'PL'
+    assert_equal resp.transaction.amount, 100
+    assert_equal resp.transaction.tax_amount, 0
+    assert_equal resp.transaction.total_amount, 100
+    assert_equal resp.transaction.tax_deducted, true
+
+  end
+
   should 'test validate tax number' do
 
     Swagger.configure do |config|

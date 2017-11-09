@@ -12,7 +12,7 @@
 
 module Taxamo
 class Transaction
-  attr_accessor :confirm_timestamp, :fully_informative, :deducted_tax_amount, :order_date_type, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :create_timestamp, :currency_code, :sub_account_id, :supply_date, :buyer_tax_number_normalized, :invoice_image_url, :key, :buyer_tax_number_format_valid, :tax_number_service, :invoice_address, :buyer_tax_number_valid, :verification_token, :note, :tax_supported, :tax_data, :transaction_lines, :buyer_tax_number, :external_key, :status, :custom_fields, :force_country_code, :countries, :invoice_number, :order_date, :customer_id, :kind, :source, :amount, :comments, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :tax_amount, :tax_entity_additional_id, :warnings, :additional_currencies, :invoice_place, :total_amount, :tax_entity_name, :evidence, :refunded_tax_amount, :manual, :tax_timezone, :description, :test, :tax_deducted, :tax_country_code, :refunded_total_amount
+  attr_accessor :confirm_timestamp, :fully_informative, :deducted_tax_amount, :order_date_type, :buyer_credit_card_prefix, :custom_data, :buyer_name, :invoice_date, :create_timestamp, :currency_code, :sub_account_id, :supply_date, :buyer_tax_number_normalized, :invoice_image_url, :key, :buyer_tax_number_format_valid, :tax_number_service, :control_flags, :invoice_address, :buyer_tax_number_valid, :verification_token, :note, :tax_supported, :tax_data, :transaction_lines, :buyer_tax_number, :external_key, :status, :custom_fields, :force_country_code, :countries, :invoice_number, :order_date, :customer_id, :kind, :source, :amount, :comments, :buyer_ip, :buyer_email, :original_transaction_key, :billing_country_code, :custom_id, :tax_amount, :tax_entity_additional_id, :warnings, :additional_currencies, :invoice_place, :total_amount, :tax_entity_name, :evidence, :refunded_tax_amount, :manual, :tax_timezone, :description, :test, :tax_deducted, :tax_country_code, :refunded_total_amount
 
   # :internal => :external
   def self.attribute_map
@@ -34,6 +34,7 @@ class Transaction
       :key => :key,
       :buyer_tax_number_format_valid => :buyer_tax_number_format_valid,
       :tax_number_service => :tax_number_service,
+      :control_flags => :control_flags,
       :invoice_address => :invoice_address,
       :buyer_tax_number_valid => :buyer_tax_number_valid,
       :verification_token => :verification_token,
@@ -150,6 +151,11 @@ class Transaction
       @tax_number_service = attributes["tax_number_service"]
         
     end
+    if attributes.key?("control_flags")
+      if (value = attributes["control_flags"]).is_a?(Array)
+          @control_flags = value.map{ |v| ControlFlags.new(v) }
+        end
+      end
     if attributes.key?("invoice_address")
       @invoice_address = InvoiceAddress.new(attributes["invoice_address"])
         

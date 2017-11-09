@@ -240,7 +240,7 @@ class TransactionsApiTest < Test::Unit::TestCase
 
   end
 
-  should "test custom fields" do
+  should "test custom fields and control flags" do
     resp = Taxamo.create_transaction(
         {'transaction' => {
             'currency_code' => 'USD',
@@ -250,6 +250,8 @@ class TransactionsApiTest < Test::Unit::TestCase
             'order_date' => '2014-06-01',
             'custom_fields' => [{'key' => 'test1', 'value' => 'test2'},
                                 {'key' => 'test1', 'value' => 'test3'}],
+            'control_flags' => [{'key' => 'test4', 'value' => 'test5'},
+                                {'key' => 'test6', 'value' => 'test7'}],
             'transaction_lines' => [{'amount' => 200,
                                      'custom_id' => 'line1',
                                      'custom_fields' => [{'key' => 'test11', 'value' => 'test22'},
@@ -263,6 +265,8 @@ class TransactionsApiTest < Test::Unit::TestCase
     assert_equal resp.transaction.status, 'N'
     assert_equal resp.transaction.custom_fields[0].key, 'test1'
     assert_equal resp.transaction.custom_fields[1].value, 'test3'
+    assert_equal resp.transaction.control_flags[0].key, 'test4'
+    assert_equal resp.transaction.control_flags[1].value, 'test7'
 
     resp = Taxamo.get_transaction(resp.transaction.key)
 
@@ -271,6 +275,8 @@ class TransactionsApiTest < Test::Unit::TestCase
     assert_equal resp.transaction.custom_fields[0].key, 'test1'
     assert_equal resp.transaction.custom_fields[1].value, 'test3'
     assert_equal resp.transaction.transaction_lines[0].custom_fields[1].value, 'test23'
+    assert_equal resp.transaction.control_flags[0].key, 'test4'
+    assert_equal resp.transaction.control_flags[1].value, 'test7'
 
     resp = Taxamo.update_transaction(resp.transaction.key,
                                     {'transaction' =>
@@ -302,6 +308,10 @@ class TransactionsApiTest < Test::Unit::TestCase
     assert_equal resp.transaction.custom_fields[0].key, 'test51'
     assert_equal resp.transaction.custom_fields[1].value, 'test53'
     assert_equal resp.transaction.custom_fields[2].value, 'test63'
+
+    assert_equal resp.transaction.control_flags[0].key, 'test4'
+    assert_equal resp.transaction.control_flags[1].value, 'test7'
+
     assert_equal resp.transaction.transaction_lines[0].custom_fields[1].value, 'test43'
     assert_equal resp.transaction.transaction_lines[1].custom_fields[1].value, 'test83'
 
@@ -331,6 +341,10 @@ class TransactionsApiTest < Test::Unit::TestCase
     assert_equal resp.transactions[0].custom_fields[0].key, 'test51'
     assert_equal resp.transactions[0].custom_fields[1].value, 'test53'
     assert_equal resp.transactions[0].custom_fields[2].value, 'test63'
+
+    assert_equal resp.transactions[0].control_flags[0].key, 'test4'
+    assert_equal resp.transactions[0].control_flags[1].value, 'test7'
+
     assert_equal resp.transactions[0].transaction_lines[0].custom_fields[1].value, 'test43'
     assert_equal resp.transactions[0].transaction_lines[1].custom_fields[1].value, 'test83'
 

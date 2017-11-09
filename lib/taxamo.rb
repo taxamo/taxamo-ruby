@@ -609,8 +609,8 @@ module Taxamo
 
     end
 
-    def calculate_simple_tax (product_type,invoice_address_city,buyer_credit_card_prefix,currency_code,invoice_address_region,unit_price,quantity,buyer_tax_number,force_country_code,order_date,amount,billing_country_code,invoice_address_postal_code,total_amount,tax_deducted,opts={})
-      query_param_keys = [:product_type,:invoice_address_city,:buyer_credit_card_prefix,:currency_code,:invoice_address_region,:unit_price,:quantity,:buyer_tax_number,:force_country_code,:order_date,:amount,:billing_country_code,:invoice_address_postal_code,:total_amount,:tax_deducted]
+    def calculate_simple_tax (product_type,invoice_address_city,buyer_credit_card_prefix,currency_code,invoice_address_region,unit_price,quantity,buyer_tax_number,force_country_code,order_date,amount,billing_country_code,invoice_address_postal_code,total_amount,tax_deducted,b2b_number_service_on_error=nil,b2b_number_service_timeoutms=nil,b2b_number_service_cache_expiry_days=nil,opts={})
+      query_param_keys = [:product_type,:invoice_address_city,:buyer_credit_card_prefix,:currency_code,:invoice_address_region,:unit_price,:quantity,:buyer_tax_number,:force_country_code,:order_date,:amount,:billing_country_code,:invoice_address_postal_code,:total_amount,:tax_deducted,:b2b_number_service_on_error,:b2b_number_service_timeoutms,:b2b_number_service_cache_expiry_days]
 
       # verify existence of params
       raise "currency_code is required" if currency_code.nil?
@@ -630,7 +630,10 @@ module Taxamo
           :billing_country_code => billing_country_code,
           :invoice_address_postal_code => invoice_address_postal_code,
           :total_amount => total_amount,
-          :tax_deducted => tax_deducted}.merge(opts)
+          :tax_deducted => tax_deducted,
+          :b2b_number_service_on_error => b2b_number_service_on_error,
+          :b2b_number_service_timeoutms => b2b_number_service_timeoutms,
+          :b2b_number_service_cache_expiry_days => b2b_number_service_cache_expiry_days}.merge(opts)
 
       #resource path
       path = "/api/v1/tax/calculate".sub('{format}','json')
