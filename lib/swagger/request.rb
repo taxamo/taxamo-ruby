@@ -145,7 +145,6 @@ module Swagger
     end
   
     def make
-      puts self.configuration
       logger = Logger.new STDOUT
       logger.debug self.url
       response = case self.http_method.to_sym
