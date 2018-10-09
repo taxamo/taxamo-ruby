@@ -34,7 +34,7 @@ module Taxamo
           :body => body}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions/{key}/refunds".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+      path = "/api/v2/transactions/{key}/refunds".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
       # pull querystring keys from options
@@ -79,7 +79,7 @@ module Taxamo
           :key => key}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions/{key}/refunds".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+      path = "/api/v2/transactions/{key}/refunds".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
       # pull querystring keys from options
@@ -106,7 +106,7 @@ module Taxamo
           :body => body}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions/{key}/payments".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+      path = "/api/v2/transactions/{key}/payments".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
       # pull querystring keys from options
@@ -153,7 +153,7 @@ module Taxamo
           :key => key}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions/{key}/payments".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+      path = "/api/v2/transactions/{key}/payments".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
       # pull querystring keys from options
@@ -178,7 +178,7 @@ module Taxamo
           :key => key}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions/{key}/payments/capture".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+      path = "/api/v2/transactions/{key}/payments/capture".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
       # pull querystring keys from options
@@ -205,7 +205,7 @@ module Taxamo
           :body => body}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions/{key}/invoice/send_email".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+      path = "/api/v2/transactions/{key}/invoice/send_email".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
       # pull querystring keys from options
@@ -254,7 +254,7 @@ module Taxamo
           :body => body}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions/{key}/invoice/refunds/{refund_note_number}/send_email".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key)).sub('{' + 'refund_note_number' + '}', escapeString(refund_note_number))
+      path = "/api/v2/transactions/{key}/invoice/refunds/{refund_note_number}/send_email".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key)).sub('{' + 'refund_note_number' + '}', escapeString(refund_note_number))
 
 
       # pull querystring keys from options
@@ -299,7 +299,7 @@ module Taxamo
           :body => body}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions".sub('{format}','json')
+      path = "/api/v2/transactions".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -344,7 +344,7 @@ module Taxamo
           :key => key}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions/{key}".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+      path = "/api/v2/transactions/{key}".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
       # pull querystring keys from options
@@ -371,7 +371,7 @@ module Taxamo
           :body => body}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions/{key}".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+      path = "/api/v2/transactions/{key}".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
       # pull querystring keys from options
@@ -418,7 +418,7 @@ module Taxamo
           :body => body}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions/{key}/confirm".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+      path = "/api/v2/transactions/{key}/confirm".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
       # pull querystring keys from options
@@ -463,7 +463,7 @@ module Taxamo
           :key => key}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions/{key}".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+      path = "/api/v2/transactions/{key}".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
       # pull querystring keys from options
@@ -490,7 +490,7 @@ module Taxamo
           :body => body}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions/{key}/unconfirm".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
+      path = "/api/v2/transactions/{key}/unconfirm".sub('{format}','json').sub('{' + 'key' + '}', escapeString(key))
 
 
       # pull querystring keys from options
@@ -549,7 +549,7 @@ module Taxamo
           :tax_country_code => tax_country_code}.merge(opts)
 
       #resource path
-      path = "/api/v1/transactions".sub('{format}','json')
+      path = "/api/v2/transactions".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -574,7 +574,7 @@ module Taxamo
           :body => body}.merge(opts)
 
       #resource path
-      path = "/api/v1/tax/calculate".sub('{format}','json')
+      path = "/api/v2/tax/calculate".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -636,7 +636,7 @@ module Taxamo
           :b2b_number_service_cache_expiry_days => b2b_number_service_cache_expiry_days}.merge(opts)
 
       #resource path
-      path = "/api/v1/tax/calculate".sub('{format}','json')
+      path = "/api/v2/tax/calculate".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -662,7 +662,7 @@ module Taxamo
           :tax_number => tax_number}.merge(opts)
 
       #resource path
-      path = "/api/v1/tax/vat_numbers/{tax_number}/validate".sub('{format}','json').sub('{' + 'tax_number' + '}', escapeString(tax_number))
+      path = "/api/v2/tax/vat_numbers/{tax_number}/validate".sub('{format}','json').sub('{' + 'tax_number' + '}', escapeString(tax_number))
 
 
       # pull querystring keys from options
@@ -686,7 +686,7 @@ module Taxamo
           :buyer_credit_card_prefix => buyer_credit_card_prefix}.merge(opts)
 
       #resource path
-      path = "/api/v1/tax/location/calculate".sub('{format}','json')
+      path = "/api/v2/tax/location/calculate".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -709,7 +709,7 @@ module Taxamo
           }.merge(opts)
 
       #resource path
-      path = "/api/v1/geoip".sub('{format}','json')
+      path = "/api/v2/geoip".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -734,7 +734,7 @@ module Taxamo
           :ip => ip}.merge(opts)
 
       #resource path
-      path = "/api/v1/geoip/{ip}".sub('{format}','json').sub('{' + 'ip' + '}', escapeString(ip))
+      path = "/api/v2/geoip/{ip}".sub('{format}','json').sub('{' + 'ip' + '}', escapeString(ip))
 
 
       # pull querystring keys from options
@@ -762,7 +762,7 @@ module Taxamo
           :date_to => date_to}.merge(opts)
 
       #resource path
-      path = "/api/v1/stats/transactions/by_country".sub('{format}','json')
+      path = "/api/v2/stats/transactions/by_country".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -790,7 +790,7 @@ module Taxamo
           :interval => interval}.merge(opts)
 
       #resource path
-      path = "/api/v1/stats/transactions".sub('{format}','json')
+      path = "/api/v2/stats/transactions".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -817,7 +817,7 @@ module Taxamo
           :date_to => date_to}.merge(opts)
 
       #resource path
-      path = "/api/v1/stats/settlement/by_country".sub('{format}','json')
+      path = "/api/v2/stats/settlement/by_country".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -844,7 +844,7 @@ module Taxamo
           :date_to => date_to}.merge(opts)
 
       #resource path
-      path = "/api/v1/stats/settlement/by_taxation_type".sub('{format}','json')
+      path = "/api/v2/stats/settlement/by_taxation_type".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -873,7 +873,7 @@ module Taxamo
           :date_to => date_to}.merge(opts)
 
       #resource path
-      path = "/api/v1/stats/settlement/daily".sub('{format}','json')
+      path = "/api/v2/stats/settlement/daily".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -909,7 +909,7 @@ module Taxamo
           :format => format}.merge(opts)
 
       #resource path
-      path = "/api/v1/reports/eu/vies".sub('{format}','json')
+      path = "/api/v2/reports/eu/vies".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -941,7 +941,7 @@ module Taxamo
           :fx_date_type => fx_date_type}.merge(opts)
 
       #resource path
-      path = "/api/v1/reports/domestic/summary".sub('{format}','json')
+      path = "/api/v2/reports/domestic/summary".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -969,7 +969,7 @@ module Taxamo
           :offset => offset}.merge(opts)
 
       #resource path
-      path = "/api/v1/settlement/detailed_refunds".sub('{format}','json')
+      path = "/api/v2/settlement/detailed_refunds".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -997,7 +997,7 @@ module Taxamo
           :date_from => date_from}.merge(opts)
 
       #resource path
-      path = "/api/v1/settlement/refunds".sub('{format}','json')
+      path = "/api/v2/settlement/refunds".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -1031,7 +1031,7 @@ module Taxamo
           :quarter => quarter}.merge(opts)
 
       #resource path
-      path = "/api/v1/settlement/{quarter}".sub('{format}','json').sub('{' + 'quarter' + '}', escapeString(quarter))
+      path = "/api/v2/settlement/{quarter}".sub('{format}','json').sub('{' + 'quarter' + '}', escapeString(quarter))
 
 
       # pull querystring keys from options
@@ -1060,7 +1060,7 @@ module Taxamo
           :quarter => quarter}.merge(opts)
 
       #resource path
-      path = "/api/v1/settlement/summary/{quarter}".sub('{format}','json').sub('{' + 'quarter' + '}', escapeString(quarter))
+      path = "/api/v2/settlement/summary/{quarter}".sub('{format}','json').sub('{' + 'quarter' + '}', escapeString(quarter))
 
 
       # pull querystring keys from options
@@ -1085,7 +1085,7 @@ module Taxamo
           :body => body}.merge(opts)
 
       #resource path
-      path = "/api/v1/verification/sms".sub('{format}','json')
+      path = "/api/v2/verification/sms".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -1130,7 +1130,7 @@ module Taxamo
           :token => token}.merge(opts)
 
       #resource path
-      path = "/api/v1/verification/sms/{token}".sub('{format}','json').sub('{' + 'token' + '}', escapeString(token))
+      path = "/api/v2/verification/sms/{token}".sub('{format}','json').sub('{' + 'token' + '}', escapeString(token))
 
 
       # pull querystring keys from options
@@ -1153,7 +1153,7 @@ module Taxamo
           }.merge(opts)
 
       #resource path
-      path = "/api/v1/dictionaries/currencies".sub('{format}','json')
+      path = "/api/v2/dictionaries/currencies".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -1176,7 +1176,7 @@ module Taxamo
           }.merge(opts)
 
       #resource path
-      path = "/api/v1/dictionaries/product_types".sub('{format}','json')
+      path = "/api/v2/dictionaries/product_types".sub('{format}','json')
 
 
       # pull querystring keys from options
@@ -1199,7 +1199,7 @@ module Taxamo
           :tax_supported => tax_supported}.merge(opts)
 
       #resource path
-      path = "/api/v1/dictionaries/countries".sub('{format}','json')
+      path = "/api/v2/dictionaries/countries".sub('{format}','json')
 
 
       # pull querystring keys from options
