@@ -12,7 +12,7 @@
 
 module Taxamo
 class CreateRefundOut
-  attr_accessor :total_amount, :tax_amount, :refunded_total_amount, :refunded_tax_amount
+  attr_accessor :total_amount, :tax_amount, :refunded_total_amount, :refunded_tax_amount, :refund_note_number, :refund_note_number_expanded
 
   # :internal => :external
   def self.attribute_map
@@ -20,8 +20,9 @@ class CreateRefundOut
       :total_amount => :total_amount,
       :tax_amount => :tax_amount,
       :refunded_total_amount => :refunded_total_amount,
-      :refunded_tax_amount => :refunded_tax_amount
-
+      :refunded_tax_amount => :refunded_tax_amount,
+      :refund_note_number => :refund_note_number,
+      :refund_note_number_expanded => :refund_note_number_expanded
     }
   end
 
@@ -30,22 +31,28 @@ class CreateRefundOut
     # Morph attribute keys into undescored rubyish style
     if attributes.key?("total_amount")
       @total_amount = attributes["total_amount"]
-        
+
     end
     if attributes.key?("tax_amount")
       @tax_amount = attributes["tax_amount"]
-        
+
     end
     if attributes.key?("refunded_total_amount")
       @refunded_total_amount = attributes["refunded_total_amount"]
-        
+
     end
     if attributes.key?("refunded_tax_amount")
       @refunded_tax_amount = attributes["refunded_tax_amount"]
-        
-    end
-    
 
+    end
+    if attributes.key?("refund_note_number")
+      @refund_note_number = attributes["refund_note_number"]
+
+    end
+    if attributes.key?("refund_note_number_expanded")
+      @refund_note_number_expanded = attributes["refund_note_number_expanded"]
+
+    end
   end
 
   def to_body
