@@ -14,12 +14,13 @@ require "uri"
 require "swagger"
 require "taxamo/version"
 require "require_all"
+require "addressable/uri"
 require_rel "taxamo/models/*"
 
 module Taxamo
   class <<self
     def escapeString(string)
-      URI.encode(string.to_s)
+      Addressable::URI.encode(string.to_s)
     end
 
     def create_refund (key,body,opts={})

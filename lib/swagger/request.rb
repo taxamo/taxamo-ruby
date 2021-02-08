@@ -10,7 +10,7 @@ module Swagger
 
     # All requests must have an HTTP method and a path
     # Optionals parameters are :params, :headers, :body, :format, :host
-    # 
+    #
     def initialize(http_method, path, attributes={}, configuration={})
       self.configuration = Swagger.configuration.clone()
       self.configuration.update(configuration || {})
@@ -96,7 +96,7 @@ module Swagger
       #
       # p = p.sub("{format}", self.format.to_s)
       #
-      URI.encode [self.configuration.base_path, p].join("/").gsub(/\/+/, '/')
+      Addressable::URI.encode [self.configuration.base_path, p].join("/").gsub(/\/+/, '/')
     end
 
     # Massage the request body into a state of readiness
@@ -133,17 +133,17 @@ module Swagger
         end
         query_values[key.to_s] = value.to_s
       end
-    
+
       # We don't want to end up with '?' as our query string
       # if there aren't really any params
       return "" if query_values.blank?
-    
+
       # Addressable requires query_values to be set after initialization..
       qs = Addressable::URI.new
       qs.query_values = query_values
       qs.to_s
     end
-  
+
     def make
       if self.configuration && self.configuration.logger
         self.configuration.logger.debug self.url
@@ -168,7 +168,7 @@ module Swagger
           :body => self.outgoing_body,
           :headers => self.headers.stringify_keys,
         )
-      
+
       when :delete,:DELETE
         Typhoeus::Request.delete(
           self.url,
@@ -178,16 +178,16 @@ module Swagger
       end
       Response.new(response)
     end
-  
+
     def response
       self.make
     end
-  
+
     def response_code_pretty
       return unless @response.present?
-      @response.code.to_s    
+      @response.code.to_s
     end
-  
+
     def response_headers_pretty
       return unless @response.present?
       # JSON.pretty_generate(@response.headers).gsub(/\n/, '<br/>') # <- This was for RestClient
