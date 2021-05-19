@@ -14,7 +14,7 @@ spec = Gem::Specification.new do |s|
 
   s.add_dependency('addressable', '~> 2')
   s.add_dependency('typhoeus', '> 0.6.0')
-  s.add_dependency('require_all', '~> 1.3.2')
+  s.add_dependency('require_all', '~> 1.4.0')
 
   s.add_development_dependency('mocha', '~> 0.13.2')
   s.add_development_dependency('shoulda', '~> 3.4.0')
