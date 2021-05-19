@@ -14,6 +14,7 @@ module Swagger
             e = nil
             if self.body['errors']
               e = ValidationError.new(self.body['errors'])
+              e.body = self.body
               if self.body['validation_failures']
                 e.validation_failures = self.body['validation_failures']
               end

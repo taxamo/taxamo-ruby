@@ -80,6 +80,7 @@ class ServerError < StandardError
 end
 
 class ValidationError < StandardError
+    attr_accessor :body
     attr_accessor :validation_failures
 end
 
